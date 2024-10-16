@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="public/tailwind.css">
 </head>
 <body>
-    <!-- navbars -->
-    <div x-data="{ isHover: false }" class="flex">
-        <!-- side navbar -->
+    <div class="w-24 absolute">
         <div 
-            :class="isHover ? 'w-[10%]' : 'lg:w-[5%] w-[15%]'" 
+            :class="isHover ? 'w-[10%]' : 'lg:w-[5%] w-[10%]'" 
             @mouseenter="isHover = true" 
             @mouseleave="isHover = false" 
             class="border-r-2 transition-width duration-300 lg:p-3"
@@ -20,7 +18,7 @@
 
             <div class="w-full p-1">
                 <a href="#">
-                    <img class="w-[37px]" src="src/svg/logo.png" alt="">
+                    <img class="" src="src/svg/logo.png" alt="">
                 </a>
             </div>
 
@@ -122,171 +120,7 @@
             </div>
 
         </div>
-        <!-- body -->
-        <div 
-        :class="isHover ? 'w-[90%]' : 'lg:w-[95%] w-[95%]'" 
-        class="bg-green-200 sm:bg-red-200 transition-width duration-300"
-        >
-        <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-gray-100 p-1 md:p-0 pr-2 flex items-center justify-between duration-300 transition-all h-fit" x-transition>
-            <div class="w-full md:w-auto">
-                <a href="#" class="w-full flex items-center justify-between">
-                    <img src="src/image/label zprint logo 1.png" alt="">
-                    <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>    
-                </a>
-            </div>
-            <div :class="isclicked ? 'right-0' : '-right-72 md:right-0 '" class="flex flex-col lg:gap-4 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute bg-white top-0 p-3 md:p-1 z-10">
-                <div class="w-full block md:hidden">
-                    <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
-                </div>
-                <div class="border py-1 px-2 rounded-2xl">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="">
-                </div>
-                <div class="border py-1 px-2 flex flex-row items-center gap-4 rounded-2xl">
-                    <div class="flex flex-row items-center">
-                        <div>
-                            <img src="src/svg/package-delivered 1.svg" alt="">
-                        </div>
-                        <div class="flex">
-                            <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-center gap-1">
-                        <p class="font-semibold">10,56,987 Tk</p>
-                        <a class="bg-[#E83330] text-white px-2 rounded-xl" href="#">Details</a>
-                    </div>
-                </div>
-                <div class="border-2 inline-block p-2 rounded-md border-[#E83330] relative">
-                    <i class="fa-regular fa-bell"></i>
-                    <span class="bg-[#E83330] rounded-full text-white absolute text-xs px-1 top-[-7px]">1</span>
-                </div>
-                <div>
-                    <span class="bg-[#E8333059] text-[#E83330] text-lg px-[14px] py-2 rounded-full">0</span>
-                </div>
-                <div class="flex flex-col">
-                    <select name="" id="" class="font-semibold bg-transparent">
-                        <option value="">Shop Name</option>
-                    </select>
-                    <small class="text-xs">Merchant</small>
-                </div>
-            </div>
-        </div>
-        <!-- top navbar end -->
-            
-
-
-
-
-
-
-        
-
-
-
-<section>
-    <!-- top bar -->
-    <div class="lgw-11/12 w-full m-auto">
-        <div class="w-full">
-            <div class="topbar flex items-center justify-center w-full">
-                <div class="overflow-hidden">
-                    <div class="flex bg-gray-200 rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
-                        <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 flex-col items-center">
-                            <img src="src/svg/add-parcel.svg" alt="" class="w-[20px]">
-                            <p>Add Parcel</p>
-                        </a>
-                        <a href="#" class="flex gap-0.5 border-r-2 px-0 mr-0 my-2 flex-col items-center">
-                            <img src="src/svg/download 1.svg" alt="" class="w-[20px]">
-                            <p>Bulk Import</p>
-                        </a>
-                        <a href="#" class="flex gap-0.5 border-r-2 px-0 mr-0 my-2 flex-col items-center">
-                            <img src="src/svg/fast-delivery.svg" alt="" class="w-[20px]">
-                            <p>Express Delivery</p>
-                        </a>
-                        <a href="#" class="flex gap-0.5 px-0 mr-0 my-2 flex-col items-center">
-                            <img src="src/svg/all-parcel.svg" alt="" class="w-[20px]">
-                            <p>All Parcel</p>
-                        </a>
-                        <div class="absolute h-5 w-[4rem] left-[-32px] top-[23px] bg-transparent rotate-[71deg]"></div>
-                        <div class="absolute h-5 w-[4rem] right-[-32px] top-[23px] bg-transparent rotate-[-71deg]"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- headline -->
-         <div>
-            <h1 class="text-xl font-bold">Dashboard</h1>
-            <p class="text-sm">Let’s check your update today</p>
-         </div>
-         <!-- activity button -->
-         <div class="flex items-center justify-end gap-2 w-full text-sm">
-            <p>See your total activity</p>
-            <label class="switch">
-                <input type="checkbox" id="toggle">
-                <span class="slider"></span>
-            </label>
-         </div>
-         <!-- Card Area -->
-          <div>
-            <div class="card"></div>
-          </div>
     </div>
-  </section>
-
-
-        </div>
-    </div>
-
-
-    <!-- body -->
-
-    <style>
-        .switch {
-        position: relative;
-        display: inline-block;
-        width: 40px;
-        height: 12px;
-    }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #F4B555;
-        transition: .4s;
-        border-radius: 34px;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 10px;
-        width: 10px;
-        left: 4px;
-        bottom:1px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-
-    input:checked + .slider {
-        background-color: rgb(0, 156, 0);
-    }
-
-    input:checked + .slider:before {
-        transform: translateX(23px);
-    }
-      </style>
-    
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 </html>
