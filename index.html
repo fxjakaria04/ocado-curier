@@ -292,27 +292,27 @@
         <!-- hero part -->
          <section>
             <div class="w-[98%] m-auto grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-4">
-                <div class="col-span-5 md:col-span-2 lg:col-span-2 grid grid-cols-2 gap-2">
+                <div class="col-span-5 md:col-span-2 lg:col-span-2 ">
 
-                    <div class="col-span-2 flex p-3 bg-white rounded-lg custom-shadow-6">
-                        <div class="w-8/12 flex flex-col gap-3">
+                    <div class="col-span-2 flex px-3 py-9 bg-white rounded-lg custom-shadow-6 mb-3">
+                        <div class="w-6/12 flex flex-col gap-3">
                             <p>Payment Ready for Generate</p>
                             <img class="w-8" src="src/svg/graph.svg" alt="">
                         </div>
-                        <div class="w-4/12 flex items-end flex-col">
+                        <div class="w-6/12 flex items-end flex-col">
                             <div class="flex gap-2">
                                 <a class="bg-[#DBF2FF] text-[#24B2D1] rounded-xl px-2 py-0.5 text-xs" href="#">Parcel</a>
-                                <p>80</p>
+                                <p class="text-sm font-bold">80</p>
                             </div>
                             <div class="bg-[#42B6F6] h-1 w-16 my-2 rounded-xl"></div>
                             <div class="flex gap-2">
                                 <a class="bg-[#D9F7E8] text-[#0CBC63] rounded-xl px-2 py-0.5 text-xs" href="#" href="#">Amount</a>
-                                <p>৳ 10,75,978</p>
+                                <p class="text-xs font-bold">৳ 10,75,978</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-span-2 flex p-3 bg-white rounded-lg custom-shadow-7">
+                    <div class="col-span-2 flex px-3 py-9 bg-white rounded-lg custom-shadow-7">
                         <div class="w-8/12 flex flex-col gap-3">
                             <div>
                                 <p class="text-[#666363] text-xl">Payment Release</p>
@@ -350,8 +350,104 @@
                     </div>
 
                 </div>
-                <div class="col-span-5 md:col-span-1 lg:col-span-1">b</div>
-                <div class="col-span-5 md:col-span-2 lg:col-span-2">c</div>
+                <div class="col-span-5 md:col-span-1 lg:col-span-1">
+                    <div class="mb-3 col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex p-3 bg-white rounded-lg custom-shadow-5">
+                        <div class="w-8/12 flex flex-col gap-3">
+                            <p class="text-3xl font-semibold">50</p>
+                            <p class="text-[#202224] font-semibold">Returned</p>
+                            <div class="pl-2 border-l-2 border-[#A60C0C]">
+                                <p class="text-[#A60C0C] font-bold">৳ 16,542</p>
+                            </div>
+                        </div>
+                        <div class="w-4/12 flex items-start justify-end">
+                            <div class="bg-[#FFD9D9] inline-block px-2 py-3 rounded-full custom-shadow-1s">
+                                <img src="src/svg/Group.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[#242020] text-xl font-semibold mb-3">Payment Method</p>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col p-3 bg-white rounded-lg custom-shadow-5">
+                        
+                        <div class="h-full flex flex-col gap-3 border-b">
+                            <div class="flex gap-1">
+                                <img class="w-4" src="src/svg/calendar 1.svg" alt="">
+                                <p class="text-[#666363] text-lg font-semibold">Regular Payable</p>
+                            </div>
+                            <p class="text-[#666363] text-sm">Get paid within 2-3 days of delivery</p>
+                        </div>
+                        <div>
+                            <div class="flex flex-col w-full">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <p class="text-sm text-[#666363]">Last Paid Out</p>
+                                    </div>
+                                    <div class="flex flex-col items-end">
+                                        <p class="text-[#3D3D3D] font-bold text-lg">৳ 10,75,978</p>
+                                        <p class="text-sm text-[#666363]">03 Sep 2024</p>
+                                    </div>
+                                </div>
+                                <p class="text-[#3D3D3D] text-lg font-medium mb-2">Bank Details</p>
+                                <div class="flex justify-between">
+                                    <p class="text-[#666363]">EBL Bank</p>
+                                    <p class="text-[#666363]">*********54654</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-span-5 md:col-span-2 lg:col-span-2">
+                    <div class="bg-white w-full rounded-lg p-3">
+                        <div class="flex items-center justify-between">
+                            <p>Total Overview</p>
+                            <div class="border py-1 px-2 rounded-md">
+                                <input class="text-xs" type="date" name="" id="">
+                                -
+                                <input class="text-xs p-0" type="date" name="" id="">
+                            </div>
+                            <div class="text-[#E83330] hover:text-[#ff4542]">
+                                <a href="#">View All</a>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row p-5">
+                            <diV class="md:w-6/12 w-full my-3 flex items-end">
+                                <div class="w-full">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            </diV>
+                            <diV class="w-full md:w-6/12 flex justify-end gap-7 flex-col">
+                                <div class="flex gap-1">
+                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
+                                    <div>
+                                        <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <div class="flex text-xs">
+                                            <p>50 parcel | ৳ 3,66,542</p>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="flex gap-1 pl-3">
+                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
+                                    <div>
+                                        <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <div class="flex text-xs">
+                                            <p>50 parcel | ৳ 3,66,542</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
+                                    <div>
+                                        <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <div class="flex text-xs">
+                                            <p>50 parcel | ৳ 3,66,542</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </diV>
+                        </div>
+                    </div>
+                </div>
             </div>
          </section>
 
@@ -408,7 +504,62 @@
         transform: translateX(23px);
     }
       </style>
-    
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+        <script>
+            // setup 
+            const data = {
+            //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+              datasets: [{
+                label: 'A',
+                data: [15],
+                backgroundColor: [
+                  'rgba(255, 26, 104, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255, 26, 104, 1)'
+                ],
+              },
+              {
+                label: 'B',
+                data: [11],
+                backgroundColor: [
+                  'rgba(255, 26, 104, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255, 26, 104, 1)'
+                ],
+              },
+              {
+                label: 'C',
+                data: [5],
+                backgroundColor: [
+                  'rgba(255, 26, 104, 0.2)',
+                ],
+                borderColor: [
+                  'rgba(255, 26, 104, 1)'
+                ],
+              }]
+            };
+        
+            // config 
+            const config = {
+              type: 'doughnut',
+              data,
+              options: {
+                borderWidth: 1
+              }
+            };
+        
+            // render init block
+            const myChart = new Chart(
+              document.getElementById('myChart'),
+              config
+            );
+        
+            // Instantly assign Chart.js version
+            const chartVersion = document.getElementById('chartVersion');
+            chartVersion.innerText = Chart.version;
+        </script>   
 </body>
 </html>
