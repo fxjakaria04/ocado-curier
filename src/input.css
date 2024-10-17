@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+    @apply bg-[#E8333036] p-1 rounded-md text-[#E83330];
+}
+
+.item-hover:hover {
+    @apply bg-slate-100 rounded-md;
+}
+.custom-shadow-1 {
+    box-shadow: 0px 3px 0px #A50C0C;
+}
+.custom-shadow-2 {
+    box-shadow: 0px 3px 0px #C76033;
+}
+.custom-shadow-3 {
+    box-shadow: 0px 3px 0px #30907D;
+}
+.custom-shadow-4 {
+    box-shadow: 0px 3px 0px #1EC672;
+}
+.custom-shadow-5 {
+    box-shadow: 0px 3px 0px #BB0909;
+}
+.custom-shadow-6 {
+    box-shadow: 0px 3px 0px #42B6F6;
+}
+.custom-shadow-7 {
+    box-shadow: 0px 3px 0px #E83330;
+}
+.custom-shadow-1s {
+    box-shadow: 0px 3px 12px #ffb3b3;
+}
