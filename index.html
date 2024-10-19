@@ -12,12 +12,12 @@
     <div x-data="{ isHover: false }" class="flex">
         <!-- side navbar -->
         <div 
-            :class="isHover ? 'w-[10%]' : 'lg:w-[5%] w-[15%]'" 
+            :class="isHover ? 'w-[18%]' : 'lg:w-[5%] w-[15%]'" 
             
             class="border-r-2 transition-width duration-300 lg:p-3 h-screen flex flex-col justify-between"
         >
 
-            <div class="flex items-center justify-between gap-3 flex-col w-full">
+            <div class="flex items-center md:items-start justify-between gap-3 flex-col w-full">
                 <div class="w-full p-1">
                     <a class="w-full flex items-center justify-center" href="#">
                         <img :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" :class="isHover ? 'w-full' : 'w-[37px]'" alt="">
@@ -27,77 +27,89 @@
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover active">
                     <a class="flex items-center gap-3" href="#">
                         <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Dashboard</p>
                     </a>
                 </div>
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                     <a class="flex items-center gap-3 h-7" href="#">
                         <!--    <i class="fa-solid fa-cube text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
                         <img src="src/svg/+parcel.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Add Parcel</p>
                     </a>
                 </div>
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                     <a class="flex items-center gap-3 h-7" href="#">
                         <!-- <i class="fa-solid fa-heart text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
                         <img src="src/svg/order-fulfillment 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Parcel Request List</p>
                     </a>
                 </div>
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                     <a class="flex items-center gap-3 h-7" href="#">
                         <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/order-fulfillment 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                        <img src="src/svg/checklist 1.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">All Parcel</p>
                     </a>
                 </div>
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                     <a class="flex items-center gap-3 h-7" href="#">
                         <!-- <i class="fa-solid fa-layer-group text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/checklist 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center gap-3 h-7" href="#">
-                        <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
                          <img src="src/svg/flame 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Bulk Entry</p>
                     </a>
                 </div>
+                <div x-data="{dpClicked: false}">
+                    <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                        <a class="flex items-center gap-3 h-7" href="#">
+                            <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                             <img src="src/svg/payment-info.svg" alt="">
+                             <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
+                             <img src="src/svg/next 1.svg" alt="">
+                        </a>
+                    </div>
+                    <div x-show="dpClicked" x-transition>   
+                        <!-- options -->
+                        <div class="flex items-center justify-center lg:justify-start p-1 item-hover ml-3">
+                            <a class="flex items-center gap-3 h-7" href="#">
+                                <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                                 <img src="src/svg/transection-history.svg" alt="">
+                                 <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-3 h-7" href="#">
+                        <img src="src/svg/.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                    </a>
+                </div> -->
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                     <a class="flex items-center gap-3 h-7" href="#">
-                        <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                        <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                         <img src="src/svg/pricing (2).svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Pricing</p>
                     </a>
                 </div>
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                     <a class="flex items-center gap-3 h-7" href="#">
                         <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/file 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-center my-[15px]">
-                    <a class="w-full flex items-center gap-3 h-7" href="#">
-                        <!-- <i class="fa-solid fa-calendar text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/ (3).svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Optiona</p>
+                         <img src="src/svg/contract.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Contact</p>
                     </a>
                 </div>
             </div>
-            <div class="flex items-center justify-between gap-3 flex-col w-full">
+            <div class="flex items-center md:items-start justify-between gap-3 flex-col w-full">
                 <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                     <a class="flex items-center justify-center gap-3" href="#">
                         <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Settings</p>
                     </a>
                 </div>
                 <div class="flex items-center justify-center lg:justify-start p-1 hover:text-red-600">
                     <a class="flex items-center gap-3" href="#">
                         <i class="fa-solid fa-power-off  text-xl"></i>
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="hidden text-lg text-[#646464] font-medium">power</p>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="hidden text-lg text-[#646464] font-medium">Log Out</p>
                     </a>
                 </div>
             </div>
@@ -106,7 +118,7 @@
         <!-- body -->
         <div 
         :class="isHover ? 'w-[90%]' : 'lg:w-[95%] w-[95%]'" 
-        class="bg-green-200 sm:bg-red-200 transition-width duration-300"
+        class="bg-[#FFF5F5] transition-width duration-300"
         >
         <!-- top navbar -->
         <div x-data="{isclicked: false}" class="w-full bg-gray-100 p-1 md:p-0 pr-2 flex items-center justify-between duration-300 transition-all h-fit" x-transition>
@@ -172,25 +184,25 @@
                 <div class="w-full">
                     <div class="topbar flex items-center justify-center w-full">
                         <div class="overflow-hidden">
-                            <div class="flex bg-gray-200 rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
-                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 flex-col items-center">
+                            <div class="flex bg-[#FDEBEB] rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
                                     <img src="src/svg/add-parcel.svg" alt="" class="w-[20px]">
                                     <p>Add Parcel</p>
                                 </a>
-                                <a href="#" class="flex gap-0.5 border-r-2 px-0 mr-0 my-2 flex-col items-center">
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
                                     <img src="src/svg/download 1.svg" alt="" class="w-[20px]">
                                     <p>Bulk Import</p>
                                 </a>
-                                <a href="#" class="flex gap-0.5 border-r-2 px-0 mr-0 my-2 flex-col items-center">
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
                                     <img src="src/svg/fast-delivery.svg" alt="" class="w-[20px]">
                                     <p>Express Delivery</p>
                                 </a>
-                                <a href="#" class="flex gap-0.5 px-0 mr-0 my-2 flex-col items-center">
+                                <a href="#" class="flex gap-0.5 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 items-center">
                                     <img src="src/svg/all-parcel.svg" alt="" class="w-[20px]">
                                     <p>All Parcel</p>
                                 </a>
-                                <div class="absolute h-5 w-[4rem] left-[-32px] top-[23px] bg-transparent rotate-[71deg]"></div>
-                                <div class="absolute h-5 w-[4rem] right-[-32px] top-[23px] bg-transparent rotate-[-71deg]"></div>
+                                <div class="absolute h-5 w-[4rem] left-[-32px] md:left-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[71deg]"></div>
+                                <div class="absolute h-5 w-[4rem] right-[-32px] md:right-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[-71deg]"></div>
                             </div>
                         </div>
                     </div>
@@ -234,56 +246,56 @@
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-2">
                     <div class="w-8/12 flex flex-col gap-3">
                         <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Pick Request</p>
-                        <div class="pl-2 border-l-2 border-[#A60C0C]">
-                            <p class="text-[#A60C0C] font-bold">৳ 66,542 </p>
+                        <p class="text-[#202224] font-semibold">Parcel Process</p>
+                        <div class="pl-2 border-l-2 border-[#C65F32]">
+                            <p class="text-[#C65F32] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#FFD9D9] inline-block px-2 py-3 rounded-full custom-shadow-1s">
-                            <img src="src/svg/Group.svg" alt="">
+                        <div class="bg-[#FFD9D9] inline-block p-3 rounded-full custom-shadow-1s">
+                            <img src="src/svg/Prosess.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-3">
                     <div class="w-8/12 flex flex-col gap-3">
                         <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Pick Request</p>
-                        <div class="pl-2 border-l-2 border-[#A60C0C]">
-                            <p class="text-[#A60C0C] font-bold">৳ 66,542 </p>
+                        <p class="text-[#202224] font-semibold">Ready For Delivery</p>
+                        <div class="pl-2 border-l-2 border-[#12806B]">
+                            <p class="text-[#12806B] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#FFD9D9] inline-block px-2 py-3 rounded-full custom-shadow-1s">
-                            <img src="src/svg/Group.svg" alt="">
+                        <div class="bg-[#D9F7E8] inline-block px-2 py-3 rounded-full custom-shadow-2s">
+                            <img src="src/svg/ready-to-delevery.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-4">
                     <div class="w-8/12 flex flex-col gap-3">
                         <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Pick Request</p>
-                        <div class="pl-2 border-l-2 border-[#A60C0C]">
-                            <p class="text-[#A60C0C] font-bold">৳ 66,542 </p>
+                        <p class="text-[#202224] font-semibold">Delivered</p>
+                        <div class="pl-2 border-l-2 border-[#1EC672]">
+                            <p class="text-[#1EC672] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#FFD9D9] inline-block px-2 py-3 rounded-full custom-shadow-1s">
-                            <img src="src/svg/Group.svg" alt="">
+                        <div class="bg-[#D9F7E8] inline-block p-3 rounded-full custom-shadow-2s">
+                            <img src="src/svg/delevered.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-5">
                     <div class="w-8/12 flex flex-col gap-3">
                         <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Pick Request</p>
-                        <div class="pl-2 border-l-2 border-[#A60C0C]">
-                            <p class="text-[#A60C0C] font-bold">৳ 66,542 </p>
+                        <p class="text-[#BC0707] font-semibold">On Hold</p>
+                        <div class="pl-2 border-l-2 border-[#BC0707]">
+                            <p class="text-[#BC0707] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#FFD9D9] inline-block px-2 py-3 rounded-full custom-shadow-1s">
-                            <img src="src/svg/Group.svg" alt="">
+                        <div class="bg-[#FFD9D9] inline-block p-3 rounded-full custom-shadow-1s">
+                            <img src="src/svg/pause.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -325,12 +337,12 @@
                                    <p class="text-[10px] text-[#979797]">Parcel  0</p>
                                 </div>
                                 <div class="border-l-2 border-[#0CBC63] pl-1 ml-2 md:ml-3">
-                                   <p class="text-[#686868] text-[10px]">Weight Charge</p> 
+                                   <p class="text-[#686868] text-[10px]">COD Charge</p> 
                                    <p class="text-xs">৳ 0</p>
                                    <p class="text-[10px] text-[#979797]">Parcel  0</p>
                                 </div>
                                 <div class="border-l-2 border-[#249782] pl-1 ml-2 md:ml-3">
-                                   <p class="text-[#686868] text-[10px]">Weight Charge</p> 
+                                   <p class="text-[#686868] text-[10px]">Delivery Charge</p> 
                                    <p class="text-xs">৳ 0</p>
                                    <p class="text-[10px] text-[#979797]">Parcel  0</p>
                                 </div>
@@ -360,8 +372,8 @@
                             </div>
                         </div>
                         <div class="w-4/12 flex items-start justify-end">
-                            <div class="bg-[#FFD9D9] inline-block px-2 py-3 rounded-full custom-shadow-1s">
-                                <img src="src/svg/Group.svg" alt="">
+                            <div class="bg-[#FFD9D9] inline-block p-3 border rounded-full custom-shadow-1s">
+                                <img src="src/svg/returning 1.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -416,7 +428,7 @@
                                     <canvas id="myChart"></canvas>
                                 </div>
                             </diV>
-                            <diV class="w-full md:w-6/12 flex justify-end gap-7 flex-col">
+                            <diV class="w-full md:w-6/12 flex justify-center gap-7 flex-col">
                                 <div class="flex gap-1">
                                     <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
                                     <div>
@@ -427,18 +439,18 @@
                                     </div>
                                 </div>
                                 <div class="flex gap-1 pl-3">
-                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
+                                    <div class="h-4 w-4 bg-[#F28D61] rounded-full mt-1"></div>
                                     <div>
-                                        <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <p class="text-[#F28D61] text-lg leading-none font-medium">Delivered Parcel</p>
                                         <div class="flex text-xs">
                                             <p>50 parcel | ৳ 3,66,542</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="flex gap-1">
-                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
+                                    <div class="h-4 w-4 bg-[#E03939] rounded-full mt-1"></div>
                                     <div>
-                                        <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <p class="text-[#E03939] text-lg leading-none font-medium">Delivered Parcel</p>
                                         <div class="flex text-xs">
                                             <p>50 parcel | ৳ 3,66,542</p>
                                         </div>
@@ -447,6 +459,15 @@
                             </diV>
                         </div>
                     </div>
+                </div>
+            </div>
+         </section>
+         <!-- bottom graph -->
+         <section>
+            <div class="w-[98%] bg-white m-auto rounded-md p-3 mt-3">
+                <div>
+                    <p class="text-xl font-medium">30 Days Delivered Parcel</p>
+                    <canvas id="bottom-chart"></canvas>
                 </div>
             </div>
          </section>
@@ -515,7 +536,7 @@
                 label: 'A',
                 data: [15],
                 backgroundColor: [
-                  'rgba(255, 0, 0)'
+                  '#249782'
                 ],
                 circumference: (ctx) => {
                     return ctx.dataset.data / max * 270;
@@ -525,7 +546,7 @@
                 label: 'B',
                 data: [11],
                 backgroundColor: [
-                  'rgba(0, 255, 0)'
+                  '#F28D61'
                 ],
                 circumference: (ctx) => {
                     const datapoints = ctx.chart.data.datasets.map((
@@ -541,7 +562,7 @@
                 label: 'C',
                 data: [5],
                 backgroundColor: [
-                  'rgba(0, 0, 255)',
+                  '#E03939',
                 ],
                 borderColor: [
                   'rgba(255, 26, 104, 1)'
@@ -572,5 +593,37 @@
             const chartVersion = document.getElementById('chartVersion');
             chartVersion.innerText = Chart.version;
         </script>   
+        <script>
+            const ctx = document.getElementById('bottom-chart');
+          
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                label: 'Disable',
+                data: [65, 60, 40, 35, 43, 55, 30],
+                fill: {
+                    target: 'origin',
+                    above: 'rgba(238, 67, 67, 0.16)'
+                },
+                borderColor: 'rgba(238, 67, 67, 1)',
+                tension: 0.1
+            }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: false,
+                    ticks: {
+                    stepSize: 1, // Adjust this to control the gap size
+                    min: 0,       // Set a minimum value
+                    max: 100      // Set a maximum value
+                    }
+                  }
+                }
+              }
+            });
+          </script>
 </body>
 </html>
