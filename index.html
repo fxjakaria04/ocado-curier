@@ -60,9 +60,9 @@
                 </div>
                 <div x-data="{dpClicked: false}">
                     <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                        <a class="flex items-center gap-3 h-7" href="#">
+                        <a class="flex items-center gap-1 h-7" href="#">
                             <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                             <img src="src/svg/payment-info.svg" alt="">
+                             <img class="w-[18px]" src="src/svg/payment-info.svg" alt="">
                              <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
                              <img src="src/svg/next 1.svg" alt="">
                         </a>
@@ -423,7 +423,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row p-5">
-                            <diV class="md:w-6/12 w-full my-3 flex items-end">
+                            <diV class="md:w-6/12 w-full my-3 flex items-end rotate-90">
                                 <div class="w-full">
                                     <canvas id="myChart"></canvas>
                                 </div>
