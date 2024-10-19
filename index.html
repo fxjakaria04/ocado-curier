@@ -9,10 +9,10 @@
 </head>
 <body>
     <!-- navbars -->
-    <div x-data="{ isHover: false }" class="flex">
+    <div x-data="{ isHover: false }" class="flex bg-[#FEF3F3]">
         <!-- side navbar -->
         <div 
-            :class="isHover ? 'w-[18%]' : 'lg:w-[5%] w-[15%]'" 
+            :class="isHover ? 'w-[18%] bg-[#FFF9F9]' : 'lg:w-[5%] w-[15%]'" 
             
             class="border-r-2 transition-width duration-300 lg:p-3 h-screen flex flex-col justify-between"
         >
@@ -121,7 +121,7 @@
         class="bg-[#FFF5F5] transition-width duration-300"
         >
         <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-gray-100 p-1 md:p-0 pr-2 flex items-center justify-between duration-300 transition-all h-fit" x-transition>
+        <div x-data="{isclicked: false}" class="w-full bg-white p-1 md:p-0 pr-2 flex items-center justify-between duration-300 transition-all h-fit" x-transition>
             <div class="w-full md:w-auto">
                 <a href="#" class="w-full flex items-center justify-between lg:gap-2 lg:ml-3">
                     <i x-on:click="isHover = !isHover" class="fa-solid fa-bars hidden lg:inline"></i>
@@ -350,7 +350,7 @@
                         </div>
                         <div class="w-4/12 flex items-center">
                             <div class="px-2 py-3 w-full flex flex-col items-end">
-                                <p class="text-2xl font-bold">৳ 10,75,978</p>
+                                <p class="text-xs font-bold">৳ 10,75,978</p>
                                 <div class="flex items-center">
                                     <p class="text-[#636363] text-[10px]">Parcel</p>
                                     <div class="border-l-2 border-[#F28D61] ml-1 pl-1">
