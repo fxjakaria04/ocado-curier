@@ -12,14 +12,14 @@
     <div x-data="{ isHover: false }" class="flex bg-[#FEF3F3]">
         <!-- side navbar -->
         <div 
-            :class="isHover ? 'w-[18%] bg-[#FFF9F9]' : 'lg:w-[5%] w-[15%]'" 
+            :class="isHover ? 'w-[18%] bg-[#FFF9F9]' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
             
             class="border-r-2 transition-width duration-300 lg:p-3 h-screen flex flex-col justify-between"
         >
 
             <div class="flex items-center md:items-start justify-between gap-3 flex-col w-full">
                 <div class="w-full p-1">
-                    <a class="w-full flex items-center justify-center" href="#">
+                    <a class="w-full flex items-center justify-center" href="index.html">
                         <img :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" :class="isHover ? 'w-full' : 'w-[37px]'" alt="">
                     </a>
                 </div>
@@ -117,16 +117,45 @@
         </div>
         <!-- body -->
         <div 
-        :class="isHover ? 'w-[90%]' : 'lg:w-[95%] w-[95%]'" 
+        :class="isHover ? 'md:w-[90%]' : 'lg:w-[100%] w-[100%]'" 
         class="bg-[#FFF5F5] transition-width duration-300"
         >
         <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-white p-1 md:p-0 pr-2 flex items-center justify-between duration-300 transition-all h-fit" x-transition>
-            <div class="w-full md:w-auto">
-                <a href="#" class="w-full flex items-center justify-between lg:gap-2 lg:ml-3">
-                    <i x-on:click="isHover = !isHover" class="fa-solid fa-bars hidden lg:inline"></i>
-                    <img src="src/image/label zprint logo 1.png" alt="">
-                    <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>    
+        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md" x-transition>
+            <div x-data="{iprofileClicked: false}" x-transition class="w-full md:w-auto">
+                <a class="w-full flex items-center justify-between lg:gap-2 lg:ml-3 cursor-pointer">
+                   <div class="flex items-center gap-2">
+                    <i x-on:click="isHover = !isHover" class="fa-solid fa-bars"></i>
+                    <img src="src/svg/Group Logo.svg" alt="">
+                   </div>
+                    <div x-data="{isSearch: false}" class="flex items-center gap-3 md:hidden">
+                        <input x-show="isSearch" class="border outline-none hover:outline-none py-1 px-2 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="">
+                        <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-regular fa-bell relative"></i>
+                        <div class=" px-1 text-xs bg-red-600 text-white rounded-full absolute top-3.5 right-14">
+                            <span>0</span>
+                        </div>
+                        <img x-on:click="iprofileClicked = !iprofileClicked" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                        <!-- <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>  -->
+
+                    </div>   
+                    <div x-show="iprofileClicked" class="absolute top-16 right-6 p-2 bg-white rounded-lg shadow-md z-10 flex flex-col gap-2">
+                        <a class="text-[#E83330] border-b pb-2 pr-14" href="#">
+                            <i class="fa-regular fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            <i class="fa-solid fa-gear"></i>    
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            English
+                        </a>
+                        <a class="pb-4 text-[#292929] flex items-center gap-1" href="#">
+                            <img src="src/svg/Log-out.svg" alt="">   
+                            <span>Account</span>
+                        </a>
+                    </div>
                 </a>
             </div>
             <div :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 bg-white md:bg-transparent gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1 z-10">
@@ -181,7 +210,7 @@
         <section>
             <!-- top bar -->
             <div class="w-[98%] m-auto">
-                <div class="w-full">
+                <div class="w-full hidden md:block">
                     <div class="topbar flex items-center justify-center w-full">
                         <div class="overflow-hidden">
                             <div class="flex bg-[#FDEBEB] rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
@@ -208,8 +237,26 @@
                     </div>
                 </div>
                 <!-- headline -->
+                <div class="flex items-center justify-center py-4 md:hidden">
+                    <div class="border border-[#E83330] py-1 px-2 inline-flex flex-row items-center gap-4 rounded-2xl">
+                        <div class="flex flex-row items-center">
+                            <div>
+                                <img src="src/svg/package-delivered 1.svg" alt="">
+                            </div>
+                            <div class="flex">
+                                <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center gap-1">
+                            <p class="font-semibold">10,56,987 Tk</p>
+                            <a class="bg-[#E83330] text-white px-2 rounded-xl" href="#">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="w-[98%] m-auto">
-                    <h1 class="text-xl font-bold">Dashboard</h1>
+                    <h1 class="text-2xl font-medium">Dashboard</h1>
                     <p class="text-sm">Let’s check your update today</p>
                 </div>
                 <!-- activity button -->
@@ -228,74 +275,88 @@
         </section>
         <!-- box section -->
         <section>
-            <div class="w-[98%] m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2">
+            <div class="w-[98%] m-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2">
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-1">
-                    <div class="w-8/12 flex flex-col gap-3">
-                        <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Pick Request</p>
+                    <div class="w-8/12 flex flex-col md:gap-3 gap-1">
+                        <p class="text-2xl md:text-3xl font-semibold">20</p>
+                        <p class="text-[#202224] font-semibold text-sm md:text-base text-sm">Pick Request</p>
                         <div class="pl-2 border-l-2 border-[#A60C0C]">
                             <p class="text-[#A60C0C] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#FFD9D9] inline-block px-2 py-3 rounded-full custom-shadow-1s">
+                        <div class="bg-[#FFD9D9] inline-block px-1 md:px-2 py-2 md:py-3 rounded-full custom-shadow-1s">
                             <img src="src/svg/Group.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-2">
-                    <div class="w-8/12 flex flex-col gap-3">
-                        <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Parcel Process</p>
+                    <div class="w-8/12 flex flex-col md:gap-3 gap-1">
+                        <p class="text-2xl md:text-3xl font-semibold">20</p>
+                        <p class="text-[#202224] font-semibold text-sm md:text-base">Parcel Process</p>
                         <div class="pl-2 border-l-2 border-[#C65F32]">
                             <p class="text-[#C65F32] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#FFD9D9] inline-block p-3 rounded-full custom-shadow-1s">
+                        <div class="bg-[#FFD9D9] inline-block md:p-3 p-1 px-2 rounded-full custom-shadow-1s">
                             <img src="src/svg/Prosess.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-3">
-                    <div class="w-8/12 flex flex-col gap-3">
-                        <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Ready For Delivery</p>
+                    <div class="w-8/12 flex flex-col md:gap-3 gap-1">
+                        <p class="text-2xl md:text-3xl font-semibold">20</p>
+                        <p class="text-[#202224] font-semibold text-sm md:text-base">Ready For Delivery</p>
                         <div class="pl-2 border-l-2 border-[#12806B]">
                             <p class="text-[#12806B] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#D9F7E8] inline-block px-2 py-3 rounded-full custom-shadow-2s">
+                        <div class="bg-[#D9F7E8] inline-block px-1 md:px-2 py-2 md:py-3 rounded-full custom-shadow-2s">
                             <img src="src/svg/ready-to-delevery.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-4">
-                    <div class="w-8/12 flex flex-col gap-3">
-                        <p class="text-3xl font-semibold">20</p>
-                        <p class="text-[#202224] font-semibold">Delivered</p>
+                    <div class="w-8/12 flex flex-col md:gap-3 gap-1">
+                        <p class="text-2xl md:text-3xl font-semibold">20</p>
+                        <p class="text-[#202224] font-semibold text-sm md:text-base">Delivered</p>
                         <div class="pl-2 border-l-2 border-[#1EC672]">
                             <p class="text-[#1EC672] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#D9F7E8] inline-block p-3 rounded-full custom-shadow-2s">
+                        <div class="bg-[#D9F7E8] inline-block md:p-3 p-1.5 rounded-full custom-shadow-2s">
                             <img src="src/svg/delevered.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-5">
-                    <div class="w-8/12 flex flex-col gap-3">
-                        <p class="text-3xl font-semibold">20</p>
+                    <div class="w-8/12 flex flex-col md:gap-3 gap-1">
+                        <p class="text-2xl md:text-3xl font-semibold">20</p>
                         <p class="text-[#BC0707] font-semibold">On Hold</p>
                         <div class="pl-2 border-l-2 border-[#BC0707]">
                             <p class="text-[#BC0707] font-bold">৳ 66,542 </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
-                        <div class="bg-[#FFD9D9] inline-block p-3 rounded-full custom-shadow-1s">
+                        <div class="bg-[#FFD9D9] inline-block md:p-3 p-2 rounded-full custom-shadow-1s">
                             <img src="src/svg/pause.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-5 md:hidden">
+                    <div class="w-8/12 flex flex-col md:gap-3 gap-1">
+                        <p class="text-2xl md:text-3xl font-semibold">50</p>
+                        <p class="text-[#202224] font-semibold text-sm md:text-base">Returned</p>
+                        <div class="pl-2 border-l-2 border-[#A60C0C]">
+                            <p class="text-[#A60C0C] font-bold">৳ 16,542</p>
+                        </div>
+                    </div>
+                    <div class="w-4/12 flex items-start justify-end">
+                        <div class="bg-[#FFD9D9] inline-block p-3  box-border border rounded-full custom-shadow-1s">
+                            <img src="src/svg/returning 1.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -304,7 +365,7 @@
         <!-- hero part -->
          <section>
             <div class="w-[98%] m-auto grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-4">
-                <div class="col-span-5 md:col-span-2 lg:col-span-2 ">
+                <div class="col-span-5 md:col-span-2 lg:col-span-2 hidden md:block">
 
                     <div class="col-span-2 flex px-3 py-9 bg-white rounded-lg custom-shadow-6 mb-3">
                         <div class="w-6/12 flex flex-col gap-3">
@@ -325,7 +386,7 @@
                     </div>
 
                     <div class="col-span-2 flex px-3 py-9 bg-white rounded-lg custom-shadow-7">
-                        <div class="w-8/12 flex flex-col gap-3">
+                        <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                             <div>
                                 <p class="text-[#666363] text-xl">Payment Release</p>
                                 <small class="text-[10px] text-[#666363]">Receivable Date : <span class="font-bold">03 Sep, 2024</span></small>
@@ -349,7 +410,7 @@
                             </div>
                         </div>
                         <div class="w-4/12 flex items-center">
-                            <div class="px-2 py-3 w-full flex flex-col items-end">
+                            <div class="px-1 md:px-2 py-2 md:py-3 w-full flex flex-col items-end">
                                 <p class="text-xs font-bold">৳ 10,75,978</p>
                                 <div class="flex items-center">
                                     <p class="text-[#636363] text-[10px]">Parcel</p>
@@ -363,10 +424,10 @@
 
                 </div>
                 <div class="col-span-5 md:col-span-1 lg:col-span-1">
-                    <div class="mb-3 col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex p-3 bg-white rounded-lg custom-shadow-5">
-                        <div class="w-8/12 flex flex-col gap-3">
-                            <p class="text-3xl font-semibold">50</p>
-                            <p class="text-[#202224] font-semibold">Returned</p>
+                    <div class="mb-3 col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 p-3 bg-white rounded-lg custom-shadow-5 hidden md:flex">
+                        <div class="w-8/12 flex flex-col md:gap-3 gap-1">
+                            <p class="text-2xl md:text-3xl font-semibold">50</p>
+                            <p class="text-[#202224] font-semibold text-sm md:text-base">Returned</p>
                             <div class="pl-2 border-l-2 border-[#A60C0C]">
                                 <p class="text-[#A60C0C] font-bold">৳ 16,542</p>
                             </div>
@@ -377,7 +438,149 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-[#242020] text-xl font-semibold mb-3">Payment Method</p>
+                    <div class="hidden md:block">
+                        <p class="text-[#242020] text-xl font-semibold mb-3">Payment Method</p>
+                        <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col p-3 bg-white rounded-lg custom-shadow-5">
+                            
+                            <div class="h-full flex flex-col gap-3 border-b">
+                                <div class="flex gap-1">
+                                    <img class="w-4" src="src/svg/calendar 1.svg" alt="">
+                                    <p class="text-[#666363] text-lg font-semibold">Regular Payable</p>
+                                </div>
+                                <p class="text-[#666363] text-sm">Get paid within 2-3 days of delivery</p>
+                            </div>
+                            <div>
+                                <div class="flex flex-col w-full">
+                                    <div class="flex justify-between">
+                                        <div>
+                                            <p class="text-sm text-[#666363]">Last Paid Out</p>
+                                        </div>
+                                        <div class="flex flex-col items-end">
+                                            <p class="text-[#3D3D3D] font-bold text-lg">৳ 10,75,978</p>
+                                            <p class="text-sm text-[#666363]">03 Sep 2024</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-[#3D3D3D] text-lg font-medium mb-2">Bank Details</p>
+                                    <div class="flex justify-between">
+                                        <p class="text-[#666363]">EBL Bank</p>
+                                        <p class="text-[#666363]">*********54654</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-span-5 md:col-span-2 lg:col-span-2">
+                    <div class="bg-white w-full rounded-lg p-3">
+                        <div class="flex items-center justify-between">
+                            <p>Total Overview</p>
+                            <div class="border py-1 px-2 rounded-md">
+                                <input class="text-xs" type="date" name="" id="">
+                                -
+                                <input class="text-xs p-0" type="date" name="" id="">
+                            </div>
+                            <div class="text-[#E83330] hover:text-[#ff4542]">
+                                <a href="#">View All</a>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row p-5">
+                            <diV class="md:w-6/12 w-full my-3 flex items-end justify-center rotate-90">
+                                    <canvas id="myChart"></canvas>
+                            </diV>
+                            <diV class="w-full md:w-6/12 flex md:justify-center justify-between md:gap-7 gap-2 md:flex-col flex-row">
+                                <div class="flex gap-1">
+                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
+                                    <div>
+                                        <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <div class="flex text-xs">
+                                            <p>50 parcel | ৳ 3,66,542</p>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="md:flex gap-1 pl-3 hidden">
+                                    <div class="h-4 w-4 bg-[#F28D61] rounded-full mt-1"></div>
+                                    <div>
+                                        <p class="text-[#F28D61] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <div class="flex text-xs">
+                                            <p>50 parcel | ৳ 3,66,542</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="h-4 w-4 bg-[#E03939] rounded-full mt-1"></div>
+                                    <div>
+                                        <p class="text-[#E03939] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <div class="flex text-xs">
+                                            <p>50 parcel | ৳ 3,66,542</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </diV>
+                            <div class="w-full flex items-center justify-center py-6">
+                                <div class="flex gap-1 pl-3">
+                                    <div class="h-4 w-4 bg-[#F28D61] rounded-full mt-1"></div>
+                                    <div>
+                                        <p class="text-[#F28D61] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <div class="flex text-xs">
+                                            <p>50 parcel | ৳ 3,66,542</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </section>
+         <section class="block mt-2 md:hidden">
+
+             <div class="w-[98%] m-auto">
+                <div class="col-span-2 flex px-3 py-9 bg-white rounded-lg custom-shadow-6 mb-3">
+                    <div class="w-6/12 flex flex-col gap-3">
+                        <p>Payment Ready for Generate</p>
+                        <img class="w-8" src="src/svg/graph.svg" alt="">
+                    </div>
+                    <div class="w-6/12 flex items-end flex-col">
+                        <div class="flex gap-2">
+                            <a class="bg-[#DBF2FF] text-[#24B2D1] rounded-xl px-2 py-0.5 text-xs" href="#">Parcel</a>
+                            <p class="text-sm font-bold">80</p>
+                        </div>
+                        <div class="bg-[#42B6F6] h-1 w-16 my-2 rounded-xl"></div>
+                        <div class="flex gap-2">
+                            <a class="bg-[#D9F7E8] text-[#0CBC63] rounded-xl px-2 py-0.5 text-xs" href="#" href="#">Amount</a>
+                            <p class="text-xs font-bold">৳ 10,75,978</p>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="w-full flex flex-col md:gap-3 gap-1 bg-white p-2 rounded-md custom-shadow-7">
+                    <div>
+                        <p class="text-[#666363] text-xl">Payment Release</p>
+                        <small class="text-[10px] text-[#666363]">Receivable Date : <span class="font-bold">03 Sep, 2024</span></small>
+                    </div>
+                    <div class="flex">
+                        <div class="border-l-2 border-[#FF0000] pl-1 ml-2">
+                           <p class="text-[#686868] text-[10px]">Weight Charge</p> 
+                           <p class="text-xs">৳ 0</p>
+                           <p class="text-[10px] text-[#979797]">Parcel  0</p>
+                        </div>
+                        <div class="border-l-2 border-[#0CBC63] pl-1 ml-2 md:ml-3">
+                           <p class="text-[#686868] text-[10px]">COD Charge</p> 
+                           <p class="text-xs">৳ 0</p>
+                           <p class="text-[10px] text-[#979797]">Parcel  0</p>
+                        </div>
+                        <div class="border-l-2 border-[#249782] pl-1 ml-2 md:ml-3">
+                           <p class="text-[#686868] text-[10px]">Delivery Charge</p> 
+                           <p class="text-xs">৳ 0</p>
+                           <p class="text-[10px] text-[#979797]">Parcel  0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-[#242020] text-xl font-semibold mb-3 mt-6">Payment Method</p>
                     <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col p-3 bg-white rounded-lg custom-shadow-5">
                         
                         <div class="h-full flex flex-col gap-3 border-b">
@@ -406,61 +609,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="col-span-5 md:col-span-2 lg:col-span-2">
-                    <div class="bg-white w-full rounded-lg p-3">
-                        <div class="flex items-center justify-between">
-                            <p>Total Overview</p>
-                            <div class="border py-1 px-2 rounded-md">
-                                <input class="text-xs" type="date" name="" id="">
-                                -
-                                <input class="text-xs p-0" type="date" name="" id="">
-                            </div>
-                            <div class="text-[#E83330] hover:text-[#ff4542]">
-                                <a href="#">View All</a>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </div>
-                        </div>
-                        <div class="flex flex-col md:flex-row p-5">
-                            <diV class="md:w-6/12 w-full my-3 flex items-end rotate-90">
-                                <div class="w-full">
-                                    <canvas id="myChart"></canvas>
-                                </div>
-                            </diV>
-                            <diV class="w-full md:w-6/12 flex justify-center gap-7 flex-col">
-                                <div class="flex gap-1">
-                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
-                                    <div>
-                                        <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
-                                        <div class="flex text-xs">
-                                            <p>50 parcel | ৳ 3,66,542</p>
-                                        </div>  
-                                    </div>
-                                </div>
-                                <div class="flex gap-1 pl-3">
-                                    <div class="h-4 w-4 bg-[#F28D61] rounded-full mt-1"></div>
-                                    <div>
-                                        <p class="text-[#F28D61] text-lg leading-none font-medium">Delivered Parcel</p>
-                                        <div class="flex text-xs">
-                                            <p>50 parcel | ৳ 3,66,542</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-1">
-                                    <div class="h-4 w-4 bg-[#E03939] rounded-full mt-1"></div>
-                                    <div>
-                                        <p class="text-[#E03939] text-lg leading-none font-medium">Delivered Parcel</p>
-                                        <div class="flex text-xs">
-                                            <p>50 parcel | ৳ 3,66,542</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </diV>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                
+             </div>
          </section>
          <!-- bottom graph -->
          <section>
@@ -476,7 +626,11 @@
         </div>
     </div>
 
-
+    <footer>
+        <div class="px-5 py-3 border-t-2 text-center">
+            <small> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
+        </div>
+    </footer>
     <!-- body -->
 
     <style>
