@@ -234,16 +234,31 @@
                 <div class="w-[98%] m-auto mb-4 mt-14">
                     <h1 class="text-2xl font-medium">Parcel Request List</h1>
                 </div>
-                <!-- Card Area -->
-                <div>
-                    <div class="card"></div>
-                </div>
             </div>
         </section>
 
 
         <section>
-            <div class="w-[98%] m-auto bg-white overflow-x-scroll">
+            <div class="w-[98%] m-auto overflow-x-scroll">
+                <div class="w-full py-2 px-4 mb-3 bg-white border rounded-md flex items-start md:items-center justify-between flex-col md:flex-row gap-3 md:gap-0">
+                    <div class="border p-2 rounded-md">
+                        <input type="date" name="" id="">
+                        <input type="date" name="" id="">
+                    </div>
+                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input class="border-none outline-none" placeholder="Parcel ID Name/Phone" type="text" name="" id="">
+                    </div>
+                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm">
+                        <select name="" id="">
+                            <option>Select your pick up location</option>
+                        </select>
+                    </div>
+                    <div class="p-2 rounded-md text-[#9A9A9A] text-sm flex gap-6">
+                        <a class="text-[#E83330] border border-[#E83330] font-medium py-1 px-3 rounded-md">Filter</a>
+                        <a class="text-[#E83330] border border-[#E83330] font-medium py-1 px-3 rounded-md">Clear</a>
+                    </div>
+                </div>
                 
                 <table class="w-full text-center text-sm rtl:text-right text-black dark:text-gray-400">
                     <thead class="text-xs text-black bg-[#FAFAFA] dark:text-gray-400 py-4 px-4">
