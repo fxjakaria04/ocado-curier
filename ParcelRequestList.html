@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="public/tailwind.css">
+</head>
+<body>
+    <!-- navbars -->
+    <div x-data="{ isHover: false }" class="flex bg-[#FEF3F3]">
+        <!-- side navbar -->
+        <div 
+            :class="isHover ? 'w-[18%] bg-[#FFF9F9]' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
+            
+            class="border-r-2 transition-width duration-300 lg:p-3 h-screen flex flex-col justify-between"
+        >
+
+            <div class="flex items-center md:items-start justify-between gap-3 flex-col w-full">
+                <div class="w-full p-1">
+                    <a class="w-full flex items-center justify-center" href="index.html">
+                        <img :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" :class="isHover ? 'w-full' : 'w-[37px]'" alt="">
+                    </a>
+                </div>
+    
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover">
+                    <a class="flex items-center gap-3" href="add-parcel.html">
+                        <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Dashboard</p>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-3 h-7" href="add-parcel.html">
+                        <!--    <i class="fa-solid fa-cube text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                        <img src="src/svg/+parcel.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Add Parcel</p>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover active">
+                    <a class="flex items-center gap-3 h-7" href="ParcelRequestList.html">
+                        <!-- <i class="fa-solid fa-heart text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                        <img src="src/svg/order-fulfillment 1.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Parcel Request List</p>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-3 h-7" href="#">
+                        <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                        <img src="src/svg/checklist 1.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">All Parcel</p>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-3 h-7" href="#">
+                        <!-- <i class="fa-solid fa-layer-group text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                         <img src="src/svg/flame 1.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Bulk Entry</p>
+                    </a>
+                </div>
+                <div x-data="{dpClicked: false}">
+                    <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                        <a class="flex items-center gap-1 h-7" href="#">
+                            <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                             <img class="w-[18px]" src="src/svg/payment-info.svg" alt="">
+                             <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
+                             <img src="src/svg/next 1.svg" alt="">
+                        </a>
+                    </div>
+                    <div x-show="dpClicked" x-transition>
+                        <!-- options -->
+                        <div class="flex items-center justify-center lg:justify-start p-1 item-hover ml-3">
+                            <a class="flex items-center gap-3 h-7" href="#">
+                                <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                                 <img src="src/svg/transection-history.svg" alt="">
+                                 <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-3 h-7" href="#">
+                        <img src="src/svg/.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                    </a>
+                </div> -->
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-3 h-7" href="#">
+                        <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                         <img src="src/svg/pricing (2).svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Pricing</p>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-3 h-7" href="#">
+                        <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                         <img src="src/svg/contract.svg" alt="">
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Contact</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex items-center md:items-start justify-between gap-3 flex-col w-full">
+                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center justify-center gap-3" href="#">
+                        <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Settings</p>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start p-1 hover:text-red-600">
+                    <a class="flex items-center gap-3" href="#">
+                        <i class="fa-solid fa-power-off  text-xl"></i>
+                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="hidden text-lg text-[#646464] font-medium">Log Out</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <!-- body -->
+        <div 
+        :class="isHover ? 'md:w-[90%]' : 'lg:w-[100%] w-[100%]'" 
+        class="bg-[#FFF5F5] transition-width duration-300"
+        >
+        <!-- top navbar -->
+        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md" x-transition>
+            <div x-data="{iprofileClicked: false}" x-transition class="w-full md:w-auto">
+                <a class="w-full flex items-center justify-between lg:gap-2 lg:ml-3 cursor-pointer">
+                   <div class="flex items-center gap-2">
+                    <i x-on:click="isHover = !isHover" class="fa-solid fa-bars"></i>
+                    <img src="src/svg/Group Logo.svg" alt="">
+                   </div>
+                    <div x-data="{isSearch: false}" class="flex items-center gap-3 md:hidden">
+                        <input x-show="isSearch" class="border outline-none hover:outline-none py-1 px-2 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="">
+                        <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-regular fa-bell relative"></i>
+                        <div class=" px-1 text-xs bg-red-600 text-white rounded-full absolute top-3.5 right-14">
+                            <span>0</span>
+                        </div>
+                        <img x-on:click="iprofileClicked = !iprofileClicked" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                        <!-- <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>  -->
+
+                    </div>   
+                    <div x-show="iprofileClicked" class="absolute top-16 right-6 p-2 bg-white rounded-lg shadow-md z-10 flex flex-col gap-2">
+                        <a class="text-[#E83330] border-b pb-2 pr-14" href="#">
+                            <i class="fa-regular fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            <i class="fa-solid fa-gear"></i>    
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            English
+                        </a>
+                        <a class="pb-4 text-[#292929] flex items-center gap-1" href="#">
+                            <img src="src/svg/Log-out.svg" alt="">   
+                            <span>Account</span>
+                        </a>
+                    </div>
+                </a>
+            </div>
+            <div :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 bg-white md:bg-transparent gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1 z-10">
+                <div class="w-full block md:hidden">
+                    <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
+                </div>
+                <div class="border py-1 px-2 rounded-2xl">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="">
+                </div>
+                <div class="border py-1 px-2 flex flex-row items-center gap-4 rounded-2xl">
+                    <div class="flex flex-row items-center">
+                        <div>
+                            <img src="src/svg/package-delivered 1.svg" alt="">
+                        </div>
+                        <div class="flex">
+                            <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center gap-1">
+                        <p class="font-semibold">10,56,987 Tk</p>
+                        <a class="bg-[#E83330] text-white px-2 rounded-xl" href="#">Details</a>
+                    </div>
+                </div>
+                <div class="border-2 inline-block p-2 rounded-md border-[#E83330] relative">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="bg-[#E83330] rounded-full text-white absolute text-xs px-1 top-[-7px]">1</span>
+                </div>
+                <div>
+                    <span class="bg-[#E8333059] text-[#E83330] text-lg px-[14px] py-2 rounded-full">0</span>
+                </div>
+                <div class="flex flex-col">
+                    <select name="" id="" class="font-semibold bg-transparent">
+                        <option value="">Shop Name</option>
+                    </select>
+                    <small class="text-xs">Merchant</small>
+                </div>
+            </div>
+        </div>
+        <!-- top navbar end -->
+        
+
+
+        <!-- Content begening -->
+        <section>
+            <!-- top bar -->
+            <div class="w-[98%] m-auto">
+                <div class="w-full hidden md:block">
+                    <div class="topbar flex items-center justify-center w-full">
+                        <div class="overflow-hidden">
+                            <div class="flex bg-[#FDEBEB] rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/add-parcel.svg" alt="" class="w-[20px]">
+                                    <p>Add Parcel</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/download 1.svg" alt="" class="w-[20px]">
+                                    <p>Bulk Import</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/fast-delivery.svg" alt="" class="w-[20px]">
+                                    <p>Express Delivery</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 items-center">
+                                    <img src="src/svg/all-parcel.svg" alt="" class="w-[20px]">
+                                    <p>All Parcel</p>
+                                </a>
+                                <div class="absolute h-5 w-[4rem] left-[-32px] md:left-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[71deg]"></div>
+                                <div class="absolute h-5 w-[4rem] right-[-32px] md:right-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[-71deg]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="w-[98%] m-auto mb-4 mt-14">
+                    <h1 class="text-2xl font-medium">Parcel Request List</h1>
+                </div>
+                <!-- Card Area -->
+                <div>
+                    <div class="card"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="w-[98%] m-auto bg-white overflow-x-scroll">
+                
+                <table class="w-full text-center text-sm rtl:text-right text-black dark:text-gray-400">
+                    <thead class="text-xs text-black bg-[#FAFAFA] dark:text-gray-400 py-4 px-4">
+                        <tr class="hover:bg-gray-100 text-black">
+                            <th scope="col" class="px-6 py-3 border-r">
+                                Creation Info
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r">
+                                Parcel ID
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r">
+                                Customer Details
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r">
+                                Parcel Status
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r">
+                                Delivery Note
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r">
+                                Amount
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-black">
+                        <tr class="bg-white border-b border-[#F0F0F0] hover:bg-gray-200">
+                            <th scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
+                                <span>28/09/2024</span><br>
+                                <span>08:24 AM</span>
+                            </th>
+                            <td class="p-4">
+                                <span class="text-[#E83330]">54458724543</span><br>
+                                <span>Order ID: 644</span>
+                            </td>
+                            <td class="p-4 flex items-center justify-center">
+                                <div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>Abdul Golam</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>Mirpur DOHS Central Masjid Road No. 7, Avenue 8</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-phone"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>01636073552</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="md:px-6 px-0 py-4">
+                                <div class="w-[131px] inline-flex">
+                                    <a href="#" class="flex items-center gap-2 bg-[#16E36826] p-2 rounded-md text-[#14885F] font-semibold">
+                                        <img src="src/svg/ParcelRequest.svg" alt="">
+                                        <span>Parcel Request</span>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="p-4">
+                                <div class=" w-[190px] text-start">
+                                    <p>Note : kalkei delivery dite Hobe.. memo niya ante hobe</p>
+                                </div>
+                            </td>
+                            <td class="p-4">
+                                <div class="w-[190px]">
+                                    <p>Collected : ৳ 45,219</p>
+                                    <p>Value : ৳ 50,000</p>
+                                    <p>Charge : ৳ 582.19</p>
+                                </div>
+                            </td>
+                            <td class="px-4 py-7 custom-shadow-table">
+                                <div class="flex flex-col gap-5">
+                                    <a href="#" class="bg-[#E83330] text-white rounded-md text-lg px-5">View</a>
+                                    <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b border-[#F0F0F0] hover:bg-gray-200">
+                            <th scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
+                                <span>28/09/2024</span><br>
+                                <span>08:24 AM</span>
+                            </th>
+                            <td class="p-4">
+                                <span class="text-[#E83330]">54458724543</span><br>
+                                <span>Order ID: 644</span>
+                            </td>
+                            <td class="p-4 flex items-center justify-center">
+                                <div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>Abdul Golam</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>Mirpur DOHS Central Masjid Road No. 7, Avenue 8</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-phone"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>01636073552</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="md:px-6 px-0 py-4">
+                                <div class="w-[131px] inline-flex">
+                                    <a href="#" class="flex items-center gap-2 bg-[#FFBEBE99] p-2 rounded-md text-[#E83330] font-semibold">
+                                        <img src="src/svg/canceled.svg" alt="">
+                                        <span>Canceled</span>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="p-4">
+                                <div class=" w-[190px] text-start">
+                                    <p>Note : kalkei delivery dite Hobe.. memo niya ante hobe</p>
+                                </div>
+                            </td>
+                            <td class="p-4">
+                                <div class="w-[190px]">
+                                    <p>Collected : ৳ 45,219</p>
+                                    <p>Value : ৳ 50,000</p>
+                                    <p>Charge : ৳ 582.19</p>
+                                </div>
+                            </td>
+                            <td class="px-4 py-7 custom-shadow-table">
+                                <div class="flex flex-col gap-5">
+                                    <a href="#" class="bg-[#E83330] text-white rounded-md text-lg px-5">View</a>
+                                    <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </section>
+        
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="px-5 py-3 border-t-2 text-center">
+            <small> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
+        </div>
+    </footer>
+    <!-- body -->
+
+    <style>
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 12px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #F4B555;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 10px;
+        width: 10px;
+        left: 4px;
+        bottom:1px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: rgb(0, 156, 0);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(23px);
+    }
+      </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+        <script>
+            // setup 
+            let max;
+            const data = {
+            //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+              datasets: [{
+                label: 'A',
+                data: [15],
+                backgroundColor: [
+                  '#249782'
+                ],
+                circumference: (ctx) => {
+                    return ctx.dataset.data / max * 270;
+                }
+              },
+              {
+                label: 'B',
+                data: [11],
+                backgroundColor: [
+                  '#F28D61'
+                ],
+                circumference: (ctx) => {
+                    const datapoints = ctx.chart.data.datasets.map((
+                        dataset, index) => {
+                            return dataset.data[0];
+                        }
+                    )
+                    max = Math.max(...datapoints);
+                    return ctx.dataset.data / max * 270;
+                },
+              },
+              {
+                label: 'C',
+                data: [5],
+                backgroundColor: [
+                  '#E03939',
+                ],
+                borderColor: [
+                  'rgba(255, 26, 104, 1)'
+                ],
+                
+                circumference: (ctx) => {
+                    return ctx.dataset.data / max * 270;
+                },
+              }]
+            };
+        
+            // config 
+            const config = {
+              type: 'doughnut',
+              data,
+              options: {
+                borderWidth: 1
+              }
+            };
+        
+            // render init block
+            const myChart = new Chart(
+              document.getElementById('myChart'),
+              config
+            );
+        
+            // Instantly assign Chart.js version
+            const chartVersion = document.getElementById('chartVersion');
+            chartVersion.innerText = Chart.version;
+        </script>   
+        <script>
+            const ctx = document.getElementById('bottom-chart');
+          
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                label: 'Disable',
+                data: [65, 60, 40, 35, 43, 55, 30],
+                fill: {
+                    target: 'origin',
+                    above: 'rgba(238, 67, 67, 0.16)'
+                },
+                borderColor: 'rgba(238, 67, 67, 1)',
+                tension: 0.1
+            }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: false,
+                    ticks: {
+                    stepSize: 1, // Adjust this to control the gap size
+                    min: 0,       // Set a minimum value
+                    max: 100      // Set a maximum value
+                    }
+                  }
+                }
+              }
+            });
+            
+if (document.getElementById("search-table") && typeof simpleDatatables.DataTable !== 'undefined') {
+    const dataTable = new simpleDatatables.DataTable("#search-table", {
+        searchable: true,
+        sortable: false
+    });
+}
+
+          </script>
+</body>
+</html>

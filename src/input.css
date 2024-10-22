@@ -39,3 +39,6 @@
 .custom-shadow-2s {
     box-shadow: 0px 3px 12px #7dffbe;
 }
+.custom-shadow-table {
+    box-shadow: -1px 3px 6px rgb(211, 211, 211);
+}
