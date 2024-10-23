@@ -8,31 +8,46 @@
     <link rel="stylesheet" href="public/tailwind.css">
 </head>
 <body>
-    <div class="w-screen h-screen bg-[#FFF5F5] flex items-center justify-center">
-        <div class="bg-white p-6 w-[370px] rounded-lg flex items-center justify-center flex-col gap-2">
-            <img class="w-36" src="src/svg/Group Logo.svg" alt="">
-            <p class="text-3xl font-bold mb-3">Log In</p>
-            <form action="" class="w-full flex flex-col gap-5">
-                <div class="flex flex-col">
-                    <!-- <label class="font-medium" for="uname">Username</label> -->
-                <input class="border-b outline-none py-1 px-2 text-gray-600 text-sm" placeholder="Username" type="text" name="" id="uname">
+    <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex mt-24">
+        <div id="div1" class="absolute transition-all duration-500">
+            <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
+        </div>
+        <p id="activity" class="hidden">Check Your Active Balance</p>
+        <div id="div2" class="flex flex-row gap-4 invisible  py-1 px-2">
+            <div class="flex flex-row items-center">
+                <div>
+                    <img src="src/svg/package-delivered 1.svg" alt="">
                 </div>
-                <div class="flex flex-col">
-                    <!-- <label class="font-medium" for="pass">password</label> -->
-                    <input class="border-b outline-none py-1 px-2 text-gray-600 text-sm" placeholder="Password" type="password" name="" id="pass">
-                    <small class="text-end text-gray-600 text-xs hover:underline cursor-pointer">Forget Password</small>
-                    <div class="text-sm mt-2 cursor-pointer">
-                        <input type="checkbox" name="" id="Remember">
-                        <label for="Remember">Remember me</label>
-                    </div>
+                <div class="flex">
+                    <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
                 </div>
-                <div class="w-full flex items-center justify-center mt-1">
-                    <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white font-medium px-6 py-1 rounded-md">login</a>
-                </div>
-            </form>
+            </div>
+            <div class="flex flex-row items-center gap-1">
+                <p class="font-semibold">10,56,987 Tk</p>
+                <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+        const div1 = document.getElementById("div1");
+        const div2 = document.getElementById("div2");
+        const parent = document.getElementById("parent");
+        const activity = document.getElementById("activity");
+        div1.addEventListener("click", function(){
+           
+            if(div1.classList.contains("added")){
+                div1.style.transform ="translate(-5px)"
+                console.log(54)
+                div1.classList.remove("added")
+                div2.classList.add("invisible")
+            }else{
+                div1.style.transform ="translate(225px)";
+                div1.classList.add("added")
+                div2.classList.remove("invisible");
+            }
+        })
+    </script>
 </body>
 </html>
