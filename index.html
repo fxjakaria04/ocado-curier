@@ -8,8 +8,38 @@
     <link rel="stylesheet" href="public/tailwind.css">
 </head>
 <body>
+    <!-- auth -->
+    <div id="auth" class="w-screen h-screen bg-[#FFF5F5] flex items-center justify-center">
+        <div class="bg-white p-6 w-[370px] rounded-lg flex items-center justify-center flex-col gap-2">
+            <img class="w-36" src="src/svg/Group Logo.svg" alt="">
+            <p class="text-3xl font-bold mb-3">Log In</p>
+            <form action="" class="w-full flex flex-col gap-5">
+                <div class="flex flex-col">
+                    <!-- <label class="font-medium" for="uname">Username</label> -->
+                <input id="user" class="border-b outline-none py-1 px-2 text-gray-600 text-sm" placeholder="Username" type="text" name="" id="uname">
+                </div>
+                <div class="flex flex-col">
+                    <!-- <label class="font-medium" for="pass">password</label> -->
+                    <input id="pass" class="border-b outline-none py-1 px-2 text-gray-600 text-sm" placeholder="Password" type="password" name="" id="pass">
+                    <small class="text-end text-gray-600 text-xs hover:underline cursor-pointer">Forget Password</small>
+                    <div class="text-sm mt-2 cursor-pointer">
+                        <input type="checkbox" name="" id="Remember">
+                        <label for="Remember">Remember me</label>
+                    </div>
+                    <p id="wrong" class="text-center text-red-600 text-xs">Wrong username or Password Combination</p>
+                </div>
+                <div class="w-full flex items-center justify-center mt-1">
+                    <a id="loginBTN" href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white font-medium px-6 py-1 rounded-md">login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+
+
     <!-- navbars -->
-    <div x-data="{ isHover: false }" class="flex bg-[#FEF3F3]">
+    <div id="dashboard" x-data="{ isHover: false }" class="flex bg-[#FEF3F3]">
         <!-- side navbar -->
         <div 
         :class="isHover ? 'md:w-[18%] w-44 bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
@@ -779,5 +809,27 @@
               }
             });
           </script>
+          <script>
+            const auth = {username: "admin@gmail.com", password: "12345678"};
+            const firstAuth = document.getElementById("auth");
+            const dashboard = document.getElementById("dashboard");
+            const loginButton = document.getElementById("loginBTN");
+            const username = document.getElementById("user");
+            const password = document.getElementById("pass");
+            const wrong = document.getElementById("wrong");
+
+            wrong.style.display = 'none';
+            dashboard.style.display = "none";
+            document.querySelector('footer').style.display = "none";
+            loginButton.addEventListener("click", function(){
+                if(username.value === auth.username && password.value === auth.password){
+                    dashboard.style.display = 'flex';
+                    firstAuth.style.display = 'none';
+                }else{
+                    wrong.style.display = 'inline';
+                }
+            })
+    
+        </script>
 </body>
 </html>
