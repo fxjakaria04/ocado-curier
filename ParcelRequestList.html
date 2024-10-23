@@ -12,108 +12,109 @@
     <div x-data="{ isHover: false }" class="flex bg-[#FEF3F3]">
         <!-- side navbar -->
         <div 
-            :class="isHover ? 'w-[18%] bg-[#FFF9F9]' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
-            
-            class="border-r-2 transition-width duration-300 lg:p-3 h-screen flex flex-col justify-between"
-        >
+        :class="isHover ? 'md:w-[18%] w-44 bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
+        
+        class="border-r-2 transition-width duration-300 lg:p-3 h-screen flex flex-col justify-between z-10"
+    >
 
-            <div class="flex items-center md:items-start justify-between gap-3 flex-col w-full">
-                <div class="w-full p-1">
-                    <a class="w-full flex items-center justify-center" href="index.html">
-                        <img :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" :class="isHover ? 'w-full' : 'w-[37px]'" alt="">
+        <div class="flex items-start md:items-start justify-between gap-3 flex-col w-full">
+            <div class="w-full justify-between flex gap-6 items-center p-3">
+                <a class="w-full flex items-center justify-center" href="index.html">
+                    <img :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="">
+                </a>
+                <i x-on:click="isHover = false" x-show="isHover" class="fa-solid fa-chevron-left cursor-pointer"></i>
+            </div>
+
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover">
+                <a class="flex items-center gap-3" href="add-parcel.html">
+                    <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Dashboard</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="add-parcel.html">
+                    <!--    <i class="fa-solid fa-cube text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                    <img src="src/svg/+parcel.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Add Parcel</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover active">
+                <a class="flex items-center gap-3 h-7" href="ParcelRequestList.html">
+                    <!-- <i class="fa-solid fa-heart text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                    <img src="src/svg/order-fulfillment 1.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Parcel Request List</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="allParcel.html">
+                    <img src="src/svg/checklist 1.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">All Parcel</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <!-- <i class="fa-solid fa-layer-group text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                     <img src="src/svg/flame 1.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Bulk Entry</p>
+                </a>
+            </div>
+            <div x-data="{dpClicked: false}">
+                <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-1 h-7" href="#">
+                        <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                         <img class="w-[18px]" src="src/svg/payment-info.svg" alt="">
+                         <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
+                         <img src="src/svg/next 1.svg" alt="">
                     </a>
                 </div>
-    
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover">
-                    <a class="flex items-center gap-3" href="add-parcel.html">
-                        <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Dashboard</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center gap-3 h-7" href="add-parcel.html">
-                        <!--    <i class="fa-solid fa-cube text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                        <img src="src/svg/+parcel.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Add Parcel</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover active">
-                    <a class="flex items-center gap-3 h-7" href="ParcelRequestList.html">
-                        <!-- <i class="fa-solid fa-heart text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                        <img src="src/svg/order-fulfillment 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Parcel Request List</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center gap-3 h-7" href="allParcel.html">
-                        <img src="src/svg/checklist 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">All Parcel</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center gap-3 h-7" href="#">
-                        <!-- <i class="fa-solid fa-layer-group text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/flame 1.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Bulk Entry</p>
-                    </a>
-                </div>
-                <div x-data="{dpClicked: false}">
-                    <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                        <a class="flex items-center gap-1 h-7" href="#">
+                <div x-show="dpClicked" x-transition>
+                    <!-- options -->
+                    <div class="flex items-center justify-center lg:justify-start p-1 item-hover ml-3">
+                        <a class="flex items-center gap-3 h-7" href="#">
                             <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                             <img class="w-[18px]" src="src/svg/payment-info.svg" alt="">
-                             <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
-                             <img src="src/svg/next 1.svg" alt="">
+                             <img src="src/svg/transection-history.svg" alt="">
+                             <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
                         </a>
                     </div>
-                    <div x-show="dpClicked" x-transition>
-                        <!-- options -->
-                        <div class="flex items-center justify-center lg:justify-start p-1 item-hover ml-3">
-                            <a class="flex items-center gap-3 h-7" href="#">
-                                <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                                 <img src="src/svg/transection-history.svg" alt="">
-                                 <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center gap-3 h-7" href="#">
-                        <img src="src/svg/.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
-                    </a>
-                </div> -->
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center gap-3 h-7" href="#">
-                        <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/pricing (2).svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Pricing</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center gap-3 h-7" href="#">
-                        <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
-                         <img src="src/svg/contract.svg" alt="">
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Contact</p>
-                    </a>
                 </div>
             </div>
-            <div class="flex items-center md:items-start justify-between gap-3 flex-col w-full">
-                <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
-                    <a class="flex items-center justify-center gap-3" href="#">
-                        <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-[#646464] font-medium">Settings</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center lg:justify-start p-1 hover:text-red-600">
-                    <a class="flex items-center gap-3" href="#">
-                        <i class="fa-solid fa-power-off  text-xl"></i>
-                        <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="hidden text-lg text-[#646464] font-medium">Log Out</p>
-                    </a>
-                </div>
+            <!-- <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <img src="src/svg/.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                </a>
+            </div> -->
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                     <img src="src/svg/pricing (2).svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Pricing</p>
+                </a>
             </div>
-
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                     <img src="src/svg/contract.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Contact</p>
+                </a>
+            </div>
         </div>
+        <div class="flex items-start justify-between gap-3 flex-col w-full bg-gray-400">
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center justify-center gap-3" href="#">
+                    <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Settings</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 hover:text-red-600">
+                <a class="flex items-center gap-3" href="#">
+                    <i class="fa-solid fa-power-off  text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-black font-medium">Log Out</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
         <!-- body -->
         <div 
         :class="isHover ? 'md:w-[90%]' : 'lg:w-[100%] w-[100%]'" 
