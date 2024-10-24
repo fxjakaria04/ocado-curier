@@ -166,18 +166,24 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="">
                 </div>
-                <div class="border py-1 px-2 flex flex-row items-center gap-4 rounded-2xl">
-                    <div class="flex flex-row items-center">
-                        <div>
-                            <img src="src/svg/package-delivered 1.svg" alt="">
-                        </div>
-                        <div class="flex">
-                            <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
-                        </div>
+                <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
+                    <div id="div1" class="absolute transition-all duration-500">
+                        <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
                     </div>
-                    <div class="flex flex-row items-center gap-1">
-                        <p class="font-semibold">10,56,987 Tk</p>
-                        <a class="bg-[#E83330] text-white px-2 rounded-xl" href="#">Details</a>
+                    <p id="activity" class="hidden">Check Your Active Balance</p>
+                    <div id="div2" class="flex flex-row gap-4 invisible  py-1 px-2">
+                        <div class="flex flex-row items-center">
+                            <div>
+                                <img src="src/svg/package-delivered 1.svg" alt="">
+                            </div>
+                            <div class="flex">
+                                <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center gap-1">
+                            <p class="font-semibold">10,56,987 Tk</p>
+                            <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
+                        </div>
                     </div>
                 </div>
                 <div class="border-2 inline-block p-2 rounded-md border-[#E83330] relative">
@@ -501,5 +507,29 @@ if (document.getElementById("search-table") && typeof simpleDatatables.DataTable
 }
 
           </script>
+          <script>
+            function setupToggle(div, divToToggle) {
+                div.addEventListener("click", function() {
+                    if (div.classList.contains("added")) {
+                        div.style.transform = "translate(-5px)";
+                        console.log(54);
+                        div.classList.remove("added");
+                        divToToggle.classList.add("invisible");
+                    } else {
+                        div.style.transform = "translate(225px)";
+                        div.classList.add("added");
+                        divToToggle.classList.remove("invisible");
+                    }
+                });
+            }
+        
+            const div1 = document.getElementById("div1");
+            const div2 = document.getElementById("div2");
+            const div12 = document.getElementById("div12");
+            const div22 = document.getElementById("div22");
+        
+            setupToggle(div1, div2);
+            setupToggle(div12, div22);
+        </script>
 </body>
 </html>

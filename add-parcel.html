@@ -117,16 +117,45 @@
         </div>
         <!-- body -->
         <div 
-        :class="isHover ? 'w-[90%]' : 'lg:w-[95%] w-[95%]'" 
+        :class="isHover ? 'md:w-[90%]' : 'lg:w-[100%] w-[100%]'" 
         class="bg-[#FFF5F5] transition-width duration-300"
         >
         <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-white p-1 md:p-0 pr-2 flex items-center justify-between duration-300 transition-all h-fit" x-transition>
-            <div class="w-full md:w-auto">
-                <a href="#" class="w-full flex items-center justify-between lg:gap-2 lg:ml-3">
-                    <i x-on:click="isHover = !isHover" class="fa-solid fa-bars hidden lg:inline"></i>
-                    <img src="src/image/label zprint logo 1.png" alt="">
-                    <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>    
+        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md" x-transition>
+            <div x-data="{iprofileClicked: false}" x-transition class="w-full md:w-auto">
+                <a class="w-full flex items-center justify-between lg:gap-2 lg:ml-3 cursor-pointer">
+                   <div class="flex items-center gap-2">
+                    <i x-on:click="isHover = !isHover" class="fa-solid fa-bars"></i>
+                    <img src="src/svg/Group Logo.svg" alt="">
+                   </div>
+                    <div x-data="{isSearch: false}" class="flex items-center gap-3 md:hidden">
+                        <input x-show="isSearch" class="border outline-none hover:outline-none py-1 px-2 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="">
+                        <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-regular fa-bell relative"></i>
+                        <div class=" px-1 text-xs bg-red-600 text-white rounded-full absolute top-3.5 right-14">
+                            <span>0</span>
+                        </div>
+                        <img x-on:click="iprofileClicked = !iprofileClicked" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                        <!-- <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>  -->
+
+                    </div>   
+                    <div x-show="iprofileClicked" class="absolute top-16 right-6 p-2 bg-white rounded-lg shadow-md z-10 flex flex-col gap-2">
+                        <a class="text-[#E83330] border-b pb-2 pr-14" href="#">
+                            <i class="fa-regular fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            <i class="fa-solid fa-gear"></i>    
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            English
+                        </a>
+                        <a class="pb-4 text-[#292929] flex items-center gap-1" href="#">
+                            <img src="src/svg/Log-out.svg" alt="">   
+                            <span>Account</span>
+                        </a>
+                    </div>
                 </a>
             </div>
             <div :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 bg-white md:bg-transparent gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1 z-10">
@@ -137,18 +166,24 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="">
                 </div>
-                <div class="border py-1 px-2 flex flex-row items-center gap-4 rounded-2xl">
-                    <div class="flex flex-row items-center">
-                        <div>
-                            <img src="src/svg/package-delivered 1.svg" alt="">
-                        </div>
-                        <div class="flex">
-                            <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
-                        </div>
+                <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex bg-[#FFF9F9]">
+                    <div id="div1" class="absolute transition-all duration-500">
+                        <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
                     </div>
-                    <div class="flex flex-row items-center gap-1">
-                        <p class="font-semibold">10,56,987 Tk</p>
-                        <a class="bg-[#E83330] text-white px-2 rounded-xl" href="#">Details</a>
+                    <p id="activity" class="hidden">Check Your Active Balance</p>
+                    <div id="div2" class="flex flex-row gap-4 invisible  py-1 px-2">
+                        <div class="flex flex-row items-center">
+                            <div>
+                                <img src="src/svg/package-delivered 1.svg" alt="">
+                            </div>
+                            <div class="flex">
+                                <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center gap-1">
+                            <p class="font-semibold">10,56,987 Tk</p>
+                            <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
+                        </div>
                     </div>
                 </div>
                 <div class="border-2 inline-block p-2 rounded-md border-[#E83330] relative">
@@ -180,10 +215,57 @@
         <!-- dashboard begening -->
         <section>
             <!-- top bar -->
+            <div class="w-full md:hidden flex items-center justify-center mt-6 mb-5">
+                <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
+                    <div id="div12" class="absolute transition-all duration-500">
+                        <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
+                    </div>
+                    <p id="activity2" class="hidden">Check Your Active Balance</p>
+                    <div id="div22" class="flex flex-row gap-4 invisible  py-1 px-2">
+                        <div class="flex flex-row items-center">
+                            <div>
+                                <img src="src/svg/package-delivered 1.svg" alt="">
+                            </div>
+                            <div class="flex">
+                                <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center gap-1">
+                            <p class="font-semibold">10,56,987 Tk</p>
+                            <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- top bar end -->
             <div class="w-[98%] m-auto">
-                
-                <!-- headline -->
-                    <h1 class="text-xl font-bold">Add Parcel</h1>
+                <div class="w-full hidden md:block mb-6">
+                    <div class="topbar flex items-center justify-center w-full">
+                        <div class="overflow-hidden">
+                            <div class="flex bg-[#FDEBEB] rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/add-parcel.svg" alt="" class="w-[20px]">
+                                    <p>Add Parcel</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/download 1.svg" alt="" class="w-[20px]">
+                                    <p>Bulk Import</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/fast-delivery.svg" alt="" class="w-[20px]">
+                                    <p>Express Delivery</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 items-center">
+                                    <img src="src/svg/all-parcel.svg" alt="" class="w-[20px]">
+                                    <p>All Parcel</p>
+                                </a>
+                                <div class="absolute h-5 w-[4rem] left-[-32px] md:left-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[71deg]"></div>
+                                <div class="absolute h-5 w-[4rem] right-[-32px] md:right-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[-71deg]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <h1 class="text-xl font-bold mb-3">Add Parcel</h1>
             </div>
         </section>
         <!-- Hero section -->
@@ -417,5 +499,29 @@
               }
             });
           </script>
+          <script>
+            function setupToggle(div, divToToggle) {
+                div.addEventListener("click", function() {
+                    if (div.classList.contains("added")) {
+                        div.style.transform = "translate(-5px)";
+                        console.log(54);
+                        div.classList.remove("added");
+                        divToToggle.classList.add("invisible");
+                    } else {
+                        div.style.transform = "translate(225px)";
+                        div.classList.add("added");
+                        divToToggle.classList.remove("invisible");
+                    }
+                });
+            }
+        
+            const div1 = document.getElementById("div1");
+            const div2 = document.getElementById("div2");
+            const div12 = document.getElementById("div12");
+            const div22 = document.getElementById("div22");
+        
+            setupToggle(div1, div2);
+            setupToggle(div12, div22);
+        </script>
 </body>
 </html>
