@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .active {
     @apply bg-[#E8333036] p-1 rounded-md text-[#E83330];
 }
@@ -41,4 +42,7 @@
 }
 .custom-shadow-table {
     box-shadow: -1px 3px 6px rgb(211, 211, 211);
+}
+.profile-active {
+    color: #E83330;
 }

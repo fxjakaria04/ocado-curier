@@ -39,7 +39,7 @@
 
 
     <!-- navbars -->
-    <div id="dashboard" x-data="{ isHover: false }" class="flex bg-[#FEF3F3]">
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false }" class="flex bg-[#FEF3F3]">
         <!-- side navbar -->
         <div 
         :class="isHover ? 'md:w-[18%] w-44 bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
@@ -56,7 +56,7 @@
             </div>
 
             <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover active">
-                <a class="flex items-center gap-3" href="add-parcel.html">
+                <a class="flex items-center gap-3" href="index.html">
                     <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Dashboard</p>
                 </a>
@@ -151,7 +151,7 @@
         class="bg-[#FFF5F5] transition-width duration-300"
         >
         <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md" x-transition>
+        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md relative z-20" x-transition>
             <div x-data="{iprofileClicked: false}" x-transition class="w-full md:w-auto">
                 <a class="w-full flex items-center justify-between lg:gap-2 lg:ml-3 cursor-pointer">
                    <div class="flex items-center gap-2">
@@ -193,7 +193,7 @@
                     <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
                 </div>
                 <div class="border py-1 px-2 rounded-2xl">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
                     <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="">
                 </div>
                 <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex bg-[#FFF9F9]">
@@ -223,7 +223,7 @@
                 <div>
                     <span class="bg-[#E8333059] text-[#E83330] text-lg px-[14px] py-2 rounded-full">0</span>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col" @click="profileActive = !profileActive" @click.outside="profileActive = false">
                     <select name="" id="" class="font-semibold bg-transparent">
                         <option value="">Shop Name</option>
                     </select>
@@ -250,7 +250,7 @@
                     <div class="topbar flex items-center justify-center w-full">
                         <div class="overflow-hidden">
                             <div class="flex bg-[#FDEBEB] rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
-                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                <a href="add-parcel.html" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
                                     <img src="src/svg/add-parcel.svg" alt="" class="w-[20px]">
                                     <p>Add Parcel</p>
                                 </a>
@@ -262,7 +262,7 @@
                                     <img src="src/svg/fast-delivery.svg" alt="" class="w-[20px]">
                                     <p>Express Delivery</p>
                                 </a>
-                                <a href="#" class="flex gap-0.5 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 items-center">
+                                <a href="allParcel.html" class="flex gap-0.5 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 items-center">
                                     <img src="src/svg/all-parcel.svg" alt="" class="w-[20px]">
                                     <p>All Parcel</p>
                                 </a>

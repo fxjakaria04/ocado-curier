@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="public/tailwind.css">
 </head>
 <body>
+
     <!-- navbars -->
-    <div x-data="{ isHover: false, profileActive: false }" class="flex bg-[#FEF3F3]">
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false }" class="flex bg-[#FEF3F3]">
         <!-- side navbar -->
         <div 
         :class="isHover ? 'md:w-[18%] w-44 bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
@@ -25,7 +26,7 @@
                 <i x-on:click="isHover = false" x-show="isHover" class="fa-solid fa-chevron-left cursor-pointer"></i>
             </div>
 
-            <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover">
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover active">
                 <a class="flex items-center gap-3" href="index.html">
                     <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Dashboard</p>
@@ -45,7 +46,7 @@
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Parcel Request List</p>
                 </a>
             </div>
-            <div class="flex items-center justify-center lg:justify-start p-1 item-hover active">
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
                 <a class="flex items-center gap-3 h-7" href="allParcel.html">
                     <img src="src/svg/checklist 1.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">All Parcel</p>
@@ -121,7 +122,7 @@
         class="bg-[#FFF5F5] transition-width duration-300"
         >
         <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md relative z-20" x-transition>
+        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md relative z-20 relative z-20" x-transition>
             <div x-data="{iprofileClicked: false}" x-transition class="w-full md:w-auto">
                 <a class="w-full flex items-center justify-between lg:gap-2 lg:ml-3 cursor-pointer">
                    <div class="flex items-center gap-2">
@@ -158,7 +159,7 @@
                     </div>
                 </a>
             </div>
-            <div :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 bg-white md:bg-transparent gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1 z-10">
+            <div :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 bg-white gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1" style="z-index: 100;">
                 <div class="w-full block md:hidden">
                     <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
                 </div>
@@ -166,7 +167,7 @@
                     <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
                     <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="">
                 </div>
-                <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
+                <div id="parent" class=" border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex bg-[#FFF9F9]">
                     <div id="div1" class="absolute transition-all duration-500">
                         <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
                     </div>
@@ -200,6 +201,8 @@
                     <small class="text-xs">Merchant</small>
                 </div>
             </div>
+
+
             <div x-show="profileActive"
             x-transition:enter="transition transform ease-out duration-300"
             x-transition:enter-start="-translate-y-full"
@@ -225,14 +228,14 @@
                     <span class="font-normal text-sm">Log Out</span>
                 </a>
             </div>
+
+
         </div>
         <!-- top navbar end -->
         
+       
 
-
-        <!-- Content begening -->
         <section>
-            <!-- top bar -->
             <div class="w-[98%] m-auto">
                 <div class="w-full hidden md:block">
                     <div class="topbar flex items-center justify-center w-full">
@@ -260,8 +263,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="w-full md:hidden flex items-center justify-center mt-6 mb-5">
+                <div class="w-full flex md:hidden items-center justify-center mt-6 mb-5">
                     <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
                         <div id="div12" class="absolute transition-all duration-500">
                             <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
@@ -285,311 +287,91 @@
                 </div>
 
 
-                <div class="w-[98%] m-auto mb-4">
-                    <h1 class="text-2xl font-medium">All Parcel List</h1>
-                </div>
+            </div>
+            <div class="w-full px-8 m-auto mt-[61px]">
+                <h1 class="text-2xl font-medium">Setting</h1>
             </div>
         </section>
 
+        <!-- profile begining -->
 
         <section>
-            <div class="w-[98%] m-auto">
-                <div class="bg-white border rounded-md px-2 flex items-center">
+            <div class="w-full px-8 m-auto grid grid-cols-12 gap-6 my-8 items-start">
+                <div class="md:col-span-3 col-span-12 bg-white rounded-lg flex flex-col">
+                    <div class="w-full mt-10 mb-5">
+                        <div class="rounded-full w-[130px] h-[130px] m-auto relative" style="background: url(https://jakariatalukdar.com/img/squre.jpeg); background-size: cover;">
+                            <img class="bg-[#E83330] p-3 rounded-full border-2 border-white absolute bottom-0 right-0" src="src/svg/camera.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="text-center mb-8">
+                        <p class="text-[#2A353A] font-medium">Shop Name</p>
+                        <p class="text-[#888888] text-xs">44545478</p>
+                    </div>
+                    <div class="text-center mb-2">
+                        <p class="text-[#2A353A] font-semibold text-lg">Summary</p>
+                    </div>
                     <div>
-                        <div class="flex items-center gap-2 font-semibold text-xl">
-                            <p class="border-r pr-2">Delivery Parcel List </p>
-                            <p>03 Parcels</p>
+                        <div class="border-y flex items-center justify-between pl-[30px] pr-[18px] py-[18px]">
+                            <p class="text-[#666666] font-normal">Total Parcel</p>
+                            <p class="text-[#717579] font-medium">250</p>
                         </div>
-                        <div class="h-0.5 w-24 bg-[#E83330] rounded-lg"></div>
-                    </div>
-                    <div class="flex">
-                        <div id="chart"></div>
-                        <div>
-                            <p>Delivered</p>
-                            <div class="flex gap-1">
-                                <p>120 &nbsp;<sub>28.4%</sub></p>
-                                <img class="mt-3 scale-150" src="src/svg/Arrow External Right.svg" alt="">
-                            </div>
-                            
+                        <div class="border-b flex items-center justify-between pl-[30px] pr-[18px] py-[18px]">
+                            <p class="text-[#666666] font-normal">Invoice Received</p>
+                            <p class="text-[#717579] font-medium">10</p>
+                        </div>
+                        <div class="border-b flex items-center justify-between pl-[30px] pr-[18px] py-[18px]">
+                            <p class="text-[#666666] font-normal">Receivable Amount</p>
+                            <p class="text-[#717579] font-medium text-xs"> ৳ 60,584</p>
                         </div>
                     </div>
-                </div>
-                <div style="overflow: auto;" class="w-full py-2 px-4 mb-3 bg-white border rounded-md flex items-start md:items-center justify-between xl:flex-row gap-2">
-                    <div class="border p-2 rounded-md">
-                        <input type="date" name="" id="">
-                        <input type="date" name="" id="">
-                    </div>
-                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm flex items-center justify-between gap-1.5">
-                        <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
-                        <input class="border-none outline-none" placeholder="Parcel ID Name/Phone" type="text" name="" id="">
-                    </div>
-                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm">
-                        <select name="" id="">
-                            <option>Select your pick up location</option>
-                        </select>
-                    </div>
-                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm">
-                        <select name="" id="">
-                            <option>Select your pick up location</option>
-                        </select>
-                    </div>
-                    <div class="p-2 rounded-md text-[#9A9A9A] text-sm flex gap-6">
-                        <a class="text-[#E83330] hover:bg-[#cf2825] hover:text-white border border-[#E83330] font-medium py-1 px-3 rounded-md cursor-pointer">Filter</a>
-                        <a class="text-[#E83330] hover:bg-[#cf2825] hover:text-white border border-[#E83330] font-medium py-1 px-3 rounded-md cursor-pointer">Clear</a>
-                    </div>
-                    <div class="p-2 rounded-md text-[#9A9A9A] text-sm flex gap-6 w-[150px]">
-                        <a class="text-[#E83330] font-medium cursor-pointer">Export CSV</a>
-                        
+                    <div class="w-full py-5 m-auto flex items-center justify-center flex-col gap-4">
+                        <a class="font-semibold text-xs text-[#312A2A] px-[72px] py-[10px] rounded-[7px] border hover:bg-gray-100" href="editProfile.html">Edit Profile</a>
+                        <a class="font-semibold text-xs text-[#312A2A] px-[72px] py-[10px] rounded-[7px] border hover:bg-gray-100" href="paymentUpdate.html">Payment Update</a>
                     </div>
                 </div>
-                
-                <div style="overflow: auto;">
-                    <table class="overflow-x-scroll w-full text-center text-sm rtl:text-right text-black dark:text-gray-400">
-                        <thead class="text-xs text-black bg-[#FAFAFA] dark:text-gray-400 py-4 px-4">
-                            <tr class="hover:bg-gray-100 text-black">
-                                <th scope="col" class="px-6 py-3 border-r">
-                                    Creation Info
-                                </th>
-                                <th scope="col" class="px-6 py-3 border-r">
-                                    Parcel ID
-                                </th>
-                                <th scope="col" class="px-6 py-3 border-r">
-                                    Customer Details
-                                </th>
-                                <th scope="col" class="px-6 py-3 border-r">
-                                    Parcel Status
-                                </th>
-                                <th scope="col" class="px-6 py-3 border-r">
-                                    Delivery Note
-                                </th>
-                                <th scope="col" class="px-6 py-3 border-r">
-                                    Amount
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-black">
-                            <tr x-data="{isChecked: false}" x-on:click="isChecked = !isChecked" class="bg-white border-b border-[#F0F0F0] hover:bg-gray-100">
-                                <th scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
-                                    <div class="flex items-center justify-between gap-2">
-                                        <div>
-                                            <input x-model="isChecked" type="checkbox" name="" id="">
-                                        </div>
-                                        <div>
-                                            <span>28/09/2024</span><br>
-                                            <span>08:24 AM</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="p-4">
-                                    <span class="text-[#E83330]">54458724543</span><br>
-                                    <span>Order ID: 644</span>
-                                </td>
-                                <td class="p-4 flex items-center justify-center">
-                                    <div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-user"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>Abdul Golam</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-location-dot"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>Mirpur DOHS Central Masjid Road No. 7, Avenue 8</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-phone"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>01636073552</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="md:px-6 px-0 py-4">
-                                    <div class="w-[131px] inline-flex items-center justify-center">
-                                        <a href="#" class="flex items-center gap-2 bg-[#16E36826] p-2 rounded-md text-[#14885F] font-semibold">
-                                            <img src="src/svg/ParcelRequest.svg" alt="">
-                                            <span>Parcel Request</span>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class=" w-[190px] text-start">
-                                        <p>Note : kalkei delivery dite Hobe.. memo niya ante hobe</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="w-[190px]">
-                                        <p>Collected : ৳ 45,219</p>
-                                        <p>Value : ৳ 60,000</p>
-                                        <p>Charge : ৳ 582.19</p>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-7 custom-shadow-table">
-                                    <div class="flex flex-col gap-5">
-                                        <a href="#" class="bg-[#E83330]  hover:bg-[#cf2825] text-white rounded-md text-lg px-5">View</a>
-                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr x-data="{isChecked: false}" x-on:click="isChecked = !isChecked" class="bg-white border-b border-[#F0F0F0] hover:bg-gray-100">
-                                <th scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
-                                    <div class="flex items-center justify-between gap-2">
-                                        <div>
-                                            <input x-model="isChecked" type="checkbox" name="" id="">
-                                        </div>
-                                        <div>
-                                            <span>28/09/2024</span><br>
-                                            <span>08:24 AM</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="p-4">
-                                    <span class="text-[#E83330]">54458724543</span><br>
-                                    <span>Order ID: 644</span>
-                                </td>
-                                <td class="p-4 flex items-center justify-center">
-                                    <div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-user"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>Abdul Golam</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-location-dot"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>Mirpur DOHS Central Masjid Road No. 7, Avenue 8</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-phone"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>01636073552</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="md:px-6 px-0 py-4">
-                                    <div class="w-[131px] inline-flex items-center justify-center">
-                                        <a href="#" class="flex items-center gap-2 bg-[#FFBEBE99] p-2 rounded-md text-[#E83330] font-semibold">
-                                            <img src="src/svg/canceled.svg" alt="">
-                                            <span>Canceled</span>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class=" w-[190px] text-start">
-                                        <p>Note : kalkei delivery dite Hobe.. memo niya ante hobe</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="w-[190px]">
-                                        <p>Collected : ৳ 45,219</p>
-                                        <p>Value : ৳ 50,000</p>
-                                        <p>Charge : ৳ 582.19</p>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-7 custom-shadow-table">
-                                    <div class="flex flex-col gap-5">
-                                        <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5">View</a>
-                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr x-data="{isChecked: false}" x-on:click="isChecked = !isChecked" class="bg-white border-b border-[#F0F0F0] hover:bg-gray-100">
-                                <th scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
-                                    <div class="flex items-center justify-between gap-2">
-                                        <div>
-                                            <input x-model="isChecked" type="checkbox" name="" id="">
-                                        </div>
-                                        <div>
-                                            <span>28/09/2024</span><br>
-                                            <span>08:24 AM</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="p-4">
-                                    <span class="text-[#E83330]">54458724543</span><br>
-                                    <span>Order ID: 644</span>
-                                </td>
-                                <td class="p-4 flex items-center justify-center">
-                                    <div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-user"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>Abdul Golam</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-location-dot"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>Mirpur DOHS Central Masjid Road No. 7, Avenue 8</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex justify-start gap-2">
-                                            <div>
-                                                <i class="fa-solid fa-phone"></i>
-                                            </div>
-                                            <div class="text-left w-52">
-                                                <p>01636073552</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="md:px-6 px-0 py-4">
-                                    <div class="w-[152px] inline-flex items-center justify-center">
-                                        <a href="#" class="flex items-center gap-2 bg-[#3B82DE26] p-2 rounded-md text-[#3B82DE] font-semibold">
-                                            <img src="src/svg/transist.svg" alt="">
-                                            <span>Transit Fulfillment</span>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class=" w-[190px] text-start">
-                                        <p>Note : kalkei delivery dite Hobe.. memo niya ante hobe</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="w-[190px]">
-                                        <p>Collected : ৳ 45,219</p>
-                                        <p>Value : ৳ 50,000</p>
-                                        <p>Charge : ৳ 582.19</p>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-7 custom-shadow-table">
-                                    <div class="flex flex-col gap-5">
-                                        <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5">View</a>
-                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="md:col-span-9 col-span-12 bg-white rounded-lg">
+                    <p class="p-[30px] font-semibold text-[#2A353A] border-b">Profile Details</p>
+                    <p class="p-[10px] font-normal text-xs text-[#717171] text-center">Your name is updated with verified NID name, you can't edit your name</p>
+                    <form action="" class="px-11 mt-1 pb-10 grid md:grid-cols-2 grid-cols-1 gap-7">
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="name">Name</label>
+                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Shop owner name" type="text" name="" id="name">
+                        </div>
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="phone">Phone</label>
+                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your number" type="number" name="" id="phone">
+                        </div>
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="sphone">Secondary Number</label>
+                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your number" type="text" name="" id="sphone">
+                        </div>
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="email">Email</label>
+                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your email" type="email" name="" id="email">
+                        </div>
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="email">Pick up Address</label>
+                            <textarea class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your pick up address" type="text" name="" id="email"></textarea>
+                        </div>
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="website">Website/Facebook Page (Optional)</label>
+                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter url" type="url" name="" id="website">
+                        </div>
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="NIDF">NID Card Front Side</label>
+                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" type="file" name="" id="NIDF">
+                        </div>
+                        <div class="col-span-1 flex flex-col gap-1.5">
+                            <label class="text-xs font-normal text-[#312A2A]" for="NIDB">NID Card Back Side</label>
+                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" type="file" name="" id="NIDB">
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
-        
+
+
+
 
 
         </div>
@@ -648,44 +430,8 @@
         transform: translateX(23px);
     }
       </style>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <!-- apexchart -->
-        <script>
-              var options = {
-          series: [44],
-          chart: {
-          height: 71,
-          width: '100%',
-          type: 'radialBar',
-        },
-        plotOptions: {
-          radialBar: {
-            dataLabels: {
-              name: {
-                fontSize: '8px',
-              },
-              value: {
-                fontSize: '8px',
-              },
-              total: {
-                show: true,
-                label: '0',
-                formatter: function (w) {
-                  // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                   
-                }
-              }
-            }
-          }
-        },
-        labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
-        };
-
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-        </script>
         <script>
             // setup 
             let max;
@@ -783,16 +529,30 @@
                 }
               }
             });
-            
-if (document.getElementById("search-table") && typeof simpleDatatables.DataTable !== 'undefined') {
-    const dataTable = new simpleDatatables.DataTable("#search-table", {
-        searchable: true,
-        sortable: false
-    });
-}
-
           </script>
           <script>
+            const auth = {username: "admin@gmail.com", password: "12345678"};
+            const firstAuth = document.getElementById("auth");
+            const dashboard = document.getElementById("dashboard");
+            const loginButton = document.getElementById("loginBTN");
+            const username = document.getElementById("user");
+            const password = document.getElementById("pass");
+            const wrong = document.getElementById("wrong");
+
+            wrong.style.display = 'none';
+            dashboard.style.display = "none";
+            document.querySelector('footer').style.display = "none";
+            loginButton.addEventListener("click", function(){
+                if(username.value === auth.username && password.value === auth.password){
+                    dashboard.style.display = 'flex';
+                    firstAuth.style.display = 'none';
+                }else{
+                    wrong.style.display = 'inline';
+                }
+            })
+    
+        </script>
+        <script>
             function setupToggle(div, divToToggle) {
                 div.addEventListener("click", function() {
                     if (div.classList.contains("added")) {
