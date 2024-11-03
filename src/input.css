@@ -46,3 +46,11 @@
 .profile-active {
     color: #E83330;
 }
+
+#exchange:checked + .custom-checkbox {
+    background-color: red;
+  }
+
+  .custom-checkbox {
+    @apply border border-[#4B4B4B] w-5 h-5 rounded-md relative cursor-pointer;
+  }

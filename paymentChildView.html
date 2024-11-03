@@ -291,12 +291,12 @@
             <div class="w-full px-8 m-auto mt-[61px] flex items-center gap-4">
                 <!-- <h1 class="text-2xl font-medium">Setting</h1> -->
                  <a href="profile.html" class=" flex text-sm items-center gap-2 hover:underline">
-                    <span>Profile</span>
+                    <span>Payments</span>
                     <img src="src/svg/Symbol.svg" alt="">
                  </a>
                  <a href="editProfile.html" class="flex text-sm items-center gap-2 hover:underline text-[#E83330]">
                      <div class="h-1.5 w-1.5 bg-[#E83330] rounded-full"></div>
-                    <span>Payment Update</span>
+                    <span>Invoice - 54SDF55444</span>
                  </a>
             </div>
         </section>
@@ -304,109 +304,150 @@
         <!-- profile begining -->
 
         <section>
-            <div class="w-full px-8 m-auto grid grid-cols-12 gap-6 my-8 items-start">
-                <div class="md:col-span-3 col-span-12 bg-white rounded-lg flex flex-col">
-                    <div class="w-full mt-10 mb-5">
-                        <div class="rounded-full w-[130px] h-[130px] m-auto relative" style="background: url(https://jakariatalukdar.com/img/squre.jpeg); background-size: cover;">
-                            <img class="bg-[#E83330] p-3 rounded-full border-2 border-white absolute bottom-0 right-0" src="src/svg/camera.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="text-center mb-8">
-                        <p class="text-[#2A353A] font-medium">Shop Name</p>
-                        <p class="text-[#888888] text-xs">44545478</p>
-                    </div>
-                    <div class="text-center mb-2">
-                        <p class="text-[#2A353A] font-semibold text-lg">Summary</p>
-                    </div>
-                    <div>
-                        <div class="border-y flex items-center justify-between pl-[30px] pr-[18px] py-[18px]">
-                            <p class="text-[#666666] font-normal">Total Parcel</p>
-                            <p class="text-[#717579] font-medium">250</p>
-                        </div>
-                        <div class="border-b flex items-center justify-between pl-[30px] pr-[18px] py-[18px]">
-                            <p class="text-[#666666] font-normal">Invoice Received</p>
-                            <p class="text-[#717579] font-medium">10</p>
-                        </div>
-                        <div class="border-b flex items-center justify-between pl-[30px] pr-[18px] py-[18px]">
-                            <p class="text-[#666666] font-normal">Receivable Amount</p>
-                            <p class="text-[#717579] font-medium text-xs"> ৳ 60,584</p>
-                        </div>
-                    </div>
-                    <div class="w-full py-5 m-auto flex items-center justify-center flex-col gap-4">
-                        <a class="w-[206px] font-semibold text-xs text-[#312A2A] px-[72px] py-[10px] rounded-[7px] border hover:bg-gray-100" href="#">Edit Profile</a>
-                        <a class="w-[206px] font-semibold text-xs text-[#312A2A] px-[52px] py-[10px] rounded-[7px] border hover:bg-gray-100" href="paymentUpdate.html">Payment Update</a>
-                    </div>
-                </div>
-                <div class="md:col-span-9 col-span-12 bg-white rounded-lg">
-                    
-                    <div class="border-b p-[30px] pb-0 flex md:gap-8 gap-5 mb-9">
-                        <a href="editProfile.html" class="font-semibold text-[#2A353A] pb-[30px]">Payment Update</a>
-                    </div>
-                    <form action="" class="px-11 mt-1 pb-10 grid grid-cols-1 md:grid-cols-2 gap-7">
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]" for="name">Select Bank</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Shop owner name" type="text" name="" id="name">
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]" for="phone">Select Mobile Banking</label>
-                            <select name="" class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg">
-                                <option>Select Mobile Banking</option>
-                                <option value="">MFS</option>
-                            </select>
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]" for="sphone">Bank</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your number" type="text" name="" id="sphone">
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]" for="email">Routing</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your email" type="email" name="" id="email">
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]" for="AccName">Account Name</label>
-                            <input type="text" class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your pick up address" type="text" name="" id="AccName">
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]" for="website">Account No</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter url" type="url" name="" id="website">
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <div>
-                                <input type="radio" name="mob-bank" id="naggad">
-                                <label class="text-xs font-normal text-[#312A2A]" for="naggad">Nagad ( Type English )</label>
-                            </div>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="11  Digit Nagad No." type="url" name="">
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <div>
-                                <input type="radio" name="mob-bank" id="bkash">
-                                <label class="text-xs font-normal text-[#312A2A]" for="bkash">bkash ( Type English )</label>
-                            </div>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="11  Digit Nagad No." type="url" name="">
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]">Select Default Payment Method</label>
-                            <select name="" class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg">
-                                <option>Select Payment Method</option>
-                                <option value="">Option A</option>
-                                <option value="">Option B</option>
-                                <option value="">Option C</option>
-                            </select>
-                        </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
-                            <label class="text-xs font-normal text-[#312A2A]">Select Receivable Range</label>
-                            <select name="" class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg">
-                                <option>Select receivable range</option>
-                                <option value="">Option A</option>
-                                <option value="">Option B</option>
-                                <option value="">Option C</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div class="border-t p-[30px] flex gap-[18px]">
-                        <a href="editProfile.html" class="font-medium text-sm px-5 py-2 rounded-[6px] text-white border border-[#E83330] bg-[#E83330] hover:bg-[#d40e0a]">Update</a>
-                        <a href="profile.html" class="font-medium text-sm px-5 py-2 rounded-[6px] text-[#E83330] border border-[#E83330] hover:bg-gray-100">Cancel</a>
-                    </div>
+            <div class="w-full px-8 m-auto my-8 items-start overflow-auto">
+                <table class="w-full text-sm text-center">
+                    <thead class="text-[#1A1A1A] bg-[#F0F0F0] font-semibold whitespace-nowrap">
+                        <tr>
+                            <th class="px-[22px] py-4">Creation Date</th>
+                            <th class="px-[22px] py-4">Parcel ID</th>
+                            <th class="px-[22px] py-4">Order ID</th>
+                            <th class="px-[22px] py-4">CCustomer Info</th>
+                            <th class="px-[22px] py-4">Invoice Status</th>
+                            <th class="px-[22px] py-4">Collectable</th>
+                            <th class="px-[22px] py-4">Collected</th>
+                            <th class="px-[22px] py-4">COD</th>
+                            <th class="px-[22px] py-4">Delivery Charge</th>
+                            <th class="px-[22px] py-4">Total</th>
+                            <th class="px-[22px] py-4">Payable</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-[#FDFDFD] text-[#1A1A1A] font-normal text-sm">
+                        <tr class="hover:bg-gray-50 border-b">
+                            <td>26-10-2024</td>
+                            <td class="text-[#E83330]">54SDF55444</td>
+                            <td>1211</td>
+                            <td class="flex flex-col gap-2 py-4">
+                                <span>Abdul Golam</span>
+                                <span>01636073552</span>
+                                <span>Delivery Area : Mirpur</span>
+                            </td>
+                            <td class="">
+                                <div class="flex items-center flex-col gap-1">
+                                    <a href="#" class="bg-[#DCF5DE] flex items-center justify-center gap-2 px-2 py-1 rounded-md text-[#33A360] font-semibold">
+                                        <img class="scale-125" src="src/svg/delevered (2).svg" alt="">
+                                        <span>Delivered</span>
+                                    </a>
+                                    <span>27-10-2024</span>
+                                </div>
+                            </td>
+                            <td>৳ 45,219</td>
+                            <td>৳ 25,456</td>
+                            <td>৳ 452.19</td>
+                            <td class="flex flex-col py-4">
+                                <span>৳ 70</span>
+                                <span>Weight Charge</span>
+                                <span>৳ 0</span>
+                            </td>
+                            <td>৳ 522.19</td>
+                            <td>৳ 24,933.81</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 border-b">
+                            <td>26-10-2024</td>
+                            <td class="text-[#E83330]">54SDF55444</td>
+                            <td>1211</td>
+                            <td class="flex flex-col gap-2 py-4">
+                                <span>Abdul Golam</span>
+                                <span>01636073552</span>
+                                <span>Delivery Area : Mirpur</span>
+                            </td>
+                            <td class="">
+                                <div class="flex items-center flex-col gap-1">
+                                    <a href="#" class="bg-[#DCF5DE] flex items-center justify-center gap-2 px-2 py-1 rounded-md text-[#33A360] font-semibold">
+                                        <img class="scale-125" src="src/svg/delevered (2).svg" alt="">
+                                        <span>Delivered</span>
+                                    </a>
+                                    <span>27-10-2024</span>
+                                </div>
+                            </td>
+                            <td>৳ 45,219</td>
+                            <td>৳ 25,456</td>
+                            <td>৳ 452.19</td>
+                            <td class="flex flex-col py-4">
+                                <span>৳ 70</span>
+                                <span>Weight Charge</span>
+                                <span>৳ 0</span>
+                            </td>
+                            <td>৳ 522.19</td>
+                            <td>৳ 24,933.81</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 border-b">
+                            <td>26-10-2024</td>
+                            <td class="text-[#E83330]">54SDF55444</td>
+                            <td>1211</td>
+                            <td class="flex flex-col gap-2 py-4">
+                                <span>Abdul Golam</span>
+                                <span>01636073552</span>
+                                <span>Delivery Area : Mirpur</span>
+                            </td>
+                            <td class="">
+                                <div class="flex items-center flex-col gap-1">
+                                    <a href="#" class="bg-[#DCF5DE] flex items-center justify-center gap-2 px-2 py-1 rounded-md text-[#33A360] font-semibold">
+                                        <img class="scale-125" src="src/svg/delevered (2).svg" alt="">
+                                        <span>Delivered</span>
+                                    </a>
+                                    <span>27-10-2024</span>
+                                </div>
+                            </td>
+                            <td>৳ 45,219</td>
+                            <td>৳ 25,456</td>
+                            <td>৳ 452.19</td>
+                            <td class="flex flex-col py-4">
+                                <span>৳ 70</span>
+                                <span>Weight Charge</span>
+                                <span>৳ 0</span>
+                            </td>
+                            <td>৳ 522.19</td>
+                            <td>৳ 24,933.81</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="overflow-x-auto">
+                    <nav class="flex items-center flex-col flex-wrap md:flex-row gap-2 md:gap-0  justify-between pt-4" aria-label="Table navigation">
+                        <select class="bg-transparent text-sm">
+                            <option value="">Show 5 per page</option>
+                            <option value="10">Show 10 per page</option>
+                            <option value="20">Show 20 per page</option>
+                            <option value="50">Show 50 per page</option>
+                            <option value="100">Show 100 per page</option>
+                        </select>
+                        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg hover:text-[#E83330]">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-[#E83330] hover:bg-[#ff433f] rounded-full">1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">5</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg text-gray-700 dark:border-gray-700 dark:hover:text-black">
+                                    <i class="fa-solid fa-chevron-right text-[#E83330]"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </section>

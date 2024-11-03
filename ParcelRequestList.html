@@ -472,9 +472,44 @@
                         </tr>
                     </tbody>
                 </table>
-
-
-
+                <div class="overflow-x-auto">
+                    <nav class="flex items-center flex-col flex-wrap md:flex-row gap-2 md:gap-0  justify-between pt-4" aria-label="Table navigation">
+                        <select class="bg-transparent text-sm">
+                            <option value="">Show 5 per page</option>
+                            <option value="10">Show 10 per page</option>
+                            <option value="20">Show 20 per page</option>
+                            <option value="50">Show 50 per page</option>
+                            <option value="100">Show 100 per page</option>
+                        </select>
+                        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg hover:text-[#E83330]">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-[#E83330] hover:bg-[#ff433f] rounded-full">1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">5</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg text-gray-700 dark:border-gray-700 dark:hover:text-black">
+                                    <i class="fa-solid fa-chevron-right text-[#E83330]"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </section>
         

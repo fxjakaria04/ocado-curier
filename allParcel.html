@@ -297,14 +297,14 @@
                 <div class="bg-white border rounded-md px-2 flex items-center">
                     <div>
                         <div class="flex items-center gap-2 font-semibold text-xl">
-                            <p class="border-r pr-2">Delivery Parcel List </p>
+                            <p class="border-r pr-2 pb-1">Delivery Parcel List </p>
                             <p>03 Parcels</p>
                         </div>
                         <div class="h-0.5 w-24 bg-[#E83330] rounded-lg"></div>
                     </div>
-                    <div class="flex">
-                        <div id="chart"></div>
-                        <div>
+                    <div class="flex relative">
+                        <div id="chart" class="w-20 absolute -top-4"></div>
+                        <div class="pl-20">
                             <p>Delivered</p>
                             <div class="flex gap-1">
                                 <p>120 &nbsp;<sub>28.4%</sub></p>
@@ -586,6 +586,44 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="overflow-x-auto">
+                        <nav class="flex items-center flex-col flex-wrap md:flex-row gap-2 md:gap-0  justify-between pt-4" aria-label="Table navigation">
+                            <select class="bg-transparent text-sm">
+                                <option value="">Show 5 per page</option>
+                                <option value="10">Show 10 per page</option>
+                                <option value="20">Show 20 per page</option>
+                                <option value="50">Show 50 per page</option>
+                                <option value="100">Show 100 per page</option>
+                            </select>
+                            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg hover:text-[#E83330]">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-[#E83330] hover:bg-[#ff433f] rounded-full">1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">3</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">4</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">5</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg text-gray-700 dark:border-gray-700 dark:hover:text-black">
+                                        <i class="fa-solid fa-chevron-right text-[#E83330]"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </section>
@@ -652,146 +690,29 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <!-- apexchart -->
-        <script>
-              var options = {
-          series: [44],
-          chart: {
-          height: 71,
-          width: '100%',
-          type: 'radialBar',
-        },
-        plotOptions: {
-          radialBar: {
-            dataLabels: {
-              name: {
-                fontSize: '8px',
-              },
-              value: {
-                fontSize: '8px',
-              },
-              total: {
-                show: true,
-                label: '0',
-                formatter: function (w) {
-                  // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                   
-                }
-              }
-            }
-          }
-        },
-        labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
+    <script>
+        var options = {
+            series: [80],
+            chart: {
+                height: 350,
+                type: 'radialBar',
+            },
+            plotOptions: {
+                radialBar: {
+                    hollow: {
+                        size: '25%',
+                    },
+                    dataLabels: {
+                        show: false // Hide the series value
+                    }
+                },
+            },
+            labels: ['0'],
         };
-
+    
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
-        </script>
-        <script>
-            // setup 
-            let max;
-            const data = {
-            //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-              datasets: [{
-                label: 'A',
-                data: [15],
-                backgroundColor: [
-                  '#249782'
-                ],
-                circumference: (ctx) => {
-                    return ctx.dataset.data / max * 270;
-                }
-              },
-              {
-                label: 'B',
-                data: [11],
-                backgroundColor: [
-                  '#F28D61'
-                ],
-                circumference: (ctx) => {
-                    const datapoints = ctx.chart.data.datasets.map((
-                        dataset, index) => {
-                            return dataset.data[0];
-                        }
-                    )
-                    max = Math.max(...datapoints);
-                    return ctx.dataset.data / max * 270;
-                },
-              },
-              {
-                label: 'C',
-                data: [5],
-                backgroundColor: [
-                  '#E03939',
-                ],
-                borderColor: [
-                  'rgba(255, 26, 104, 1)'
-                ],
-                
-                circumference: (ctx) => {
-                    return ctx.dataset.data / max * 270;
-                },
-              }]
-            };
-        
-            // config 
-            const config = {
-              type: 'doughnut',
-              data,
-              options: {
-                borderWidth: 1
-              }
-            };
-        
-            // render init block
-            const myChart = new Chart(
-              document.getElementById('myChart'),
-              config
-            );
-        
-            // Instantly assign Chart.js version
-            const chartVersion = document.getElementById('chartVersion');
-            chartVersion.innerText = Chart.version;
-        </script>   
-        <script>
-            const ctx = document.getElementById('bottom-chart');
-          
-            new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                label: 'Disable',
-                data: [65, 60, 40, 35, 43, 55, 30],
-                fill: {
-                    target: 'origin',
-                    above: 'rgba(238, 67, 67, 0.16)'
-                },
-                borderColor: 'rgba(238, 67, 67, 1)',
-                tension: 0.1
-            }]
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: false,
-                    ticks: {
-                    stepSize: 1, // Adjust this to control the gap size
-                    min: 0,       // Set a minimum value
-                    max: 100      // Set a maximum value
-                    }
-                  }
-                }
-              }
-            });
-            
-if (document.getElementById("search-table") && typeof simpleDatatables.DataTable !== 'undefined') {
-    const dataTable = new simpleDatatables.DataTable("#search-table", {
-        searchable: true,
-        sortable: false
-    });
-}
-
-          </script>
+    </script>
           <script>
             function setupToggle(div, divToToggle) {
                 div.addEventListener("click", function() {
@@ -815,6 +736,6 @@ if (document.getElementById("search-table") && typeof simpleDatatables.DataTable
         
             setupToggle(div1, div2);
             setupToggle(div12, div22);
-        </script>
+        </scri>
 </body>
 </html>

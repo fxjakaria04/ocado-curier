@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="public/tailwind.css">
 </head>
@@ -296,22 +297,22 @@
         </section>
         <!-- Hero section -->
          <section>
-            <div class="w-[98%] m-auto bg-white md:p-6 p-2 rounded-lg">
-                <p class="text-[#202224] text-xl font-semibold">To create multiple parcel quickly</p>
+            <div class="w-[98%] m-auto bg-white md:p-6 p-2 rounded-lg shadow-md">
+                <p class="text-[#202224] text-[16px] mb-[14px] font-semibold">To create multiple parcel quickly</p>
                 <div class="md:p-6 p-2">
-                    <div class="w-full flex gap-2 text-xs font-bold mb-3">
+                    <div class="w-full flex items-center justify-center lg:justify-start gap-2 text-xs font-bold mb-[26px]">
                         <div class="flex items-center gap-1">
-                            <input type="radio" name="DName" id="RegularD">
+                            <input checked type="radio" name="DName" id="RegularD">
                             <label for="RegularD">Regular Delivery</label>
                         </div>
                         <div class="flex items-center gap-1">
-                            <input type="radio" name="DName" id="ExpressD">
+                            <input = type="radio" name="DName" id="ExpressD">
                             <label for="ExpressD">Express Delivery</label>
                         </div>
                     </div>
-                    <div class="flex items-center justify-center gap-2 text-xs font-bold mt-4 mb-8">
+                    <div class="flex items-center justify-center gap-2 text-xs font-bold mb-9">
                         <div class="flex items-center gap-1">
-                            <input type="radio" name="dh" id="DTD">
+                            <input checked type="radio" name="dh" id="DTD">
                             <label for="DTD">Door to Door Delivery</label>
                         </div>
                         <div class="flex items-center gap-1">
@@ -323,74 +324,77 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 gap-4 ">
                             <div class="flex flex-col gap-4">
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="phone">Phone <span class="text-[#E16363] text-xs">*</span></label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Customer Phone Number" type="number" name="" id="phone">
-                                    <small>Delivered <span class="text-[#249782]">1 (17%)</span> Processing <span class="text-[#F28D61]">4 (67%)</span> Returned <span class="text-[#E83330]">2 (37%)</span></small>
+                                    <label for="phone" class="text-[#656464]">Phone <span class="text-[#E16363] text-xs">*</span></label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Customer Phone Number" type="number" name="" id="phone">
+                                    <small class="text-[#6C6C6C] font-semibold text-xs">Delivered <span class="text-[#249782]">1 (17%)</span> Processing <span class="text-[#F28D61]">4 (67%)</span> Returned <span class="text-[#E83330]">2 (37%)</span></small>
                                 </div>
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="name">Name</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Customer Name" type="text" id="name">
+                                    <label for="name" class="text-[#656464]">Name</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Customer Name" type="text" id="name">
                                 </div>
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="Address">Address</label>
-                                    <inpu placeholder="Customer full address" type="text" id="Address">
-                                    <textarea class="w-full h-16 border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Customer full address" id="Address"></textarea>
+                                    <label class="text-[#656464]" for="Address">Address</label>
+                                    <inpu ] placeholder="Customer full address" type="text" id="Address">
+                                    <textarea class="w-full h-16  border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Customer full address" id="Address"></textarea>
                                 </div>
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="Instructions">Instructions</label>
-                                    <textarea class="w-full h-12 border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Type here" id="Instructions"></textarea>
+                                    <label class="text-[#656464]" for="Instructions">Instructions</label>
+                                    <textarea class="h-12 border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Type here" id="Instructions"></textarea>
                                 </div>
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="ProductType">Product Type</label>
-                                    <select class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Package" type="text" id="ProductType">
+                                    <label class="text-[#656464]" for="ProductType">Product Type</label>
+                                    <select class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Package" type="text" id="ProductType">
                                         <option>--Select product type--</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="Category">Category</label>
-                                    <select class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Package" type="text" id="ProductType">
+                                    <label class="text-[#656464]" for="Category">Category</label>
+                                    <select class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Package" type="text" id="ProductType">
                                         <option>--Select product Category--</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="flex flex-col gap-4">
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="sphone">Secondary Phone <span class="text-[#E16363] text-xs">*</span></label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Customer Phone Number (Optional)" type="number" name="" id="sphone">
+                                    <label class="text-[#656464]" for="sphone">Secondary Phone <span class="text-[#E16363] text-xs">*</span></label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Customer Phone Number (Optional)" type="number" name="" id="sphone">
                                 </div>
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="District">District</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Select District" type="text" name="" id="District">
+                                    <label class="text-[#656464]" for="District">District</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Select District" type="text" name="" id="District">
                                 </div>
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="pArea">Parcel Area</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Select Area" type="text" name="" id="pArea">
+                                    <label class="text-[#656464]" for="pArea">Parcel Area</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Select Area" type="text" name="" id="pArea">
                                 </div>  
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="CAmount">Collected Amount</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Type collected amount" type="text" name="" id="CAmount">
+                                    <label class="text-[#656464]" for="CAmount">Collected Amount</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Type collected amount" type="text" name="" id="CAmount">
                                 </div>  
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="PVA">Product Value Amount</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Type value amount (Optional)" type="text" name="" id="PVA">
+                                    <label class="text-[#656464]" for="PVA">Product Value Amount</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Type value amount (Optional)" type="text" name="" id="PVA">
                                 </div>  
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="weight">Weight (KG)</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="0.5" type="text" name="" id="weight">
+                                    <label class="text-[#656464]" for="weight">Weight (KG)</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="0.5" type="text" name="" id="weight">
                                 </div>  
-                                <div class="flex flex-row text-sm gap-1.5">
-                                    <label for="exchange">Exchange</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" type="checkbox" name="" id="exchange">
+                                <div class="flex flex-col text-sm gap-1.5">
+                                    <label class="text-[#656464]" for="weight" class="form-label">Dateline Delivery</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px] form-control form-control-solid" placeholder="Pick date rage" name="datetimes" id="kt_daterangepicker_2">
+                                </div>  
+                                <div class="flex flex-row items-center text-sm gap-1.5">
+                                    <label class="text-[#656464]" class="custom-checkbox" for="exchange">Exchange</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" type="checkbox" name="" id="exchange">
                                 </div>  
                             </div>
                             <div class="flex flex-col gap-4">
                                 <div class="flex flex-col text-sm gap-1.5">
-                                    <label for="OID">Merchant Order ID</label>
-                                    <input class="border border-[#4B4B4B] outline-none px-2 py-1 rounded-md" placeholder="Type ID (Optional)" type="number" name="" id="OID">
-                                    <small>Delivered <span class="text-[#249782]">1 (17%)</span> Processing <span class="text-[#F28D61]">4 (67%)</span> Returned <span class="text-[#E83330]">2 (37%)</span></small>
+                                    <label class="text-[#656464]" for="OID">Merchant Order ID</label>
+                                    <input class="border border-[#8B8B8B] text-sm text-[#979797] outline-none p-3 rounded-[4px]" placeholder="Type ID (Optional)" type="number" name="" id="OID">
                                 </div>
-                                <div class="flex flex-col text-sm gap-1.5 border border-[#E83330] p-2 rounded-md">
-                                    <p class="text-[#202224] text-lg">Parcel Delivery Cost</p>
+                                <div class="flex flex-col text-sm gap-1.5 border border-[#E83330] p-[14px] rounded-md">
+                                    <p class="text-[#202224] text-[16px] mb-5 font-medium">Parcel Delivery Cost</p>
                                     <div class="text-[#202224] border-b border-[#ABABAB]">
                                         <div class="flex items-center justify-between mb-2">
                                             <p>Delivery Charge</p>
@@ -414,6 +418,9 @@
                             </div>
                         </div>
                     </form>
+                    <div class="w-full flex items-center justify-center">
+                        <a href="#" class="font-semibold text-[14px] py-1 px-16 mt-9 bg-[#E83330] text-white rounded-[4px]">Create</a>
+                    </div>
                 </div>
             </div>
          </section>
@@ -549,5 +556,16 @@
             setupToggle(div1, div2);
             setupToggle(div12, div22);
         </script>
+        <script>
+            $("#kt_daterangepicker_2").daterangepicker({
+                timePicker: true,
+                startDate: moment().startOf("hour"),
+                endDate: moment().startOf("hour").add(32, "hour"),
+                locale: {
+                    format: "M/DD hh:mm A"
+                }
+            });
+            </script>
+        <script src="assets/plugins/global/plugins.bundle.js"></script>
 </body>
 </html>
