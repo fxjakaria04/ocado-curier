@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Invoice | Ocado Curier</title>
+    <link rel="shortcut icon" href="src/svg/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="public/tailwind.css">
+</head>
+<body>
+
+    <!-- navbars -->
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false }" class="flex bg-[#FEF3F3]">
+        <!-- side navbar -->
+        <div 
+        :class="isHover ? 'md:w-[18%] w-44 bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
+        
+        class="border-r-2 transition-width duration-300 lg:p-3 h-screen flex flex-col justify-between z-10"
+    >
+
+        <div class="flex items-start md:items-start justify-between gap-3 flex-col w-full">
+            <div class="w-full justify-between flex gap-6 items-center p-3">
+                <a class="w-full flex items-center justify-center" href="index.html">
+                    <img :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="">
+                </a>
+                <i x-on:click="isHover = false" x-show="isHover" class="fa-solid fa-chevron-left cursor-pointer"></i>
+            </div>
+
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover item-hover active">
+                <a class="flex items-center gap-3" href="index.html">
+                    <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Dashboard</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="add-parcel.html">
+                    <!--    <i class="fa-solid fa-cube text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                    <img src="src/svg/+parcel.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Add Parcel</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="ParcelRequestList.html">
+                    <!-- <i class="fa-solid fa-heart text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                    <img src="src/svg/order-fulfillment 1.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Parcel Request List</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="allParcel.html">
+                    <img src="src/svg/checklist 1.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">All Parcel</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <!-- <i class="fa-solid fa-layer-group text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                     <img src="src/svg/flame 1.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Bulk Entry</p>
+                </a>
+            </div>
+            <div x-data="{dpClicked: false}">
+                <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                    <a class="flex items-center gap-1 h-7" href="#">
+                        <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                         <img class="w-[18px]" src="src/svg/payment-info.svg" alt="">
+                         <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
+                         <img src="src/svg/next 1.svg" alt="">
+                    </a>
+                </div>
+                <div x-show="dpClicked" x-transition>
+                    <!-- options -->
+                    <div class="flex items-center justify-center lg:justify-start p-1 item-hover ml-3">
+                        <a class="flex items-center gap-3 h-7" href="#">
+                            <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                             <img src="src/svg/transection-history.svg" alt="">
+                             <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Payment Info</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <img src="src/svg/.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Option</p>
+                </a>
+            </div> -->
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                     <img src="src/svg/pricing (2).svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Pricing</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center gap-3 h-7" href="#">
+                    <!-- <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                     <img src="src/svg/contract.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Contact</p>
+                </a>
+            </div>
+        </div>
+        <div class="flex items-start justify-between gap-3 flex-col w-full">
+            <div class="flex items-center justify-center lg:justify-start p-1 item-hover">
+                <a class="flex items-center justify-center gap-3" href="#">
+                    <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-[#646464] font-medium">Settings</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start p-1 hover:text-red-600">
+                <a class="flex items-center gap-3" href="#">
+                    <i class="fa-solid fa-power-off  text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-lg text-black font-medium">Log Out</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+        <!-- body -->
+        <div 
+        :class="isHover ? 'md:w-[90%]' : 'lg:w-[100%] w-[100%]'" 
+        class="bg-[#FFF5F5] transition-width duration-300"
+        >
+        <!-- top navbar -->
+        <div x-data="{isclicked: false}" class="w-full bg-white px-5 py-3 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md relative z-20 relative z-20" x-transition>
+            <div x-data="{iprofileClicked: false}" x-transition class="w-full md:w-auto">
+                <a class="w-full flex items-center justify-between lg:gap-2 lg:ml-3 cursor-pointer">
+                   <div class="flex items-center gap-2">
+                    <i x-on:click="isHover = !isHover" class="fa-solid fa-bars"></i>
+                    <img src="src/svg/Group Logo.svg" alt="">
+                   </div>
+                    <div x-data="{isSearch: false}" class="flex items-center gap-3 md:hidden">
+                        <input x-show="isSearch" class="border outline-none hover:outline-none py-1 px-2 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="">
+                        <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-regular fa-bell relative"></i>
+                        <div class=" px-1 text-xs bg-red-600 text-white rounded-full absolute top-3.5 right-14">
+                            <span>0</span>
+                        </div>
+                        <img x-on:click="iprofileClicked = !iprofileClicked" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                        <!-- <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>  -->
+
+                    </div>   
+                    <div x-show="iprofileClicked" class="absolute top-16 right-6 p-2 bg-white rounded-lg shadow-md z-10 flex flex-col gap-2">
+                        <a href="profile.html" class="text-[#E83330] border-b pb-2 pr-14" href="#">
+                            <i class="fa-regular fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            <i class="fa-solid fa-gear"></i>    
+                            <span>Account</span>
+                        </a>
+                        <a class="border-b pb-2 text-[#292929]" href="#">
+                            English
+                        </a>
+                        <a class="pb-4 text-[#292929] flex items-center gap-1" href="#">
+                            <img src="src/svg/Log-out.svg" alt="">   
+                            <span>Log Out</span>
+                        </a>
+                    </div>
+                </a>
+            </div>
+            <div x-data="{notification: false}" :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 bg-white gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1" style="z-index: 100;">
+                <div class="w-full block md:hidden">
+                    <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
+                </div>
+                <div class="border py-1 px-2 rounded-2xl">
+                    <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
+                    <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="">
+                </div>
+                <div id="parent" class=" border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex bg-[#FFF9F9]">
+                    <div id="div1" class="absolute transition-all duration-500">
+                        <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
+                    </div>
+                    <p id="activity" class="hidden">Check Your Active Balance</p>
+                    <div id="div2" class="flex flex-row gap-4 invisible  py-1 px-2">
+                        <div class="flex flex-row items-center">
+                            <div>
+                                <img src="src/svg/package-delivered 1.svg" alt="">
+                            </div>
+                            <div class="flex">
+                                <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center gap-1">
+                            <p class="font-semibold">10,56,987 Tk</p>
+                            <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div @click="notification = !notification" @click.outside="notification = false" class="border-2 inline-block p-2 rounded-md border-[#E83330] relative cursor-pointer">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="bg-[#E83330] rounded-full text-white absolute text-xs px-1 top-[-7px]">1</span>
+                </div>
+                <div x-show="notification" x-transition class="absolute top-14 rounded-[20px] bg-white p-4 w-[335px] shadow-2xl">
+                    <div class="w-full flex items-center justify-between border-b pb-4">
+                        <p class="text-xl text-[#292929]">Notification</p>
+                        <a href="#" class="text-xs text-[#E83330]">View all</a>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <span class="bg-[#E8333059] text-[#E83330] text-lg px-[14px] py-2 rounded-full">0</span>
+                </div>
+                <div class="flex flex-col" @click="profileActive = !profileActive" @click.outside="profileActive = false">
+                    <select name="" id="" class="font-semibold bg-transparent">
+                        <option value="">Shop Name</option>
+                    </select>
+                    <small class="text-xs">Merchant</small>
+                </div>
+            </div>
+
+
+            <div x-show="profileActive"
+            x-transition:enter="transition transform ease-out duration-300"
+            x-transition:enter-start="-translate-y-full"
+            x-transition:enter-end="translate-y-0"
+            x-transition:leave="transition transform ease-in duration-300"
+            x-transition:leave-start="translate-y-0"
+            x-transition:leave-end="-translate-y-full"
+            class=" bg-white rounded-[20px] p-[10px] absolute w-[298px] -bottom-[187px] right-5 shadow-md">
+                <a href="profile.html" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md profile-active">
+                    <img src="src/svg/profile-icon.svg" alt="">
+                    <span class="font-normal text-sm">Profile</span>
+                </a>
+                <a href="#" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md">
+                    <img src="src/svg/settings.svg" alt="">
+                    <span class="font-normal text-sm">Setting</span>
+                </a>
+                <a href="#" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md">
+                    <img src="src/svg/language.svg" alt="">
+                    <span class="font-normal text-sm">English</span>
+                </a>
+                <a href="#" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md">
+                    <img src="src/svg/logout.svg" alt="">
+                    <span class="font-normal text-sm">Log Out</span>
+                </a>
+            </div>
+
+
+        </div>
+        <!-- top navbar end -->
+        
+       
+
+        <section>
+            <div class="w-[98%] m-auto">
+                <div class="w-full hidden md:block">
+                    <div class="topbar flex items-center justify-center w-full">
+                        <div class="overflow-hidden">
+                            <div class="flex bg-[#FDEBEB] rounded-bl-[54px] rounded-br-[54px] relative text-xs lg:gap-2 gap-2 px-9 text-center">
+                                <a href="add-parcel.html" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/add-parcel.svg" alt="" class="w-[20px]">
+                                    <p>Add Parcel</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/download 1.svg" alt="" class="w-[20px]">
+                                    <p>Bulk Import</p>
+                                </a>
+                                <a href="#" class="flex gap-0.5 border-r-2 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 md:border-r-2 items-center">
+                                    <img src="src/svg/fast-delivery.svg" alt="" class="w-[20px]">
+                                    <p>Express Delivery</p>
+                                </a>
+                                <a href="allParcel.html" class="flex gap-0.5 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row md:gap-2 items-center">
+                                    <img src="src/svg/all-parcel.svg" alt="" class="w-[20px]">
+                                    <p>All Parcel</p>
+                                </a>
+                                <div class="absolute h-5 w-[4rem] left-[-32px] md:left-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[71deg]"></div>
+                                <div class="absolute h-5 w-[4rem] right-[-32px] md:right-[-32px] top-[25px] md:bg-[#FFF5F5] rotate-[-71deg]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex md:hidden items-center justify-center mt-6 mb-5">
+                    <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
+                        <div id="div12" class="absolute transition-all duration-500">
+                            <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
+                        </div>
+                        <p id="activity2" class="hidden">Check Your Active Balance</p>
+                        <div id="div22" class="flex flex-row gap-4 invisible  py-1 px-2">
+                            <div class="flex flex-row items-center">
+                                <div>
+                                    <img src="src/svg/package-delivered 1.svg" alt="">
+                                </div>
+                                <div class="flex">
+                                    <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center gap-1">
+                                <p class="font-semibold">10,56,987 Tk</p>
+                                <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="w-full px-8 m-auto mt-[61px] flex items-center gap-4">
+                <h1 class="text-2xl font-medium">Payments</h1>  
+            </div>
+        </section>
+
+        <!-- profile begining -->
+
+        <section>
+            <div class="w-full px-8 m-auto my-8 items-start overflow-auto bg-white">
+                <div class="flex items-center justify-between px-4 gap-14">
+                    <div>
+                        <p class="text-xl font-semibold text-[#1A1A1A] whitespace-nowrap">Payment Release Invoice List</p>
+                        <div class="h-0.5 w-32 rounded-lg bg-[#E83330]"></div>
+                    </div>
+                    <div class="flex items-center justify-end gap-14">
+                        <div class="flex items-center gap-2.5 rounded-md my-5">
+                            <div id="date-range-picker" date-rangepicker class="flex items-center">
+                                <div class="relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                    </svg>
+                                </div>
+                                <input id="datepicker-range-start" name="start" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date start">
+                                </div>
+                                <span class="mx-4 text-gray-500">to</span>
+                                <div class="relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                    </svg>
+                                </div>
+                                <input id="datepicker-range-end" name="end" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date end">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-2 py-1.5 border border-[#9A9A9A] rounded-md my-5">
+                            <img src="src/svg/Search.svg" alt="">
+                            <input type="text" name="" id="" placeholder="Type here invoice ID" class="outline-none">
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="src/svg/reload.svg" alt="">
+                            <img src="src/svg/Download.svg" alt="">
+                            <img src="src/svg/Print.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <table class="w-full text-sm text-center">
+                    <thead class="text-[#1A1A1A] bg-[#F0F0F0] font-semibold whitespace-nowrap">
+                        <tr>
+                            <th>
+                                <input type="checkbox" name="" id="" class="ml-2" onchange="toggleCheckboxes(this)">
+                            </th>
+                            <th class="px-[22px] py-4">Invoice Creation Date</th>
+                            <th class="px-[22px] py-4">Invoice ID</th>
+                            <th class="px-[22px] py-4">Collected</th>
+                            <th class="px-[22px] py-4">Delivery Cost</th>
+                            <th class="px-[22px] py-4">COD Cost</th>
+                            <th class="px-[22px] py-4">Payable Amount</th>
+                            <th class="px-[22px] py-4">Status</th>
+                            <th class="px-[22px] py-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-[#FDFDFD] text-[#1A1A1A] font-normal text-sm">
+                        <tr class="hover:bg-gray-50 border-b">
+                            <td>
+                                <input type="checkbox" name="" id="" onchange="individualCheckboxChanged()">
+                            </td>
+                            <td>26-10-2024</td>
+                            <td class="text-[#E83330]">54SDF55444</td>
+                            <td>৳ 48,548</td>
+                            <td>৳ 650</td>
+                            <td>৳ 485.48</td>
+                            <td>৳ 47,412.52</td>
+                            <td><p class="w-16 font-medium text-sm text-[#399185] m-auto py-1 border border-[#399185] rounded-[4px] cursor-not-allowed inline-block my-6">Unpaid</p></td>
+                            <td>
+                                <a href="#" class="font-medium text-sm text-[#E83330] px-4 py-1 bg-white rounded-[4px] border border-[#E83330] hover:bg-[#E83330] hover:text-white">View</a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 border-b">
+                            <td>
+                                <input type="checkbox" name="" id="" onchange="individualCheckboxChanged()">
+                            </td>
+                            <td>26-10-2024</td>
+                            <td class="text-[#E83330]">54SDF55444</td>
+                            <td>৳ 48,548</td>
+                            <td>৳ 650</td>
+                            <td>৳ 485.48</td>
+                            <td>৳ 47,412.52</td>
+                            <td><p class="w-16 font-medium text-sm text-[#399185] m-auto py-1 border border-[#399185] rounded-[4px] cursor-not-allowed inline-block my-6">Paid</p></td>
+                            <td>
+                                <a href="#" class="font-medium text-sm text-[#E83330] px-4 py-1 bg-white rounded-[4px] border border-[#E83330] hover:bg-[#E83330] hover:text-white">View</a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 border-b">
+                            <td>
+                                <input type="checkbox" name="" id="" onchange="individualCheckboxChanged()">
+                            </td>
+                            <td>26-10-2024</td>
+                            <td class="text-[#E83330]">54SDF55444</td>
+                            <td>৳ 48,548</td>
+                            <td>৳ 650</td>
+                            <td>৳ 485.48</td>
+                            <td>৳ 47,412.52</td>
+                            <td><p class="w-16 font-medium text-sm text-[#399185] m-auto py-1 border border-[#399185] rounded-[4px] cursor-not-allowed inline-block my-6">Paid</p></td>
+                            <td>
+                                <a href="#" class="font-medium text-sm text-[#E83330] px-4 py-1 bg-white rounded-[4px] border border-[#E83330] hover:bg-[#E83330] hover:text-white">View</a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 border-b">
+                            <td>
+                                <input type="checkbox" name="" id="" onchange="individualCheckboxChanged()">
+                            </td>
+                            <td>26-10-2024</td>
+                            <td class="text-[#E83330]">54SDF55444</td>
+                            <td>৳ 48,548</td>
+                            <td>৳ 650</td>
+                            <td>৳ 485.48</td>
+                            <td>৳ 47,412.52</td>
+                            <td><p class="w-16 font-medium text-sm text-[#399185] m-auto py-1 border border-[#399185] rounded-[4px] cursor-not-allowed inline-block my-6">Paid</p></td>
+                            <td>
+                                <a href="#" class="font-medium text-sm text-[#E83330] px-4 py-1 bg-white rounded-[4px] border border-[#E83330] hover:bg-[#E83330] hover:text-white">View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="overflow-x-auto">
+                    <nav class="flex items-center flex-col flex-wrap md:flex-row gap-2 md:gap-0  justify-between pt-4" aria-label="Table navigation">
+                        <select class="bg-transparent text-sm">
+                            <option value="">Show 5 per page</option>
+                            <option value="10">Show 10 per page</option>
+                            <option value="20">Show 20 per page</option>
+                            <option value="50">Show 50 per page</option>
+                            <option value="100">Show 100 per page</option>
+                        </select>
+                        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg hover:text-[#E83330]">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-[#E83330] hover:bg-[#ff433f] rounded-full">1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-[#E83330] bg-transparent hover:bg-[#ff433f] hover:text-white rounded-full">5</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight rounded-s-lg text-gray-700">
+                                    <i class="fa-solid fa-chevron-right text-[#E83330]"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="px-5 py-3 border-t-2 text-center">
+            <small> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
+        </div>
+    </footer>
+    <!-- body -->
+
+    <style>
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 12px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #F4B555;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 10px;
+        width: 10px;
+        left: 4px;
+        bottom:1px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: rgb(0, 156, 0);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(23px);
+    }
+      </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+        <script>
+            // setup 
+            let max;
+            const data = {
+            //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+              datasets: [{
+                label: 'A',
+                data: [15],
+                backgroundColor: [
+                  '#249782'
+                ],
+                circumference: (ctx) => {
+                    return ctx.dataset.data / max * 270;
+                }
+              },
+              {
+                label: 'B',
+                data: [11],
+                backgroundColor: [
+                  '#F28D61'
+                ],
+                circumference: (ctx) => {
+                    const datapoints = ctx.chart.data.datasets.map((
+                        dataset, index) => {
+                            return dataset.data[0];
+                        }
+                    )
+                    max = Math.max(...datapoints);
+                    return ctx.dataset.data / max * 270;
+                },
+              },
+              {
+                label: 'C',
+                data: [5],
+                backgroundColor: [
+                  '#E03939',
+                ],
+                borderColor: [
+                  'rgba(255, 26, 104, 1)'
+                ],
+                
+                circumference: (ctx) => {
+                    return ctx.dataset.data / max * 270;
+                },
+              }]
+            };
+        
+            // config 
+            const config = {
+              type: 'doughnut',
+              data,
+              options: {
+                borderWidth: 1
+              }
+            };
+        
+            // render init block
+            const myChart = new Chart(
+              document.getElementById('myChart'),
+              config
+            );
+        
+            // Instantly assign Chart.js version
+            const chartVersion = document.getElementById('chartVersion');
+            chartVersion.innerText = Chart.version;
+        </script>   
+        <script>
+            const ctx = document.getElementById('bottom-chart');
+          
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                label: 'Disable',
+                data: [65, 60, 40, 35, 43, 55, 30],
+                fill: {
+                    target: 'origin',
+                    above: 'rgba(238, 67, 67, 0.16)'
+                },
+                borderColor: 'rgba(238, 67, 67, 1)',
+                tension: 0.1
+            }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: false,
+                    ticks: {
+                    stepSize: 1, // Adjust this to control the gap size
+                    min: 0,       // Set a minimum value
+                    max: 100      // Set a maximum value
+                    }
+                  }
+                }
+              }
+            });
+          </script>
+          <script>
+            const auth = {username: "admin@gmail.com", password: "12345678"};
+            const firstAuth = document.getElementById("auth");
+            const dashboard = document.getElementById("dashboard");
+            const loginButton = document.getElementById("loginBTN");
+            const username = document.getElementById("user");
+            const password = document.getElementById("pass");
+            const wrong = document.getElementById("wrong");
+
+            wrong.style.display = 'none';
+            dashboard.style.display = "none";
+            document.querySelector('footer').style.display = "none";
+            loginButton.addEventListener("click", function(){
+                if(username.value === auth.username && password.value === auth.password){
+                    dashboard.style.display = 'flex';
+                    firstAuth.style.display = 'none';
+                }else{
+                    wrong.style.display = 'inline';
+                }
+            })
+    
+        </script>
+        <script>
+            function setupToggle(div, divToToggle) {
+                div.addEventListener("click", function() {
+                    if (div.classList.contains("added")) {
+                        div.style.transform = "translate(-5px)";
+                        console.log(54);
+                        div.classList.remove("added");
+                        divToToggle.classList.add("invisible");
+                    } else {
+                        div.style.transform = "translate(225px)";
+                        div.classList.add("added");
+                        divToToggle.classList.remove("invisible");
+                    }
+                });
+            }
+        
+            const div1 = document.getElementById("div1");
+            const div2 = document.getElementById("div2");
+            const div12 = document.getElementById("div12");
+            const div22 = document.getElementById("div22");
+        
+            setupToggle(div1, div2);
+            setupToggle(div12, div22);
+
+            function toggleCheckboxes(selectAllCheckbox) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = selectAllCheckbox.checked;
+                });
+            }
+
+            function individualCheckboxChanged() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+                const selectAllCheckbox = document.getElementById('select-all');
+
+                // Check if all checkboxes are checked
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                selectAllCheckbox.checked = allChecked;
+            }
+
+        </script>
+</body>
+</html>
