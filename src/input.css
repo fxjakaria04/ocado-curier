@@ -51,6 +51,53 @@
     background-color: red;
   }
 
-  .custom-checkbox {
-    @apply border border-[#4B4B4B] w-5 h-5 rounded-md relative cursor-pointer;
-  }
+
+
+
+
+
+  .main {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.main input[type=checkbox] {
+    visibility: hidden;
+}
+
+.checkbox-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 21px;
+    width: 21px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+
+.main input:checked~.checkbox-container {
+    background-color: #E83330;
+}
+
+.checkbox-container::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.main input:checked~.checkbox-container::after {
+    display: block;
+}
+.actionBtn{
+    accent-color: #E84343;
+}
