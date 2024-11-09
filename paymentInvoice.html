@@ -324,15 +324,49 @@
 
 
             </div>
-            <div class="w-full px-8 m-auto mt-[61px] flex items-center gap-4">
+            <div class="w-full px-8 m-auto mt-[61px] flex gap-4">
                 <h1 class="text-2xl font-medium">Payments</h1>  
             </div>
+            <div class="bg-[#FDFDFD] px-8 mx-6 m-auto border flex items-center flex-col md:flex-row justify-center md:gap-44 rounded-[4px]">
+                <div class="flex items-center justify-center w-[98px] flex-col relative">
+                    <div id="chart" class="W-[100PX] pb-8"></div>
+                    <img src="src/svg/total-invoice.svg" alt="" class="absolute scale-75 top-6">
+                    <div class="flex items-center flex-col absolute top-[82px]">
+                        <p class="font-normal">lorem</p>
+                        <p class="font-semibold text-[#16A7D3]">৳ 194192</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center w-[98px] flex-col relative">
+                    <div id="chart2" class="W-[100PX] pb-8"></div>
+                    <img src="src/svg/overdue.svg" alt="" class="absolute scale-75 top-6">
+                    <div class="flex items-center flex-col absolute top-[82px]">
+                        <p class="font-normal">lorem</p>
+                        <p class="font-semibold text-[#FF7D00]">৳ 194192</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center w-[98px] flex-col relative">
+                    <div id="chart3" class="W-[100PX] pb-8"></div>
+                    <img src="src/svg/paid.svg" alt="" class="absolute scale-75 top-6">
+                    <div class="flex items-center flex-col absolute top-[82px]">
+                        <p class="font-normal">lorem</p>
+                        <p class="font-semibold text-[#57CC99]">৳ 194192</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center w-[98px] flex-col relative">
+                    <div id="chart4" class="W-[100PX] pb-8"></div>
+                    <img src="src/svg/upcommingInvoice.svg" alt="" class="absolute scale-75 top-6">
+                    <div class="flex items-center flex-col absolute top-[82px]">
+                        <p class="font-normal">lorem</p>
+                        <p class="font-semibold text-[#FFBB00]">৳ 194192</p>
+                    </div>
+                </div>
+            </div>    
         </section>
 
         <!-- profile begining -->
 
         <section>
-            <div class="w-full px-8 m-auto my-8 items-start overflow-auto bg-white">
+            <div class="px-8 mx-6 m-auto mb-8 items-start overflow-auto bg-white border-t mt-px">
                 <div class="flex items-center justify-between px-4 gap-14">
                     <div>
                         <p class="text-xl font-semibold text-[#1A1A1A] whitespace-nowrap">Payment Release Invoice List</p>
@@ -489,12 +523,7 @@
                     </nav>
                 </div>
             </div>
-        </section>
-
-
-
-
-
+        </section>  
         </div>
     </div>
 
@@ -554,167 +583,137 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-        <script>
-            // setup 
-            let max;
-            const data = {
-            //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-              datasets: [{
-                label: 'A',
-                data: [15],
-                backgroundColor: [
-                  '#249782'
-                ],
-                circumference: (ctx) => {
-                    return ctx.dataset.data / max * 270;
-                }
-              },
-              {
-                label: 'B',
-                data: [11],
-                backgroundColor: [
-                  '#F28D61'
-                ],
-                circumference: (ctx) => {
-                    const datapoints = ctx.chart.data.datasets.map((
-                        dataset, index) => {
-                            return dataset.data[0];
+
+         
+    <script>
+        // Define a function to render a radial chart with customizable options
+        function createRadialChart(elementId, seriesData, color) {
+            var options = {
+                series: [seriesData],
+                chart: {
+                    height: 98,
+                    type: 'radialBar',
+                },
+                plotOptions: {
+                    radialBar: {
+                        startAngle: -135,
+                        endAngle: 225,
+                        hollow: {
+                            margin: 0,
+                            size: '70%',
+                            background: '#fff',
+                            image: undefined, // No image in the hollow part
+                            position: 'front'
+                        },
+                        track: {
+                            background: '#4C4C4C',
+                            strokeWidth: '100%',
+                            margin: 0
+                        },
+                        dataLabels: {
+                            show: true,
+                            name: {
+                                offsetY: -10,
+                                show: false, // Hide name text
+                                color: '#888',
+                                fontSize: '9px'
+                            },
+                            value: {
+                                formatter: function(val) {
+                                    return parseInt(val);
+                                },
+                                color: '#000',
+                                fontSize: '16px',
+                                show: true,
+                            }
                         }
-                    )
-                    max = Math.max(...datapoints);
-                    return ctx.dataset.data / max * 270;
+                    }
                 },
-              },
-              {
-                label: 'C',
-                data: [5],
-                backgroundColor: [
-                  '#E03939',
-                ],
-                borderColor: [
-                  'rgba(255, 26, 104, 1)'
-                ],
-                
-                circumference: (ctx) => {
-                    return ctx.dataset.data / max * 270;
-                },
-              }]
-            };
-        
-            // config 
-            const config = {
-              type: 'doughnut',
-              data,
-              options: {
-                borderWidth: 1
-              }
-            };
-        
-            // render init block
-            const myChart = new Chart(
-              document.getElementById('myChart'),
-              config
-            );
-        
-            // Instantly assign Chart.js version
-            const chartVersion = document.getElementById('chartVersion');
-            chartVersion.innerText = Chart.version;
-        </script>   
-        <script>
-            const ctx = document.getElementById('bottom-chart');
-          
-            new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                label: 'Disable',
-                data: [65, 60, 40, 35, 43, 55, 30],
                 fill: {
-                    target: 'origin',
-                    above: 'rgba(238, 67, 67, 0.16)'
+                    type: 'solid',
+                    colors: [color] // Set the color here, note it's an array of colors
                 },
-                borderColor: 'rgba(238, 67, 67, 1)',
-                tension: 0.1
-            }]
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: false,
-                    ticks: {
-                    stepSize: 1, // Adjust this to control the gap size
-                    min: 0,       // Set a minimum value
-                    max: 100      // Set a maximum value
-                    }
-                  }
-                }
-              }
-            });
-          </script>
-          <script>
-            const auth = {username: "admin@gmail.com", password: "12345678"};
-            const firstAuth = document.getElementById("auth");
-            const dashboard = document.getElementById("dashboard");
-            const loginButton = document.getElementById("loginBTN");
-            const username = document.getElementById("user");
-            const password = document.getElementById("pass");
-            const wrong = document.getElementById("wrong");
-
-            wrong.style.display = 'none';
-            dashboard.style.display = "none";
-            document.querySelector('footer').style.display = "none";
-            loginButton.addEventListener("click", function(){
-                if(username.value === auth.username && password.value === auth.password){
-                    dashboard.style.display = 'flex';
-                    firstAuth.style.display = 'none';
-                }else{
-                    wrong.style.display = 'inline';
-                }
-            })
+                stroke: {
+                    lineCap: 'round'
+                },
+            };
     
-        </script>
-        <script>
-            function setupToggle(div, divToToggle) {
-                div.addEventListener("click", function() {
-                    if (div.classList.contains("added")) {
-                        div.style.transform = "translate(-5px)";
-                        console.log(54);
-                        div.classList.remove("added");
-                        divToToggle.classList.add("invisible");
-                    } else {
-                        div.style.transform = "translate(225px)";
-                        div.classList.add("added");
-                        divToToggle.classList.remove("invisible");
-                    }
-                });
-            }
-        
-            const div1 = document.getElementById("div1");
-            const div2 = document.getElementById("div2");
-            const div12 = document.getElementById("div12");
-            const div22 = document.getElementById("div22");
-        
-            setupToggle(div1, div2);
-            setupToggle(div12, div22);
+            var chart = new ApexCharts(document.querySelector(elementId), options);
+            chart.render();
+        }
+    
+        // Now create each chart with different data and colors
+        createRadialChart("#chart", 75, "#16A7D3"); // 75% with blue color
+        createRadialChart("#chart2", 50, "#FF7D00"); // 50% with red color
+        createRadialChart("#chart3", 25, "#57CC99"); // 25% with green color
+        createRadialChart("#chart4", 90, "#FFBB00"); // 90% with yellow color
+    </script>
+    
+    
+    
+    <script>
+    const auth = {username: "admin@gmail.com", password: "12345678"};
+    const firstAuth = document.getElementById("auth");
+    const dashboard = document.getElementById("dashboard");
+    const loginButton = document.getElementById("loginBTN");
+    const username = document.getElementById("user");
+    const password = document.getElementById("pass");
+    const wrong = document.getElementById("wrong");
 
-            function toggleCheckboxes(selectAllCheckbox) {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
-                checkboxes.forEach(checkbox => {
-                    checkbox.checked = selectAllCheckbox.checked;
-                });
-            }
+    wrong.style.display = 'none';
+    dashboard.style.display = "none";
+    document.querySelector('footer').style.display = "none";
+    loginButton.addEventListener("click", function(){
+        if(username.value === auth.username && password.value === auth.password){
+            dashboard.style.display = 'flex';
+            firstAuth.style.display = 'none';
+        }else{
+            wrong.style.display = 'inline';
+        }
+    })
+    </script>
+    <script>
+        function setupToggle(div, divToToggle) {
+            div.addEventListener("click", function() {
+                if (div.classList.contains("added")) {
+                    div.style.transform = "translate(-5px)";
+                    console.log(54);
+                    div.classList.remove("added");
+                    divToToggle.classList.add("invisible");
+                } else {
+                    div.style.transform = "translate(225px)";
+                    div.classList.add("added");
+                    divToToggle.classList.remove("invisible");
+                }
+            });
+        }
+    
+        const div1 = document.getElementById("div1");
+        const div2 = document.getElementById("div2");
+        const div12 = document.getElementById("div12");
+        const div22 = document.getElementById("div22");
+    
+        setupToggle(div1, div2);
+        setupToggle(div12, div22);
 
-            function individualCheckboxChanged() {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
-                const selectAllCheckbox = document.getElementById('select-all');
+        function toggleCheckboxes(selectAllCheckbox) {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        }
 
-                // Check if all checkboxes are checked
-                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-                selectAllCheckbox.checked = allChecked;
-            }
+        function individualCheckboxChanged() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+            const selectAllCheckbox = document.getElementById('select-all');
 
-        </script>
+            // Check if all checkboxes are checked
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            selectAllCheckbox.checked = allChecked;
+        }
+
+    </script>
 </body>
 </html>
