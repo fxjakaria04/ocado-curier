@@ -834,6 +834,14 @@ video {
   margin-top: 1px;
 }
 
+.mr-\[28px\] {
+  margin-right: 28px;
+}
+
+.ml-\[44px\] {
+  margin-left: 44px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1298,6 +1306,10 @@ video {
   border-radius: 0.25rem;
 }
 
+.rounded-\[10px\] {
+  border-radius: 10px;
+}
+
 .rounded-s-lg {
   border-start-start-radius: 0.5rem;
   border-end-start-radius: 0.5rem;
@@ -1455,6 +1467,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-\[\#EBF0ED\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(235 240 237 / var(--tw-border-opacity));
+}
+
 .bg-\[\#16E36826\] {
   background-color: #16E36826;
 }
@@ -1578,6 +1595,21 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
 .p-0 {
@@ -1787,6 +1819,21 @@ video {
   padding-bottom: 18px;
 }
 
+.px-\[21\] {
+  padding-left: 21;
+  padding-right: 21;
+}
+
+.px-\[21px\] {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+.py-\[\] {
+  padding-top: ;
+  padding-bottom: ;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -1869,6 +1916,22 @@ video {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pl-\[44px\] {
+  padding-left: 44px;
+}
+
+.pr-\[28px\] {
+  padding-right: 28px;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
+.pb-\[45px\] {
+  padding-bottom: 45px;
 }
 
 .text-left {
@@ -1956,6 +2019,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .leading-none {
@@ -2229,6 +2296,20 @@ video {
   color: rgb(255 125 0 / var(--tw-text-opacity));
 }
 
+.text-\[\#18120F\] {
+  --tw-text-opacity: 1;
+  color: rgb(24 18 15 / var(--tw-text-opacity));
+}
+
+.text-\[\#6B6B6B\] {
+  --tw-text-opacity: 1;
+  color: rgb(107 107 107 / var(--tw-text-opacity));
+}
+
+.text-\[\#\#2A353A\] {
+  color: ##2A353A;
+}
+
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -2393,6 +2474,14 @@ video {
 
 .actionBtn{
   accent-color: #E84343;
+}
+
+.placeholder\:text-\[\#717579BF\]::-moz-placeholder {
+  color: #717579BF;
+}
+
+.placeholder\:text-\[\#717579BF\]::placeholder {
+  color: #717579BF;
 }
 
 .hover\:bg-\[\#3d504426\]:hover {
