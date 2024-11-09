@@ -1059,6 +1059,30 @@ video {
   width: 100vw;
 }
 
+.w-\[15\] {
+  width: 15;
+}
+
+.w-\[15px\] {
+  width: 15px;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-\[3px\] {
+  width: 3px;
+}
+
+.w-\[px\] {
+  width: px;
+}
+
+.w-\[9px\] {
+  width: 9px;
+}
+
 .-translate-y-full {
   --tw-translate-y: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1230,6 +1254,22 @@ video {
 
 .gap-\[18px\] {
   gap: 18px;
+}
+
+.gap-\[5px\] {
+  gap: 5px;
+}
+
+.gap-\[9\] {
+  gap: 9;
+}
+
+.gap-\[9px\] {
+  gap: 9px;
+}
+
+.gap-\[\] {
+  gap: ;
 }
 
 .-space-x-px > :not([hidden]) ~ :not([hidden]) {
@@ -1662,6 +1702,14 @@ video {
 
 .p-\[30px\] {
   padding: 30px;
+}
+
+.p-\[15px\] {
+  padding: 15px;
+}
+
+.p-\[40px\] {
+  padding: 40px;
 }
 
 .px-0 {
