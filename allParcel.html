@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Parcel | Ocado Curier</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="shortcut icon" href="src/svg/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="public/tailwind.css">
@@ -350,22 +351,34 @@
                         </div>
                     </div>
                 </div>
-                <div style="overflow: auto;" class="w-full py-2 px-4 mb-3 bg-white border rounded-md flex items-start md:items-center justify-between xl:flex-row gap-2">
-                    <div class="border p-2 rounded-md">
-                        <input type="date" name="" id="">
-                        <input type="date" name="" id="">
+                <div style="overflow: auto;" class="w-full py-2 px-4 mb-3 bg-white border rounded-md flex md:items-center justify-between xl:flex-row flex-col gap-2">   
+                <div id="app">
+                    <template>
+                        <div class="block">
+                        <el-date-picker
+                            v-model="value2"
+                            type="daterange"
+                            align="right"
+                            unlink-panels
+                            range-separator="To"
+                            start-placeholder="Start date"
+                            end-placeholder="End date"
+                            :picker-options="pickerOptions">
+                        </el-date-picker>
+                        </div>
+                    </template>
                     </div>
-                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm flex items-center justify-between gap-1.5">
+                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm flex items-center justify-start md:justify-between gap-1.5">
                         <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
                         <input class="border-none outline-none" placeholder="Parcel ID Name/Phone" type="text" name="" id="">
                     </div>
-                    <div class="border p-2 rounded-md text-[#9A9A9A] text-sm">
-                        <select name="" id="">
+                    <div class="w-full border p-2 rounded-md text-[#9A9A9A] text-sm">
+                        <select class="w-full" name="" id="">
                             <option>Select your pick up location</option>
                         </select>
                     </div>
                     <div class="border p-2 rounded-md text-[#9A9A9A] text-sm">
-                        <select name="" id="">
+                        <select class="w-full" name="" id="">
                             <option>Select your pick up location</option>
                         </select>
                     </div>
@@ -380,6 +393,47 @@
                 </div>
                 
                 <div style="overflow: auto;">
+                    <div class="px-3 pt-3 pb-4 border flex flex-col items-center gap-1">
+                        <a href="#" class="mb-2 text-[#E83330] font-semibold text-[11px] py-1.5 px-2 rounded-md bg-[#FFD8D8]">Return with Delivery Charge</a>
+                        <div class="w-full flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <p class="text-sm font-normal text-black">P.ID <span class="text-[#E83330]">54458724543</span></p>
+                                <img src="src/svg/file.svg" alt="" class="scale-75">
+                            </div>
+                            <div>
+                                <p class="font-medium text-sm text-[#399185] px-2.5 py-1 border border-[#399185] rounded-[4px] cursor-not-allowed">Unpaid</p>
+                            </div>
+                        </div>
+                        <div class="w-full flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <img src="src/svg/user.svg" alt="">
+                                <p class="text-sm font-normal text-black">Dr Farhana Wahid Tani</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <img src="src/svg/phone.svg" alt="">
+                                <p class="text-sm font-normal text-black">01636073552</p>
+                            </div>
+                        </div>
+                        <div class="w-full flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <img src="src/svg/location.svg" alt="">
+                                <p class="text-sm font-normal text-black">Gulshan 2</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i class="fa-solid fa-bangladeshi-taka-sign text-sm text-black"></i>
+                                <p class="text-sm font-normal text-black">50,000</p>
+                            </div>
+                        </div>
+                        <div class="w-full flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <p class="text-sm font-medium text-[#1B6EC0]">(Gulshan 2)</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i class="fa-solid fa-bangladeshi-taka-sign text-sm text-black"></i>
+                                <p class="text-sm font-normal text-black">582.19</p>
+                            </div>
+                        </div>
+                    </div>
                     <table class="overflow-x-scroll w-full text-center text-sm rtl:text-right text-black dark:text-gray-400">
                         <thead class="text-xs text-black bg-[#FAFAFA] dark:text-gray-400 py-4 px-4">
                             <tr class="hover:bg-gray-100 text-black">
@@ -473,8 +527,8 @@
                                 </td>
                                 <td class="px-4 py-7 custom-shadow-table">
                                     <div class="flex flex-col gap-5">
-                                        <a href="#" class="bg-[#E83330]  hover:bg-[#cf2825] text-white rounded-md text-lg px-5">View</a>
-                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
+                                        <a href="#" class="bg-[#E83330]  hover:bg-[#cf2825] text-white rounded-md text-lg px-5 font-normal">View</a>
+                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5 font-normal">Edit</a>
                                     </div>
                                 </td>
                             </tr>
@@ -544,8 +598,8 @@
                                 </td>
                                 <td class="px-4 py-7 custom-shadow-table">
                                     <div class="flex flex-col gap-5">
-                                        <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5">View</a>
-                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
+                                        <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5 font-normal">View</a>
+                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5 font-normal">Edit</a>
                                     </div>
                                 </td>
                             </tr>
@@ -615,8 +669,8 @@
                                 </td>
                                 <td class="px-4 py-7 custom-shadow-table">
                                     <div class="flex flex-col gap-5">
-                                        <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5">View</a>
-                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5">Edit</a>
+                                        <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5 font-normal">View</a>
+                                        <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5 font-normal">Edit</a>
                                     </div>
                                 </td>
                             </tr>
@@ -772,6 +826,53 @@
         
             setupToggle(div1, div2);
             setupToggle(div12, div22);
-        </scri>
+        </script>
+        <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+        <script src="https://unpkg.com/element-ui@2.15.14/lib/index.js"></script>
+        <script src="https://unpkg.com/element-ui@2.15.14/lib/umd/locale/en.js"></script>
+
+        <script>
+            var Main = {
+                    data() {
+                    return {
+                        pickerOptions: {
+                        shortcuts: [{
+                            text: 'Last week',
+                            onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            picker.$emit('pick', [start, end]);
+                            }
+                        }, {
+                            text: 'Last month',
+                            onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            picker.$emit('pick', [start, end]);
+                            }
+                        }, {
+                            text: 'Last 3 months',
+                            onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            picker.$emit('pick', [start, end]);
+                            }
+                        }]
+                        },
+                        value1: '',
+                        value2: ''
+                    };
+                    }
+                };
+                var Ctor = Vue.extend(Main)
+                new Ctor().$mount('#app')
+                ELEMENT.locale(ELEMENT.lang.en);
+
+
+          </script>
+
 </body>
 </html>

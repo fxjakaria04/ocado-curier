@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+.el-range-separator {
+    width: 7% !important;
+}
 
 .active {
     @apply bg-[#E8333036] p-1 rounded-md text-[#E83330];
@@ -51,6 +53,8 @@
     background-color: red;
   }
 
+
+  @import url("https://unpkg.com/element-ui@2.15.14/lib/theme-chalk/index.css");
 
 
 

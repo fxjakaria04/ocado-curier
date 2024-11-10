@@ -325,19 +325,22 @@
 
             </div>
             <div class="w-full px-8 m-auto mt-[61px]">
-                <h1 class="text-2xl font-medium">Setting</h1>
+                <h1 class="text-2xl font-medium">Profile</h1>
             </div>
         </section>
 
         <!-- profile begining -->
 
         <section>
-            <div class="w-full px-8 m-auto grid grid-cols-12 gap-6 my-8 items-start">
-                <div class="md:col-span-3 col-span-12 bg-white rounded-lg flex flex-col">
+            <div class="w-full md:px-8 px-[15px] m-auto grid grid-cols-12 gap-6 my-8 items-start">
+                <div x-data="{popupShow: false}" class="md:col-span-3 col-span-12 bg-white rounded-lg flex flex-col relative">
                     <div class="w-full mt-10 mb-5">
                         <div class="rounded-full w-[130px] h-[130px] m-auto relative" style="background: url(https://jakariatalukdar.com/img/squre.jpeg); background-size: cover;">
-                            <img class="bg-[#E83330] p-3 rounded-full border-2 border-white absolute bottom-0 right-0" src="src/svg/camera.svg" alt="">
+                            <img @click="popupShow = !popupShow" @click.outside="popupShow = false" class="bg-[#E83330] p-3 rounded-full border-2 border-white absolute bottom-0 right-0" src="src/svg/camera.svg" alt="">
                         </div>
+                    </div>
+                    <div x-show="popupShow" x-transition class="absolute bg-[#FFEDED] rounded-[4px] p-6 py-4 text-[#2A353A] text-center top-[170px]">
+                        <p><i class="fa-solid fa-circle-exclamation"></i> Please go to edit your profile picture and change it.</p>
                     </div>
                     <div class="text-center mb-8">
                         <p class="text-[#2A353A] font-medium">Shop Name</p>
@@ -356,7 +359,7 @@
                             <p class="text-[#717579] font-medium">10</p>
                         </div>
                         <div class="border-b flex items-center justify-between pl-[30px] pr-[18px] py-[18px]">
-                            <p class="text-[#666666] font-normal">Receivable Amount</p>
+                            <p class="text-[#666666] font-normal">Total RECD Amount</p>
                             <p class="text-[#717579] font-medium text-xs flex gap-1 items-center">
                                 <span>
                                     <img src="src/svg/BDT.svg" class="w-[9px]" alt="">
@@ -377,61 +380,61 @@
                             <i class="fa-solid fa-circle-exclamation"></i>
                         </span>
                         Your name is updated with verified NID name, you can't edit your name</p>
-                    <form action="" class="px-11 mt-1 pb-10 grid md:grid-cols-2 grid-cols-1 gap-7">
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                    <form action="" class="px-[26px] md:px-11 mt-1 pb-10 grid md:grid-cols-2 grid-cols-1 gap-7">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="name">Name</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Shop owner name" type="text" name="" id="name">
+                            <input class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" placeholder="Shop owner name" type="text" name="" id="name">
                         </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="phone">Phone</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your number" type="number" name="" id="phone">
+                            <input class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" placeholder="Enter your number" type="number" name="" id="phone">
                         </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="sphone">Secondary Number</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your number" type="text" name="" id="sphone">
+                            <input class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" placeholder="Enter your number" type="text" name="" id="sphone">
                         </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="email">Email</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your email" type="email" name="" id="email">
+                            <input class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" placeholder="Enter your email" type="email" name="" id="email">
                         </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="email">Pick up Address</label>
-                            <textarea class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter your pick up address" type="text" name="" id="email"></textarea>
+                            <textarea class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" placeholder="Enter your pick up address" type="text" name="" id="email"></textarea>
                         </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="website">Website/Facebook Page (Optional)</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" placeholder="Enter url" type="url" name="" id="website">
+                            <input class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" placeholder="Enter url" type="url" name="" id="website">
                         </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="NIDF">NID Card Front Side</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" type="file" name="" id="NIDF">
+                            <input class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" type="file" name="" id="NIDF">
                         </div>
-                        <div class="col-span-1 flex flex-col gap-1.5">
+                        <div class="col-span-1 flex flex-col gap-[9px]">
                             <label class="text-xs font-normal text-[#312A2A]" for="NIDB">NID Card Back Side</label>
-                            <input class="border outline-none py-3 px-[18px] text-xs text-[#717579BF] rounded-lg" type="file" name="" id="NIDB">
+                            <input class="border outline-none py-3 px-[18px] text-xs rounded-lg placeholder:text-[#717579BF] text-[#2A353A]" type="file" name="" id="NIDB">
                         </div>
                     </form>
-                    <div class="bg-white">
-                        <h1 class="mb-5 ml-[44px] mr-[28px] text-[#2A353A] font-semibold">Login History</h1>
-                        <div class="ml-[44px] mr-[28px] border-b py-4 flex items-center justify-between">
-                            <div class="flex items-center gap-4">
-                                <img src="src/svg/mobile.svg" alt="" class="bg-[#FAFAFA] border-[#EBF0ED] px-[21px] py-[18px] rounded-[10px]">
+                    <div class="bg-white border-t pt-[14px]">
+                        <h1 class="mb-5 ml-7 md:ml-[44px] mr-[28px] text-[#2A353A] font-semibold">Login History</h1>
+                        <div class="ml-[12px] md:ml-[44px] mr-3 md:mr-[28px] border-b py-4 flex items-center justify-between">
+                            <div class="flex items-center md:gap-4 gap-3">
+                                <img src="src/svg/mobile.svg" alt="" class="bg-[#FAFAFA] border border-[#EBF0ED] px-[21px] py-[18px] rounded-[10px]">
                                 <div>
-                                    <p class="text-[#18120F]">Phone</p>
-                                    <p class="font-light text-sm text-[#6B6B6B]">Apr 02, 2024 at 06:04 AM</p>
+                                    <p class="text-[#18120F] md:text-base text-sm">Phone</p>
+                                    <p class="font-light md:text-sm text-xs text-[#6B6B6B]">Apr 02, 2024 at 06:04 AM</p>
                                 </div>
                             </div>
-                            <p class="text-[#E83330] font-medium">Logout</p>
+                            <p class="text-[#E83330] font-medium md:text-base text-sm">Logout</p>
                         </div>
-                        <div class="ml-[44px] mr-[28px] border-b py-4 flex items-center justify-between">
-                            <div class="flex items-center gap-4">
-                                <img src="src/svg/red-desktop.svg" alt="" class="bg-[#FAFAFA] border-[#EBF0ED] px-[21px] py-[18px] rounded-[10px]">
+                        <div class="ml-[12px] md:ml-[44px] mr-3 md:mr-[28px] border-b py-4 flex items-center justify-between">
+                            <div class="flex items-center md:gap-4 gap-3">
+                                <img src="src/svg/red-desktop.svg" alt="" class="bg-[#FAFAFA] border border-[#EBF0ED] px-[21px] py-[18px] rounded-[10px]">
                                 <div>
-                                    <p class="text-[#18120F]">Web</p>
-                                    <p class="font-light text-sm text-[#6B6B6B]">Mar 15, 2024 at 08:02 AM</p>
+                                    <p class="text-[#18120F] md:text-base text-sm">Web</p>
+                                    <p class="font-light md:text-sm text-xs text-[#6B6B6B]">Mar 15, 2024 at 08:02 AM</p>
                                 </div>
                             </div>
-                            <p class="text-[#E83330] font-medium">Logout</p>
+                            <p class="text-[#E83330] font-medium md:text-base text-sm">Logout</p>
                         </div>
                     </div>
                 </div>
