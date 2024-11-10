@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- auth -->
-    <div id="auth" class="w-screen h-screen bg-[#FFF5F5] flex items-center justify-center">
+    <div id="auth" class="hidden w-screen h-screen bg-[#FFF5F5] flex items-center justify-center">
         <div class="bg-white p-6 w-[370px] rounded-lg flex items-center justify-center flex-col gap-2">
             <img class="w-36" src="src/svg/Group Logo.svg" alt="">
             <p class="text-3xl font-bold mb-3">Log In</p>
@@ -337,6 +337,7 @@
                     <h1 class="text-2xl font-medium">Dashboard</h1>
                     <p class="text-sm">Let’s check your update today</p>
                 </div>
+                
                 <!-- activity button -->
                 <div class="flex items-center justify-end gap-2 w-[98%] m-auto text-sm mb-3">
                     <p>See your total activity</p>
@@ -346,9 +347,6 @@
                     </label>
                 </div>
                 <!-- Card Area -->
-                <div>
-                    <div class="card"></div>
-                </div>
             </div>
         </section>
         <!-- box section -->
@@ -857,7 +855,7 @@
               }
             });
           </script>
-          <script>
+          <!-- <script>
             const auth = {username: "admin@gmail.com", password: "12345678"};
             const firstAuth = document.getElementById("auth");
             const dashboard = document.getElementById("dashboard");
@@ -878,7 +876,7 @@
                 }
             })
     
-        </script>
+        </script> -->
         <script>
             function setupToggle(div, divToToggle) {
                 div.addEventListener("click", function() {
