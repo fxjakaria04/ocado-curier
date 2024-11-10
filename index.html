@@ -564,7 +564,14 @@
                         <div class="flex flex-col md:flex-row p-5">
                             <diV class="md:w-6/12 w-full my-3 flex items-end justify-center">
                                     <!-- <canvas id="myChart"></canvas> -->
-                                     <div id="chart"></div>
+                                     <!-- <div id="chart"></div> -->
+                                     <div id="chart" style="position: relative;">
+                                        <div id="center-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                            <div id="line1" style="font-size: 18px; color: #888;">Layer 1</div>
+                                            <div id="line2" style="font-size: 24px; color: #111;">75%</div>
+                                            <div id="line3" style="font-size: 16px; color: #888;">Description</div>
+                                        </div>
+                                    </div>
                             </diV>
                             <diV class="w-full md:w-6/12 flex md:justify-center justify-between md:gap-7 gap-2 md:flex-col flex-row">
                                 <div class="flex gap-1">
@@ -912,67 +919,88 @@
 
         <div id="chart"></div>
 
-<script>
-    var options = {
-        series: [75, 50, 25], // Multiple layers, each with its own value
-        chart: {
-            height: 350,
-            type: 'radialBar',
-            toolbar: {
-                show: true
-            }
-        },
-        plotOptions: {
-            radialBar: {
-                startAngle: -135,
-                endAngle: 225,
-                hollow: {
-                    margin: 5,
-                    size: '50%',
-                    background: '#fff',
-                    position: 'front'
-                },
-                track: {
-                    background: '#fff',
-                    strokeWidth: '67%',
-                    dropShadow: {
-                        enabled: true, // Enable shadow for track
-                        top: 0,
-                        left: 0,
-                        blur: 0,
-                        opacity: 1
-                    }
-                },
-                dataLabels: {
-                    show: true,
-                    name: {
-                        offsetY: -10,
-                        color: '#888',
-                        fontSize: '17px'
+        <script>
+            var options = {
+                series: [75, 50, 25], // Multiple layers, each with its own value
+                chart: {
+                    height: 350,
+                    type: 'radialBar',
+                    toolbar: {
+                        show: true
                     },
-                    value: {
-                        formatter: function (val) {
-                            return parseInt(val);
+                    events: {
+                        dataPointMouseEnter: function(event, chartContext, config) {
+                            // Update center text on hover
+                            var layerInfo = [
+                                { title: 'Layer 1', value: '75%', description: 'First Layer Info' },
+                                { title: 'Layer 2', value: '50%', description: 'Second Layer Info' },
+                                { title: 'Layer 3', value: '25%', description: 'Third Layer Info' }
+                            ];
+                            
+                            var info = layerInfo[config.seriesIndex];
+                            document.getElementById("line1").innerText = info.title;
+                            document.getElementById("line2").innerText = info.value;
+                            document.getElementById("line3").innerText = info.description;
                         },
-                        color: '#111',
-                        fontSize: '36px',
-                        show: true,
+                        dataPointMouseLeave: function(event, chartContext, config) {
+                            // Reset to default center text when not hovering
+                            document.getElementById("line1").innerText = 'Layer 1';
+                            document.getElementById("line2").innerText = '75%';
+                            document.getElementById("line3").innerText = 'Description';
+                        }
                     }
-                }
-            }
-        },
-        fill: {
-            colors: ['#249782', '#F28D61', '#E03939'] // Use solid colors for each layer
-        },
-        stroke: {
-            lineCap: 'round'
-        },
-        labels: ['Layer 1', 'Layer 2', 'Layer 3'] // Label each layer
-    };
-
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-</script>
+                },
+                plotOptions: {
+                    radialBar: {
+                        startAngle: -135,
+                        endAngle: 225,
+                        hollow: {
+                            margin: 5,
+                            size: '50%',
+                            background: '#fff',
+                            position: 'front'
+                        },
+                        track: {
+                            background: '#fff',
+                            strokeWidth: '67%',
+                            dropShadow: {
+                                enabled: true,
+                                top: 0,
+                                left: 0,
+                                blur: 0,
+                                opacity: 1
+                            }
+                        },
+                        dataLabels: {
+                            show: true,
+                            name: {
+                                offsetY: -10,
+                                color: '#888',
+                                fontSize: '17px'
+                            },
+                            value: {
+                                formatter: function (val) {
+                                    return parseInt(val);
+                                },
+                                color: '#111',
+                                fontSize: '36px',
+                                show: true,
+                            }
+                        }
+                    }
+                },
+                fill: {
+                    colors: ['#249782', '#F28D61', '#E03939'] // Use solid colors for each layer
+                },
+                stroke: {
+                    lineCap: 'round'
+                },
+                labels: ['Layer 1', 'Layer 2', 'Layer 3'] // Label each layer
+            };
+        
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        </script>
 
         
 
