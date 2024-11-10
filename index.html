@@ -562,8 +562,9 @@
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row p-5">
-                            <diV class="md:w-6/12 w-full my-3 flex items-end justify-center rotate-90">
-                                    <canvas id="myChart"></canvas>
+                            <diV class="md:w-6/12 w-full my-3 flex items-end justify-center">
+                                    <!-- <canvas id="myChart"></canvas> -->
+                                     <div id="chart"></div>
                             </diV>
                             <diV class="w-full md:w-6/12 flex md:justify-center justify-between md:gap-7 gap-2 md:flex-col flex-row">
                                 <div class="flex gap-1">
@@ -757,6 +758,8 @@
       </style>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
         <script>
             // setup 
             let max;
@@ -901,5 +904,78 @@
             setupToggle(div1, div2);
             setupToggle(div12, div22);
         </script>
+        <div id="chart"></div>
+
+        <div id="chart"></div>
+
+        <div id="chart"></div>
+
+        <div id="chart"></div>
+
+<script>
+    var options = {
+        series: [75, 50, 25], // Multiple layers, each with its own value
+        chart: {
+            height: 350,
+            type: 'radialBar',
+            toolbar: {
+                show: true
+            }
+        },
+        plotOptions: {
+            radialBar: {
+                startAngle: -135,
+                endAngle: 225,
+                hollow: {
+                    margin: 5,
+                    size: '50%',
+                    background: '#fff',
+                    position: 'front'
+                },
+                track: {
+                    background: '#fff',
+                    strokeWidth: '67%',
+                    dropShadow: {
+                        enabled: true, // Enable shadow for track
+                        top: 0,
+                        left: 0,
+                        blur: 0,
+                        opacity: 1
+                    }
+                },
+                dataLabels: {
+                    show: true,
+                    name: {
+                        offsetY: -10,
+                        color: '#888',
+                        fontSize: '17px'
+                    },
+                    value: {
+                        formatter: function (val) {
+                            return parseInt(val);
+                        },
+                        color: '#111',
+                        fontSize: '36px',
+                        show: true,
+                    }
+                }
+            }
+        },
+        fill: {
+            colors: ['#249782', '#F28D61', '#E03939'] // Use solid colors for each layer
+        },
+        stroke: {
+            lineCap: 'round'
+        },
+        labels: ['Layer 1', 'Layer 2', 'Layer 3'] // Label each layer
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+</script>
+
+        
+
+        
 </body>
 </html>
