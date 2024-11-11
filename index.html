@@ -58,7 +58,7 @@
         <div class="flex items-start md:items-start justify-between gap-7 flex-col w-full">
             <div class="w-full justify-center flex gap-6 items-center mb-5 md:mb-0">
                 <a :class="isHover ? 'w-64 : 'w-9'"  class="flex items-center justify-center" href="index.html">
-                    <img id="responsive-logo" :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="" class="w-[44px] pt-1">
+                    <img id="responsive-logo" :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="" class="w-[44px] pt-4">
                 </a>
                 <!-- <i x-on:click="isHover = false" x-show="isHover" class="fa-solid fa-chevron-left cursor-pointer"></i> -->
             </div>
@@ -188,7 +188,7 @@
                 <div class="w-full block md:hidden">
                     <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
                 </div>
-                <div class="border px-7 py-3 rounded-2xl flex items-center gap-[10px]">
+                <div class="border px-4 py-1 rounded-2xl flex items-center gap-[10px]">
                     <i class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
                     <input class="bg-transparent outline-none text-gray-500 text-sm" type="text" name="" id="" placeholder="Search your parcel">
                 </div>
@@ -255,9 +255,9 @@
                     <span class="bg-[#E8333059] text-[#E83330] text-lg px-[14px] py-2 rounded-full">0</span>
                 </div>
                 <div class="flex items-center gap-5 mr-7" @click="profileActive = !profileActive" @click.outside="profileActive = false">
-                    <div>
-                        <p>Shop Name</p>
-                        <small class="text-xs">Merchant</small>
+                    <div class="flex items-start flex-col gap-1 cursor-pointer">
+                        <p class="text-[#404040] font-bold text-sm whitespace-nowrap">Shop Name</p>
+                        <small class="text-xs text-[#565656] font-semibold">Merchant</small>
                     </div>
                     <img src="src/svg/down-rounded.svg" alt="" class="w-[18px]">
                 </div>

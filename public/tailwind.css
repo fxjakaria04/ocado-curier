@@ -2075,6 +2075,10 @@ video {
   padding-top: 0.25rem;
 }
 
+.pt-\[\] {
+  padding-top: ;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2469,6 +2473,16 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#404040\] {
+  --tw-text-opacity: 1;
+  color: rgb(64 64 64 / var(--tw-text-opacity));
+}
+
+.text-\[\#565656\] {
+  --tw-text-opacity: 1;
+  color: rgb(86 86 86 / var(--tw-text-opacity));
 }
 
 .shadow {
