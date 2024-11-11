@@ -52,7 +52,6 @@
   }
 
 
-  @import url("https://unpkg.com/element-ui@2.15.14/lib/theme-chalk/index.css");
 
 
 
@@ -103,3 +102,7 @@
 .actionBtn{
     accent-color: #E84343;
 }
+.el-range-input {
+    width: 90px;
+}
+@import url("https://unpkg.com/element-ui@2.15.14/lib/theme-chalk/index.css");

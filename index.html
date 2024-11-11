@@ -308,15 +308,15 @@
                     <div class="topbar flex items-center justify-center w-full">
                         <div class="overflow-hidden">
                             <div class="flex relative  gap-[18px] p-1 pr-3 text-center" style="background: url(src/svg/navbarShape.svg); background-size: contain; background-repeat: no-repeat;">
-                                <a href="add-parcel.html" class="border-[#A9A9A9] flex  border-r-1 px-0 my-2 mr-0 md:pr-2 pl-4 flex-col md:flex-row gap-[7px] md:border-r-2 items-center">
+                                <a href="add-parcel.html" class="border-[#A9A9A9] flex  border-r-1 px-0 my-2 mr-0 md:pr-2 pl-4 flex-col md:flex-row gap-[7px] md:border-r items-center">
                                     <img src="src/svg/add-parcel-with-outline.svg" alt="" class="w-[20px]">
                                     <p class="text-xs font-medium text-[#202224]">Add Parcel</p>
                                 </a>
-                                <a href="#" class="border-[#A9A9A9] flex  border-r-1 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row gap-[7px] md:border-r-2 items-center">
+                                <a href="#" class="border-[#A9A9A9] flex  border-r-1 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row gap-[7px] md:border-r items-center">
                                     <img src="src/svg/bulkImport-with-outline.svg" alt="" class="w-[20px]">
                                     <p class="text-xs font-medium text-[#202224]">Bulk Import</p>
                                 </a>
-                                <a href="#" class="border-[#A9A9A9] flex  border-r-1 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row gap-[7px] md:border-r-2 items-center">
+                                <a href="#" class="border-[#A9A9A9] flex  border-r-1 px-0 my-2 mr-0 md:pr-2 flex-col md:flex-row gap-[7px] md:border-r items-center">
                                     <img src="src/svg/express-delevery-with-outline.svg" alt="" class="w-[20px]">
                                     <p class="text-xs font-medium text-[#202224]">Express Delivery</p>
                                 </a>
@@ -410,7 +410,7 @@
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
                         <div class="bg-[#D9F7E8] inline-block px-1 md:px-2 py-2 md:py-3 rounded-full custom-shadow-2s">
-                            <img src="src/svg/ready-to-delevery.svg" alt="">
+                            <img src="src/svg/ready-for-delevery.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -424,7 +424,7 @@
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
                         <div class="bg-[#D9F7E8] inline-block md:p-3 p-1.5 rounded-full custom-shadow-2s">
-                            <img src="src/svg/delevered.svg" alt="">
+                            <img src="src/svg/delevered-new.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -460,7 +460,7 @@
         </section>
         <!-- hero part -->
          <section>
-            <div class="w-[98%] m-auto grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-[30px]">
+            <div class="w-[98%] m-auto grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-[30px]">
                 <div class="col-span-5 md:col-span-2 lg:col-span-2 hidden md:block">
 
                     <div class="col-span-2 flex p-9 bg-white rounded-lg custom-shadow-6 mb-[30px]">
@@ -570,11 +570,10 @@
                     <div class="bg-white w-full rounded-lg p-3">
                         <div class="flex items-center justify-between">
                             <p class="font-medium text-lg">Total Overview</p>
-                            <div class="border py-1 px-2 rounded-md">
+                            <div class="rounded-md">
                                 <div id="app">
                                     <template>
                                       <div class="block">
-                                        <span class="demonstration">With quick options</span>
                                         <el-date-picker
                                           v-model="value2"
                                           type="daterange"
@@ -742,7 +741,7 @@
          </section>
          <!-- bottom graph -->
          <section>
-            <div class="w-[98%] bg-white m-auto rounded-md p-3 mt-3">
+            <div class="w-[98%] bg-white m-auto rounded-md p-3 mt-[40px]">
                 <div>
                     <p class="text-xl font-semibold text-[#202224]">30 Days Delivered Parcel</p>
                     <div     id="last-chart"></div>
@@ -811,6 +810,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.14/lib/index.js"></script>
 
 
         <script>
@@ -1001,7 +1002,7 @@
                         },
                         track: {
                             background: '#fff',
-                            strokeWidth: '67%',
+                            strokeWidth: '90%',
                             dropShadow: {
                                 enabled: true,
                                 top: 0,
