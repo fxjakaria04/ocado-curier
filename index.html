@@ -50,7 +50,7 @@
         <!-- side navbar -->
         <div x-transition
         
-        :class="isHover ? 'md:w-[25%] xl:w-[20%] w-56 bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
+        :class="isHover ? 'md:w-[25%] xl:w-[25%] w-56 bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
         
         class="border-r-2 transition-width duration-300 pr-0 h-screen flex flex-col justify-between z-10 bg-gradient-to-b from-[#FFEDED80] to-[#ffffff] shadow rounded-br-lg pb-4 gap-7"
     >
@@ -151,7 +151,7 @@
             <div x-data="{iprofileClicked: false}" x-transition class="w-full bg-white  flex items-center justify-between duration-300 transition-all h-fit relative z-20">
                 <div class="w-full flex items-center justify-between md:ml-6 cursor-pointer">
                    <div class="flex items-center md:gap-6 gap-[18px]">
-                    <i x-on:click="isHover = !isHover" @click.outside="isHover = false" class="fa-solid fa-bars"></i>
+                    <i id="bar" x-on:click="isHover = !isHover" @click.outside="isHover = false" class="fa-solid fa-bars"></i>
                     <img src="src/svg/Dashboard Logo.svg" alt="">
                    </div>
                     <div x-data="{isSearch: false}" class="flex items-center gap-3 px-4 md:hidden">
@@ -1066,13 +1066,22 @@
             new Ctor().$mount('#app')
         </script>
         <script>
-            const responsiveLogo = document.getElementById("responsive-logo");
-            console.log(responsiveLogo.src)
-            if(responsiveLogo.src === "http://127.0.0.1:5500/src/svg/logo.png"){
-                console.log("logo.png succesfully")
-            }else {
-                console.log("secound condition exicuted succesfully")
-            }
+            document.getElementById("bar").addEventListener("click", function() {
+                const responsiveLogo = document.getElementById("responsive-logo");
+                if (responsiveLogo) {
+                    console.log(responsiveLogo.src);
+                    if (responsiveLogo.src === "http://127.0.0.1:5500/src/svg/logo.png") {
+                        responsiveLogo.classList.add("w-[54px]");
+                        responsiveLogo.classList.remove("w-[100px]");
+                    } else if (responsiveLogo.src === "http://127.0.0.1:5500/src/svg/ocadologo%202.svg") {
+                        responsiveLogo.classList.remove("w-[54px]");
+                        responsiveLogo.classList.add("w-[100px]");
+                        console.log("second condition executed successfully");
+                    }
+                } else {
+                    console.error("Element with ID 'responsive-logo' not found.");
+                }
+            });
         </script>
 </body>
 </html>
