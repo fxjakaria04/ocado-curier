@@ -58,7 +58,7 @@
         <div class="flex items-start md:items-start justify-between gap-7 flex-col w-full">
             <div class="w-full justify-center flex gap-6 items-center mb-5 md:mb-0">
                 <a :class="isHover ? 'w-64 : 'w-9'"  class="flex items-center justify-center" href="index.html">
-                    <img id="responsive-logo" :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="">
+                    <img id="responsive-logo" :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="" class="w-[44px] pt-1">
                 </a>
                 <!-- <i x-on:click="isHover = false" x-show="isHover" class="fa-solid fa-chevron-left cursor-pointer"></i> -->
             </div>
@@ -1071,10 +1071,10 @@
                 if (responsiveLogo) {
                     console.log(responsiveLogo.src);
                     if (responsiveLogo.src === "http://127.0.0.1:5500/src/svg/logo.png") {
-                        responsiveLogo.classList.add("w-[54px]");
+                        responsiveLogo.classList.add("w-[44px]");
                         responsiveLogo.classList.remove("w-[100px]");
                     } else if (responsiveLogo.src === "http://127.0.0.1:5500/src/svg/ocadologo%202.svg") {
-                        responsiveLogo.classList.remove("w-[54px]");
+                        responsiveLogo.classList.remove("w-[44px]");
                         responsiveLogo.classList.add("w-[100px]");
                         console.log("second condition executed successfully");
                     }

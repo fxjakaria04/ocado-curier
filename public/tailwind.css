@@ -1135,6 +1135,10 @@ video {
   width: 54px;
 }
 
+.w-\[44px\] {
+  width: 44px;
+}
+
 .-translate-y-full {
   --tw-translate-y: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2065,6 +2069,10 @@ video {
 
 .pt-\[14px\] {
   padding-top: 14px;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
 }
 
 .text-left {
