@@ -22,8 +22,8 @@
         
         :class="isHover ? ' w-[250px] bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
         
-        class="border-r-2 transition-width duration-300 pr-0 h-screen flex flex-col justify-between z-10 bg-gradient-to-b from-[#FFEDED80] to-[#ffffff] 
-         rounded-br-lg pb-4 gap-7">
+        class="border-r-2 transition-width duration-300 pr-0 flex flex-col justify-between z-10 bg-gradient-to-b from-[#FFEDED80] to-[#ffffff] 
+          pb-4 gap-7">
 
         <div class="flex items-start md:items-start justify-between gap-7 flex-col">
             <div class="w-full justify-center flex gap-6 items-center mb-0">
@@ -93,7 +93,7 @@
                 </a>
             </div>
         </div>
-        <div class="flex items-start md:items-start justify-between gap-7 flex-col w-full">
+        <div class="flex items-start md:items-start justify-between gap-7 flex-col w-full mb-[90px]">
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
                 <a class="flex items-center gap-3 px-4" href="ParcelRequestList.html">
                     <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
@@ -132,14 +132,16 @@
                 
                     <div x-show="notification" x-transition class="absolute rounded-[20px] bg-white p-4 w-[335px] shadow-2xl" style="top: 46px; right: 0px;">
                         <div class="w-full flex items-center justify-between border-b pb-4">
-                            <p class="text-xl text-[#292929]">Notification</p>
-                            <a href="#" class="text-xs text-[#E83330]">View all</a>
+                            <p class="text-xl text-[#292929] font-normal">Notification</p>
+                            <a href="#" class="text-xs text-[#E83330] font-medium">View all</a>
                         </div>
                         <div class="flex items-start gap-1 mt-4">
-                            <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                            <div class=" bg-[#FF000024] rounded-full p-0.5 flex items-center justify-center mt-1">
+                                <div class="bg-[#EB2C29] rounded-full h-1 w-1"></div>
+                            </div>
                             <div>
-                                <p class="text-[10px]">01-11-24 <span>Today</span></p>
-                                <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                                <p class="text-[10px] font-normal text-[#E83330]">01-11-24 <span class="font-semibold text-[#292929]">Today</span></p>
+                                <p class="font-medium text-[12px] text-[#292929]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
                             </div>
                         </div>
                         <!-- Repeat for additional notifications -->
@@ -164,7 +166,8 @@
                 </div>
                 
 
-                <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex bg-[#FFF9F9] pr-4 py-1.5">
+                <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex bg-[#FFF9F9] pr-4 py-1.5 relative">
+                    <p class="font-medium text-sm text-[#E83330] absolute right-7">Check Your Active Balance </p>
                     <div id="div1" class="absolute transition-all duration-500">
                         
                         <img class="h-full rounded-full border p-[9px] bg-white shadow-md" src="src/svg/click.svg" alt="">
@@ -191,37 +194,46 @@
                 </div>
                 <div x-show="notification" x-transition class="absolute top-[76px] rounded-[20px] bg-white p-4 w-[335px] shadow-2xl">
                     <div class="w-full flex items-center justify-between border-b pb-4">
-                        <p class="text-xl text-[#292929]">Notification</p>
-                        <a href="#" class="text-xs text-[#E83330]">View all</a>
+                        <p class="text-xl text-[#292929] font-normal">Notification</p>
+                        <a href="#" class="text-xs text-[#E83330] font-medium">View all</a>
                     </div>
                     <div class="flex items-start gap-1 mt-4">
-                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div class=" bg-[#FF000024] rounded-full p-0.5 flex items-center justify-center mt-1">
+                            <div class="bg-[#EB2C29] rounded-full h-1 w-1"></div>
+                        </div>
                         <div>
-                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
-                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                            <p class="text-[10px] font-normal text-[#E83330]">01-11-24 <span class="font-semibold text-[#292929]">Today</span></p>
+                            <p class="font-medium text-[12px] text-[#292929]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-1 mt-4">
-                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div class=" bg-[#FF000024] rounded-full p-0.5 flex items-center justify-center mt-1">
+                            <div class="bg-[#EB2C29] rounded-full h-1 w-1"></div>
+                        </div>
                         <div>
-                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
-                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                            <p class="text-[10px] font-normal text-[#E83330]">01-11-24 <span class="font-semibold text-[#292929]">Today</span></p>
+                            <p class="font-medium text-[12px] text-[#292929]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-1 mt-4">
-                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div class=" bg-[#FF000024] rounded-full p-0.5 flex items-center justify-center mt-1">
+                            <div class="bg-[#EB2C29] rounded-full h-1 w-1"></div>
+                        </div>
                         <div>
-                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
-                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                            <p class="text-[10px] font-normal text-[#E83330]">01-11-24 <span class="font-semibold text-[#292929]">Today</span></p>
+                            <p class="font-medium text-[12px] text-[#292929]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-1 mt-4">
-                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div class=" bg-[#FF000024] rounded-full p-0.5 flex items-center justify-center mt-1">
+                            <div class="bg-[#EB2C29] rounded-full h-1 w-1"></div>
+                        </div>
                         <div>
-                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
-                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                            <p class="text-[10px] font-normal text-[#E83330]">01-11-24 <span class="font-semibold text-[#292929]">Today</span></p>
+                            <p class="font-medium text-[12px] text-[#292929]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
                         </div>
                     </div>
+                    
 
                 </div>
                 <div>
@@ -295,9 +307,9 @@
                 </div>
                 <!-- headline -->
                 <div class="w-full flex md:hidden items-center justify-center mt-6 mb-8">
-                    <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
-                        <div id="div12" class="absolute transition-all duration-500">
-                            <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
+                    <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex">
+                        <div id="div12" class="absolute transition-all duration-500 rounded-full w-8 h-8 bg-white shadow-sm flex items-center justify-center left-[15px]" style="box-shadow: 3px 0px 7px rgb(179, 179, 179);">
+                            <img class="h-full rounded-full w-4" src="src/svg/click.svg" alt="">
                         </div>
                         <p id="activity2" class="hidden">Check Your Active Balance</p>
                         <div id="div22" class="flex flex-row gap-4 invisible  py-1 px-2">
@@ -318,7 +330,7 @@
                 </div>
 
 
-                <div class="w-[98%] m-auto">
+                <div class="w-[98%] m-auto mb-3">
                     <h1 class="text-[32px] font-bold text-[#202224]">Dashboard</h1>
                     <p class="font-normal text-[#4E4E4E] text-base">Let’s check your update today</p>
                 </div>
@@ -329,7 +341,7 @@
                     <label class="switch flex items-center relative">
                         <input id="checkbox" type="checkbox" id="toggle">
                         <span class="slider"></span>
-                        <span id="slider-text" class="absolute -top-1 right-1.5 text-[8px] text-white font-bold">Today</span>
+                        <span id="slider-text" class="absolute -top-1 right-1.5 text-[8px] text-white font-medium">Today</span>
                     </label>
                 </div>
                 <!-- Card Area -->
@@ -569,42 +581,42 @@
                                     </div>
                                 </div>
                             </diV>
-                            <diV class="w-full md:w-6/12 flex md:justify-center justify-between md:gap-7 gap-2 md:flex-col flex-row">
-                                <div class="flex gap-1">
-                                    <div class="h-4 w-4 bg-[#249782] rounded-full mt-1"></div>
+                            <diV class="w-full md:w-6/12 flex md:justify-center justify-between md:gap-7 gap-2 md:flex-col flex-row md:pl-11">
+                                <div class="flex gap-1.5">
+                                    <div class="h-2.5 w-2.5 bg-[#249782] rounded-full mt-1"></div>
                                     <div>
                                         <p class="text-[#249782] text-lg leading-none font-medium">Delivered Parcel</p>
                                         <div class="flex text-xs">
-                                            <p>50 parcel | ৳ 3,66,542</p>
+                                            <p class="font-semibold"><span class="text-[#249782] font-medium">50</span> Parcel <span class="text-[#249782]">|</span> ৳ 3,66,542</p>
                                         </div>  
                                     </div>
                                 </div>
-                                <div class="md:flex gap-1 pl-3 hidden">
-                                    <div class="h-4 w-4 bg-[#F28D61] rounded-full mt-1"></div>
+                                <div class="md:flex gap-1.5 pl-3 hidden">
+                                    <div class="h-2.5 w-2.5 bg-[#F28D61] rounded-full mt-1"></div>
                                     <div>
-                                        <p class="text-[#F28D61] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <p class="text-[#F28D61] text-lg leading-none font-medium">Parcel Process</p>
                                         <div class="flex text-xs">
-                                            <p>50 parcel | ৳ 3,66,542</p>
+                                            <p class="font-semibold"><span class="text-[#F28D61] font-medium">50</span> Parcel <span class="text-[#F28D61]">|</span> ৳ 3,66,542</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex gap-1">
-                                    <div class="h-4 w-4 bg-[#E03939] rounded-full mt-1"></div>
+                                <div class="flex gap-1.5">
+                                    <div class="h-2.5 w-2.5 bg-[#E03939] rounded-full mt-1"></div>
                                     <div>
-                                        <p class="text-[#E03939] text-lg leading-none font-medium">Delivered Parcel</p>
+                                        <p class="text-[#E03939] text-lg leading-none font-medium">Return Parcel</p>
                                         <div class="flex text-xs">
-                                            <p>50 parcel | ৳ 3,66,542</p>
+                                            <p class="font-semibold"><span class="text-[#E03939] font-medium">50</span> Parcel <span class="text-[#E03939]">|</span> ৳ 3,66,542</p>
                                         </div>
                                     </div>
                                 </div>
                             </diV>
                             <div class="w-full flex items-center justify-center py-6 md:hidden">
                                 <div class="flex gap-1 pl-3">
-                                    <div class="h-4 w-4 bg-[#F28D61] rounded-full mt-1"></div>
+                                    <div class="h-2.5 w-2.5 bg-[#F28D61] rounded-full mt-1"></div>
                                     <div>
                                         <p class="text-[#F28D61] text-lg leading-none font-medium">Delivered Parcel</p>
                                         <div class="flex text-xs">
-                                            <p>50 parcel | ৳ 3,66,542</p>
+                                            <p class="font-semibold"><span class="text-[#F28D61] font-medium">50</span> Parcel <span class="text-[#F28D61]">|</span> ৳ 3,66,542</p>
                                         </div>
                                     </div>
                                 </div>
@@ -707,7 +719,7 @@
          </section>
          <!-- bottom graph -->
          <section>
-            <div class="w-[98%] bg-white m-auto rounded-md p-3 mt-[40px]">
+            <div class="w-[98%] bg-white m-auto rounded-md p-3 mt-[40px] mb-[70px]">
                 <div>
                     <p class="text-xl font-semibold text-[#202224]">30 Days Delivered Parcel</p>
                     <div     id="last-chart"></div>
@@ -720,8 +732,8 @@
     </div>
 
     <footer>
-        <div class="px-5 py-3 border-t-2 text-center w-full">
-            <small> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
+        <div class="px-5 py-3 border-t-2 text-center w-full bg-gray-100">
+            <small class="text-[#979797]"> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
         </div>
     </footer>
     <!-- body -->
@@ -758,7 +770,7 @@
         content: "";
         height: 10px;
         width: 10px;
-        left: 4px;
+        left: 2px;
         bottom:1px;
         background-color: white;
         transition: .4s;
@@ -766,11 +778,11 @@
     }
 
     input:checked + .slider {
-        background-color: rgb(0, 156, 0);
+        background-color: #E83330;
     }
 
     input:checked + .slider:before {
-        transform: translateX(29px);
+        transform: translateX(31px);
     }
       </style>
 
@@ -781,7 +793,7 @@
     checkbox.addEventListener("change", function() {
         console.log("Somebody clicked me");
         if (checkbox.checked) {
-            sliderText.innerText = "Today";
+            sliderText.innerText = "Total";
             sliderText.classList.remove("right-1.5");
             sliderText.classList.add("left-1");
         } else {
