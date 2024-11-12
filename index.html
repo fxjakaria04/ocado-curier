@@ -16,7 +16,7 @@
         }
     </style>
     <!-- auth -->
-    <div id="auth" class="hidden w-screen h-screen bg-[#FFF5F5] flex items-center justify-center">
+    <div id="auth" class="hidden w-screen h-screen bg-[#FFF5F5] items-center justify-center">
         <div class="bg-white p-6 w-[370px] rounded-lg flex items-center justify-center flex-col gap-2">
             <img class="w-36" src="src/svg/Group Logo.svg" alt="">
             <p class="text-3xl font-bold mb-3">Log In</p>
@@ -46,7 +46,7 @@
 
 
     <!-- navbars -->
-    <div id="dashboard" x-data="{ isHover: false, profileActive: false }" @click.outside="isHover = false" class="flex bg-[#FEF3F3]">
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false }" @click.outside="isHover = false" class="flex bg-[#fff]">
         <!-- side navbar -->
         <div x-transition
         
@@ -143,7 +143,7 @@
     </div>
         <!-- body -->
         <div 
-        class="w-full bg-[#FFF5F5] transition-width duration-100"
+        class="w-full bg-gradient-to-b from-[#FFEDED80] to-[#FFE3E366] transition-width duration-100"
         >
         <!-- top navbar -->
         <div x-data="{isclicked: false}" class="w-full bg-white px-10 py-5 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md relative z-20" x-transition style="padding: 8px 0px;">
@@ -766,6 +766,7 @@
         display: inline-block;
         width: 45px;
         height: 12px;
+        cursor: pointer;
     }
 
     .switch input {
@@ -776,7 +777,6 @@
 
     .slider {
         position: absolute;
-        cursor: pointer;
         top: 0;
         left: 0;
         right: 0;
