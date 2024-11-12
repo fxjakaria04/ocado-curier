@@ -329,7 +329,7 @@
                     <label class="switch flex items-center relative">
                         <input id="checkbox" type="checkbox" id="toggle">
                         <span class="slider"></span>
-                        <span id="slider-text" class="absolute -top-1 right-1 text-[8px] text-white font-extrabold">Today</span>
+                        <span id="slider-text" class="absolute -top-1 right-1.5 text-[8px] text-white font-bold">Today</span>
                     </label>
                 </div>
                 <!-- Card Area -->
@@ -782,11 +782,11 @@
         console.log("Somebody clicked me");
         if (checkbox.checked) {
             sliderText.innerText = "Today";
-            sliderText.classList.remove("right-1");
+            sliderText.classList.remove("right-1.5");
             sliderText.classList.add("left-1");
         } else {
             sliderText.innerText = "Today";
-            sliderText.classList.add("right-1");
+            sliderText.classList.add("right-1.5");
             sliderText.classList.remove("left-1");
         }
     });

@@ -703,6 +703,10 @@ video {
   top: 1px;
 }
 
+.right-1\.5 {
+  right: 0.375rem;
+}
+
 .z-10 {
   z-index: 10;
 }
