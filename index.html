@@ -15,39 +15,9 @@
             display: none;
         }
     </style>
-    <!-- auth -->
-    <div id="auth" class="hidden w-screen h-screen bg-[#FFF5F5] items-center justify-center">
-        <div class="bg-white p-6 w-[370px] rounded-lg flex items-center justify-center flex-col gap-2">
-            <img class="w-36" src="src/svg/Group Logo.svg" alt="">
-            <p class="text-3xl font-bold mb-3">Log In</p>
-            <form action="" class="w-full flex flex-col gap-5">
-                <div class="flex flex-col">
-                    <!-- <label class="font-medium" for="uname">Username</label> -->
-                <input id="user" class="border-b outline-none py-1 px-2 text-gray-600 text-sm" placeholder="Email" type="email" name="" id="uname">
-                </div>
-                <div class="flex flex-col">
-                    <!-- <label class="font-medium" for="pass">password</label> -->
-                    <input id="pass" class="border-b outline-none py-1 px-2 text-gray-600 text-sm" placeholder="Password" type="password" name="" id="pass">
-                    <small class="text-end text-gray-600 text-xs hover:underline cursor-pointer">Forget Password</small>
-                    <div class="text-sm mt-2 cursor-pointer">
-                        <input type="checkbox" name="" id="Remember">
-                        <label for="Remember">Remember me</label>
-                    </div>
-                    <p id="wrong" class="text-center text-red-600 text-xs">Wrong username or Password Combination</p>
-                </div>
-                <div class="w-full flex items-center justify-center mt-1">
-                    <a id="loginBTN" href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white font-medium px-6 py-1 rounded-md">login</a>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    
-
-
-    <!-- navbars -->
-    <div id="dashboard" x-data="{ isHover: false, profileActive: false }" @click.outside="isHover = false" class="flex bg-[#fff]">
-        <!-- side navbar -->
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false }"  class="flex bg-[#fff]">
+       
+        <!-- side navbar will occupy whole body-->
         <div x-transition
         
         :class="isHover ? ' w-[250px] bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
@@ -56,7 +26,7 @@
          rounded-br-lg pb-4 gap-7">
 
         <div class="flex items-start md:items-start justify-between gap-7 flex-col">
-            <div class="w-full justify-center flex gap-6 items-center mb-5 md:mb-0">
+            <div class="w-full justify-center flex gap-6 items-center mb-0">
                 <a class="flex items-center justify-center mx-2 mt-2" href="index.html">
                     <img id="responsive-logo" :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="" class="pt-4]" :class="isHover ? 'w-[100%]' : 'w-[60px]'">
                 </a>
@@ -94,18 +64,16 @@
             </div>
             <div x-data="{dpClicked: false}">
                 <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                    <a class="flex items-center gap-3 px-4" href="#">
-                        <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
+                    <a class="flex items-center gap-3 px-4">
                          <img src="src/svg/payment-info.svg" alt="">
                          <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Payment Info</p>
                          <img src="src/svg/next 1.svg" alt="" :class="isHover ? 'inline-block' : 'hidden'">
                     </a>
                 </div>
-                <div x-show="dpClicked" x-transition>
+                <div x-show="dpClicked" x-transition x-on:mouseOver="dpClicked = true">
                     <!-- options -->
                     <div class="flex items-center justify-center lg:justify-start p-1  ml-3">
                         <a class="flex items-center gap-3 px-4 h-7" href="#">
-                            <!-- <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i> -->
                              <img src="src/svg/transection-history.svg" alt="">
                              <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Transaction History</p>
                         </a>
@@ -141,56 +109,61 @@
         </div>
 
     </div>
-        <!-- body -->
+        <!-- body and top navbar -->
         <div 
         class="w-full bg-gradient-to-b from-[#FFEDED80] to-[#FFE3E366] transition-width duration-100"
         >
         <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-white px-10 py-5 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md relative z-20" x-transition style="padding: 8px 0px;">
-            <div x-data="{iprofileClicked: false}" x-transition class="w-full bg-white  flex items-center justify-between duration-300 transition-all h-fit relative z-20">
+        <div x-data="{isclicked: false}" class="w-full bg-white px-10 py-5 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-sm relative z-20" x-transition style="padding: 8px 0px;">
+            <div x-transition class="w-full bg-white  flex items-center justify-between duration-300 transition-all h-fit relative z-20">
                 <div class="w-full flex items-center justify-between md:ml-6 cursor-pointer">
                    <div class="flex items-center md:gap-6 gap-[18px]">
-                    <i id="bar" x-on:click="isHover = !isHover" @click.outside="isHover = false" class="fa-solid fa-bars"></i>
+                    <i id="bar" x-on:click="isHover = !isHover" class="fa-solid fa-bars pl-4"></i>
                     <img src="src/svg/Dashboard Logo.svg" alt="">
                    </div>
-                    <div x-data="{isSearch: false}" class="flex items-center gap-3 px-4 md:hidden">
-                        <input x-show="isSearch" x-on:click.outside="isSearch = false" class="border outline-none hover:outline-none py-1 px-2 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="">
-                        <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-regular fa-bell relative"></i>
-                        <div class=" px-1 text-xs bg-red-600 text-white rounded-full absolute top-px right-[54px]">
-                            <span>0</span>
-                        </div>
-                        <img x-on:click="iprofileClicked = !iprofileClicked" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
-                        <!-- <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>  -->
-
-                    </div>   
-                    <div x-show="iprofileClicked" class="absolute top-16 right-6 p-2 bg-white rounded-lg shadow-md z-10 flex flex-col gap-2">
-                        <a class="text-[#E83330] border-b pb-2 pr-14" href="#">
-                            <i class="fa-regular fa-user"></i>
-                            <span>Account</span>
-                        </a>
-                        <a class="border-b pb-2 text-[#292929]" href="#">
-                            <i class="fa-solid fa-gear"></i>    
-                            <span>Account</span>
-                        </a>
-                        <a class="border-b pb-2 text-[#292929]" href="#">
-                            English
-                        </a>
-                        <a class="pb-4 text-[#292929] flex items-center gap-1" href="#">
-                            <img src="src/svg/Log-out.svg" alt="">   
-                            <span>Account</span>
-                        </a>
+                   <div x-data="{ isSearch: false, notification: false, profileActive: false }" class="flex items-center gap-3 px-4 md:hidden">
+                    <input x-show="isSearch" x-on:click.outside="isSearch = false" class="border outline-none hover:outline-none py-2 px-3 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="" placeholder="Search your parcel">
+                    <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
+                    <i @click="notification = !notification" class="fa-regular fa-bell relative"></i>
+                    <div class="px-1 text-xs bg-red-600 text-white rounded-full absolute top-px right-[54px]">
+                        <span>0</span>
                     </div>
+                    <img x-on:click="profileActive = !profileActive" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                
+                    <div x-show="notification" x-transition class="absolute rounded-[20px] bg-white p-4 w-[335px] shadow-2xl" style="top: 46px; right: 0px;">
+                        <div class="w-full flex items-center justify-between border-b pb-4">
+                            <p class="text-xl text-[#292929]">Notification</p>
+                            <a href="#" class="text-xs text-[#E83330]">View all</a>
+                        </div>
+                        <div class="flex items-start gap-1 mt-4">
+                            <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                            <div>
+                                <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                                <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                            </div>
+                        </div>
+                        <!-- Repeat for additional notifications -->
+                    </div>
+                </div>
+                
                 </div>
             </div>
             <div x-data="{notification: false}" :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 md:bg-transparent gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1 z-10" style="background-color: white;">
                 <div class="w-full block md:hidden">
                     <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
                 </div>
-                <div class="border px-4 py-1 rounded-2xl flex items-center gap-[10px] mr-[30px]">
+                <div class="hidden border px-3 py-2.5
+                 rounded-3xl lg:flex items-center gap-[10px] mr-[30px]">
                     <i class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
                     <input class="bg-transparent outline-none text-[#202224] text-sm font-semibold py-0.5" type="text" name="" id="" placeholder="Search your parcel">
                 </div>
+
+                <div x-data="{ searchClicked: false }" @click.outside="searchClicked = false" class="lg:hidden">
+                    <i x-show="!searchClicked" @click="searchClicked = true" class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
+                    <input x-show="searchClicked" class="bg-transparent outline-none text-[#202224] text-sm font-semibold rounded-3xl border px-4 py-3" type="text" placeholder="Search your parcel">
+                </div>
+                
+
                 <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex bg-[#FFF9F9] pr-4 py-1.5">
                     <div id="div1" class="absolute transition-all duration-500">
                         
@@ -252,7 +225,9 @@
 
                 </div>
                 <div>
-                    <span class="bg-[#E8333059] text-[#E83330] text-lg px-[14px] py-2 rounded-full">0</span>
+                    <p class="bg-[#E8333059] text-[#E83330] text-lg px-[16px] py-2 rounded-full">
+                        <span>0</span>
+                    </p>
                 </div>
                 <div class="flex items-center gap-5 mr-7" @click="profileActive = !profileActive" @click.outside="profileActive = false">
                     <div class="flex items-start flex-col gap-1 cursor-pointer">
@@ -289,17 +264,8 @@
             </div>
         </div>
         <!-- top navbar end -->
-            
 
-
-
-
-
-
-        
-
-
-        <!-- dashboard begening -->
+        <!-- rest components start -->
         <section>
             <!-- top bar -->
             <div class="w-[98%] m-auto">
@@ -328,7 +294,7 @@
                     </div>
                 </div>
                 <!-- headline -->
-                <div class="w-full flex md:hidden items-center justify-center mt-6 mb-5">
+                <div class="w-full flex md:hidden items-center justify-center mt-6 mb-8">
                     <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
                         <div id="div12" class="absolute transition-all duration-500">
                             <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
@@ -372,7 +338,7 @@
         <!-- box section -->
         <section>
             <div class="w-[98%] m-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-1">
+                <div class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-1">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                         <p class="text-2xl font-bold text-[#242020]">20</p>
                         <p class="text-[#202224] font-semibold text-xs md:text-base">Pick Request</p>
@@ -386,7 +352,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-2">
+                <div class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-2">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                         <p class="text-2xl font-bold text-[#242020]">20</p>
                         <p class="text-[#202224] font-semibold text-xs md:text-base">Parcel Process</p>
@@ -400,7 +366,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-3">
+                <div class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-3">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                         <p class="text-2xl font-bold text-[#242020]">20</p>
                         <p class="text-[#202224] font-semibold text-xs md:text-base">Ready For Delivery</p>
@@ -414,7 +380,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-4">
+                <div class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-4">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                         <p class="text-2xl font-bold text-[#242020]">20</p>
                         <p class="text-[#202224] font-semibold text-xs md:text-base">Delivered</p>
@@ -428,7 +394,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-5">
+                <div class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-5">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                         <p class="text-2xl font-bold text-[#242020]">20</p>
                         <p class="text-[#202224] font-semibold text-xs md:text-base">On Hold</p>
@@ -442,7 +408,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-1 flex p-3 bg-white rounded-lg custom-shadow-5 md:hidden">
+                <div class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-5 md:hidden">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                         <p class="text-2xl font-bold text-[#242020]">50</p>
                         <p class="text-[#202224] font-semibold text-xs md:text-base">Returned</p>
@@ -519,7 +485,7 @@
 
                 </div>
                 <div class="col-span-5 md:col-span-1 lg:col-span-1">
-                    <div class="mb-[30px] col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 p-3 bg-white rounded-lg custom-shadow-5 hidden md:flex">
+                    <div class="mb-[30px] col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 p-[18px] bg-white rounded-lg custom-shadow-5 hidden md:flex">
                         <div class="w-8/12 flex flex-col md:gap-3 gap-1">
                             <p class="text-2xl font-bold text-[#242020]">50</p>
                             <p class="text-[#202224] font-semibold text-xs md:text-base">Returned</p>
