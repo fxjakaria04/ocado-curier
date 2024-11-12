@@ -133,10 +133,17 @@
                 <div class="w-full block md:hidden">
                     <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
                 </div>
-                <div class="border px-4 py-1 rounded-2xl flex items-center gap-[10px] mr-[30px]">
+                <div class="hidden border px-4 py-1 rounded-2xl lg:flex items-center gap-[10px] mr-[30px]">
                     <i class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
                     <input class="bg-transparent outline-none text-[#202224] text-sm font-semibold py-0.5" type="text" name="" id="" placeholder="Search your parcel">
                 </div>
+
+                <div x-data="{ searchClicked: false }" @click.outside="searchClicked = false">
+                    <i x-show="!searchClicked" @click="searchClicked = true" class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
+                    <input x-show="searchClicked" class="bg-transparent outline-none text-[#202224] text-sm font-semibold rounded-xl border px-2 py-0.5" type="text" placeholder="Search your parcel">
+                </div>
+                
+
                 <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex bg-[#FFF9F9] pr-4 py-1.5">
                     <div id="div1" class="absolute transition-all duration-500">
                         
