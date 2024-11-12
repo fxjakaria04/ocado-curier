@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="public/tailwind.css">
 </head>
 <body>
-    <div id="dashboard" x-data="{ isHover: false, profileActive: false }" @click.outside="isHover = false" class="flex bg-[#fff]">
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false }"  class="flex bg-[#fff]">
        
         <!-- side navbar will occupy whole body-->
         <div x-transition
@@ -21,7 +21,7 @@
          rounded-br-lg pb-4 gap-7">
 
         <div class="flex items-start md:items-start justify-between gap-7 flex-col">
-            <div class="w-full justify-center flex gap-6 items-center mb-5 md:mb-0">
+            <div class="w-full justify-center flex gap-6 items-center mb-0">
                 <a class="flex items-center justify-center mx-2 mt-2" href="index.html">
                     <img id="responsive-logo" :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="" class="pt-4]" :class="isHover ? 'w-[100%]' : 'w-[60px]'">
                 </a>
@@ -59,13 +59,13 @@
             </div>
             <div x-data="{dpClicked: false}">
                 <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                    <a class="flex items-center gap-3 px-4" href="#">
+                    <a class="flex items-center gap-3 px-4">
                          <img src="src/svg/payment-info.svg" alt="">
                          <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Payment Info</p>
                          <img src="src/svg/next 1.svg" alt="" :class="isHover ? 'inline-block' : 'hidden'">
                     </a>
                 </div>
-                <div x-show="dpClicked" x-transition>
+                <div x-show="dpClicked" x-transition x-on:mouseOver="dpClicked = true">
                     <!-- options -->
                     <div class="flex items-center justify-center lg:justify-start p-1  ml-3">
                         <a class="flex items-center gap-3 px-4 h-7" href="#">
@@ -109,24 +109,38 @@
         class="w-full bg-gradient-to-b from-[#FFEDED80] to-[#FFE3E366] transition-width duration-100"
         >
         <!-- top navbar -->
-        <div x-data="{isclicked: false}" class="w-full bg-white px-10 py-5 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-md relative z-20" x-transition style="padding: 8px 0px;">
+        <div x-data="{isclicked: false}" class="w-full bg-white px-10 py-5 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-sm relative z-20" x-transition style="padding: 8px 0px;">
             <div x-transition class="w-full bg-white  flex items-center justify-between duration-300 transition-all h-fit relative z-20">
                 <div class="w-full flex items-center justify-between md:ml-6 cursor-pointer">
                    <div class="flex items-center md:gap-6 gap-[18px]">
-                    <i id="bar" x-on:click="isHover = !isHover" @click.outside="isHover = false" class="fa-solid fa-bars"></i>
+                    <i id="bar" x-on:click="isHover = !isHover" class="fa-solid fa-bars pl-4"></i>
                     <img src="src/svg/Dashboard Logo.svg" alt="">
                    </div>
-                    <div x-data="{isSearch: false}" class="flex items-center gap-3 px-4 md:hidden">
-                        <input x-show="isSearch" x-on:click.outside="isSearch = false" class="border outline-none hover:outline-none py-1 px-2 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="">
-                        <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
-                        <i @click="notification = !notification" class="fa-regular fa-bell relative"></i>
-                        <div class=" px-1 text-xs bg-red-600 text-white rounded-full absolute top-px right-[54px]">
-                            <span>0</span>
-                        </div>
-                        <img x-on:click="profileActive = !profileActive" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
-                        <!-- <i x-on:click="isclicked = true" class="fa-solid fa-bars md:hidden"></i>  -->
-
+                   <div x-data="{ isSearch: false, notification: false, profileActive: false }" class="flex items-center gap-3 px-4 md:hidden">
+                    <input x-show="isSearch" x-on:click.outside="isSearch = false" class="border outline-none hover:outline-none py-2 px-3 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="" placeholder="Search your parcel">
+                    <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
+                    <i @click="notification = !notification" class="fa-regular fa-bell relative"></i>
+                    <div class="px-1 text-xs bg-red-600 text-white rounded-full absolute top-px right-[54px]">
+                        <span>0</span>
                     </div>
+                    <img x-on:click="profileActive = !profileActive" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                
+                    <div x-show="notification" x-transition class="absolute rounded-[20px] bg-white p-4 w-[335px] shadow-2xl" style="top: 46px; right: 0px;">
+                        <div class="w-full flex items-center justify-between border-b pb-4">
+                            <p class="text-xl text-[#292929]">Notification</p>
+                            <a href="#" class="text-xs text-[#E83330]">View all</a>
+                        </div>
+                        <div class="flex items-start gap-1 mt-4">
+                            <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                            <div>
+                                <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                                <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                            </div>
+                        </div>
+                        <!-- Repeat for additional notifications -->
+                    </div>
+                </div>
+                
                 </div>
             </div>
             <div x-data="{notification: false}" :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 md:bg-transparent gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1 z-10" style="background-color: white;">
@@ -138,9 +152,9 @@
                     <input class="bg-transparent outline-none text-[#202224] text-sm font-semibold py-0.5" type="text" name="" id="" placeholder="Search your parcel">
                 </div>
 
-                <div x-data="{ searchClicked: false }" @click.outside="searchClicked = false">
+                <div x-data="{ searchClicked: false }" @click.outside="searchClicked = false" class="lg:hidden">
                     <i x-show="!searchClicked" @click="searchClicked = true" class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
-                    <input x-show="searchClicked" class="bg-transparent outline-none text-[#202224] text-sm font-semibold rounded-xl border px-2 py-0.5" type="text" placeholder="Search your parcel">
+                    <input x-show="searchClicked" class="bg-transparent outline-none text-[#202224] text-sm font-semibold rounded-3xl border px-4 py-3" type="text" placeholder="Search your parcel">
                 </div>
                 
 
@@ -272,7 +286,7 @@
                     </div>
                 </div>
                 <!-- headline -->
-                <div class="w-full flex md:hidden items-center justify-center mt-6 mb-5">
+                <div class="w-full flex md:hidden items-center justify-center mt-6 mb-8">
                     <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex">
                         <div id="div12" class="absolute transition-all duration-500">
                             <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
