@@ -1992,6 +1992,16 @@ video {
   padding-bottom: 18px;
 }
 
+.px-\[16px\] {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.px-\[17px\] {
+  padding-left: 17px;
+  padding-right: 17px;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }

@@ -147,7 +147,8 @@
                 <div class="w-full block md:hidden">
                     <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
                 </div>
-                <div class="hidden border px-4 py-1 rounded-2xl lg:flex items-center gap-[10px] mr-[30px]">
+                <div class="hidden border px-3 py-2.5
+                 rounded-3xl lg:flex items-center gap-[10px] mr-[30px]">
                     <i class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
                     <input class="bg-transparent outline-none text-[#202224] text-sm font-semibold py-0.5" type="text" name="" id="" placeholder="Search your parcel">
                 </div>
@@ -219,7 +220,9 @@
 
                 </div>
                 <div>
-                    <span class="bg-[#E8333059] text-[#E83330] text-lg px-[14px] py-2 rounded-full">0</span>
+                    <p class="bg-[#E8333059] text-[#E83330] text-lg px-[16px] py-2 rounded-full">
+                        <span>0</span>
+                    </p>
                 </div>
                 <div class="flex items-center gap-5 mr-7" @click="profileActive = !profileActive" @click.outside="profileActive = false">
                     <div class="flex items-start flex-col gap-1 cursor-pointer">
