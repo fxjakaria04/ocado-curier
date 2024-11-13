@@ -1,3 +1,5 @@
+// script for authentication
+
 // const auth = {username: "admin@gmail.com", password: "12345678"};
 // const firstAuth = document.getElementById("auth");
 // const dashboard = document.getElementById("dashboard");
@@ -18,6 +20,9 @@
 //     }
 // })
 
+
+// script for switch button
+
 const sliderText = document.getElementById('slider-text');
     const checkbox = document.getElementById('checkbox');
     
@@ -33,6 +38,9 @@ const sliderText = document.getElementById('slider-text');
             sliderText.classList.remove("left-1");
         }
     });
+
+
+    // script for responsive logo
 
     document.getElementById("bar").addEventListener("click", function() {
         const responsiveLogo = document.getElementById("responsive-logo");
@@ -51,6 +59,12 @@ const sliderText = document.getElementById('slider-text');
         }
     });
 
+
+    // Script for Ajaira slider
+
+
+    const activityText = document.getElementById("activity");
+
     function setupToggle(div, divToToggle) {
         div.addEventListener("click", function() {
             if (div.classList.contains("added")) {
@@ -58,11 +72,13 @@ const sliderText = document.getElementById('slider-text');
                 console.log(54);
                 div.classList.remove("added");
                 divToToggle.classList.add("invisible");
+                activityText.classList.remove("hidden")
                 
             } else {
                 div.style.transform = "translate(225px)";
                 div.classList.add("added");
                 divToToggle.classList.remove("invisible");
+                activityText.classList.add("hidden")
             }
         });
     }
@@ -74,3 +90,39 @@ const sliderText = document.getElementById('slider-text');
 
     setupToggle(div1, div2);
     setupToggle(div12, div22);
+
+    // Script for responsive bottom navbar
+
+
+    const plusIcon = document.getElementById("plus-icon").classList;
+        const circleBox = document.getElementById("circle");
+        const circleBox2= document.getElementById("circle2");    
+        const circleBox3= document.getElementById("circle3");   
+        circleBox.classList.add("opacity-0")
+                circleBox2.classList.add("opacity-0")
+                circleBox3.classList.add("opacity-0") 
+        function bottomAnimation (){
+            
+            if(plusIcon.contains("scale-50")){
+                plusIcon.remove("scale-50")
+                plusIcon.remove("top-[-49px]")
+                plusIcon.remove("-rotate-45")
+                circleBox.classList.remove("rotate-45")
+                circleBox2.classList.remove("rotate-[105deg]")
+                circleBox3.classList.remove("rotate-[170deg]")
+                circleBox.classList.add("opacity-0")
+                circleBox2.classList.add("opacity-0")
+                circleBox3.classList.add("opacity-0")
+            }else {
+                plusIcon.add("scale-50")
+                plusIcon.add("top-[-49px]")
+                plusIcon.add("-rotate-45")
+                circleBox.classList.add("rotate-45")
+                circleBox2.classList.add("rotate-[105deg]")
+                circleBox3.classList.add("rotate-[170deg]")
+                circleBox.classList.remove("opacity-0")
+                circleBox2.classList.remove("opacity-0")
+                circleBox3.classList.remove("opacity-0")
+
+            }
+        }

@@ -121,14 +121,14 @@
                     <i id="bar" x-on:click="isHover = !isHover" class="fa-solid fa-bars pl-4"></i>
                     <img src="src/svg/Dashboard Logo.svg" alt="">
                    </div>
-                   <div x-data="{ isSearch: false, notification: false, profileActive: false }" class="flex items-center gap-3 px-4 md:hidden">
+                   <div x-data="{isSearch: false, notification: false, profileActive: false}" class="flex items-center gap-3 px-4 md:hidden">
                     <input x-show="isSearch" x-on:click.outside="isSearch = false" class="border outline-none hover:outline-none py-2 px-3 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="" placeholder="Search your parcel">
                     <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
                     <i @click="notification = !notification" class="fa-regular fa-bell relative"></i>
                     <div class="px-1 text-xs bg-red-600 text-white rounded-full absolute top-px right-[54px]">
                         <span>0</span>
                     </div>
-                    <img x-on:click="profileActive = !profileActive" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                    <img @click="profileActive = !profileActive" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
                 
                     <div x-show="notification" x-transition class="absolute rounded-[20px] bg-white p-4 w-[335px] shadow-2xl" style="top: 46px; right: 0px;">
                         <div class="w-full flex items-center justify-between border-b pb-4">
@@ -167,12 +167,11 @@
                 
 
                 <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex bg-[#FFF9F9] pr-4 py-1.5 relative">
-                    <p class="font-medium text-sm text-[#E83330] absolute right-7">Check Your Active Balance </p>
+                    <p id="activity" class="font-medium text-sm text-[#E83330] absolute right-7">Check Your Active Balance </p>
                     <div id="div1" class="absolute transition-all duration-500">
                         
                         <img class="h-full rounded-full border p-[9px] bg-white shadow-md" src="src/svg/click.svg" alt="">
                     </div>
-                    <p id="activity" class="hidden">Check Your Active Balance</p>
                     <div id="div2" class="flex flex-row gap-4 invisible  py-1 px-2">
                         <div class="flex flex-row items-center">
                             <div>
@@ -307,8 +306,9 @@
                 </div>
                 <!-- headline -->
                 <div class="w-full flex md:hidden items-center justify-center mt-6 mb-8">
-                    <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex">
-                        <div id="div12" class="absolute transition-all duration-500 rounded-full w-8 h-8 bg-white shadow-sm flex items-center justify-center left-[15px]" style="box-shadow: 3px 0px 7px rgb(179, 179, 179);">
+                    <div id="parent2" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex relative">
+                        <div id="div12" class="absolute transition-all duration-500 rounded-full w-8 h-8 bg-white shadow-sm flex items-center justify-center left-[-1px]" style="box-shadow: 3px 0px 7px rgb(179, 179, 179);">
+                            
                             <img class="h-full rounded-full w-4" src="src/svg/click.svg" alt="">
                         </div>
                         <p id="activity2" class="hidden">Check Your Active Balance</p>
@@ -730,48 +730,50 @@
 
         </div>
     </div>
-    <div class="w-full fixed bottom-0 bg-white pt-3 pb-4 px-[22px] flex items-center justify-between relative">
-        <div class="flex gap-8">
-            <a href="index.html" class="flex flex-col items-center gap-1.5
-            ">
-                <img src="src/svg/dashboard-icon-active.svg" alt="" class="w-6">
-                <span class="font-normal text-[10px] text-[#E83330]">Dashboard</span>
-            </a>
-            <a href="index.html" class="flex flex-col items-center gap-1.5
-            ">
-                <img src="src/svg/delevered-gray.svg" alt="" class="w-6">
-                <span class="font-normal text-[10px] text-[#B2ACAC]">Dashboard</span>
-            </a>
-        </div>
-        <div class="flex gap-8">
-            <a href="index.html" class="flex flex-col items-center gap-1.5
-            ">
-                <img src="src/svg/return-gray.svg" alt="" class="w-6">
-                <span class="font-normal text-[10px] text-[##B2ACAC]">Dashboard</span>
-            </a>
-            <a href="index.html" class="flex flex-col items-center justify-between">
-                <img src="src/svg/payment-info.svg" alt="" class="w-6">
-                <span class="font-normal text-[10px] text-[#B2ACAC]">Dashboard</span>
-            </a>
-        </div>
-
-        
-        <div onclick="bottomAnimation()" id="plus-icon" class="z-10 transition-all duration-200 absolute top-[-13px] left-1/2 transform -translate-x-1/2 p-4 bg-white rounded-full cursor-pointer" style="box-shadow: 0px 2px 8px #00000026;">
-            <img src="src/svg/plus-black.svg" alt="">
-        </div>
-        <div id="circle" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
-            <div id="circle-child" class="p-3 w-11 bg-green-800 rounded-full absolute left-0" style="top: 100px;">
-                <img src="src/svg/all-parcel-side-active.svg" alt="">
+    <div class="sticky bottom-0 md:hidden">
+        <div class="w-full  bg-white pt-3 pb-4 px-[22px] flex items-center justify-between relative">
+            <div class="flex gap-8">
+                <a href="index.html" class="flex flex-col items-center gap-1.5
+                ">
+                    <img src="src/svg/dashboard-icon-active.svg" alt="" class="w-6">
+                    <span class="font-normal text-[10px] text-[#E83330]">Dashboard</span>
+                </a>
+                <a href="index.html" class="flex flex-col items-center gap-1.5
+                ">
+                    <img src="src/svg/delevered-gray.svg" alt="" class="w-6">
+                    <span class="font-normal text-[10px] text-[#B2ACAC]">Dashboard</span>
+                </a>
             </div>
-        </div>
-        <div id="circle2" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
-            <div id="circle-2-child" class="p-3 w-11 bg-green-800 rounded-full absolute left-0" style="top: 100px;">
-                <img src="src/svg/all-parcel-side-active.svg" alt="">
+            <div class="flex gap-8">
+                <a href="index.html" class="flex flex-col items-center gap-1.5
+                ">
+                    <img src="src/svg/return-gray.svg" alt="" class="w-6">
+                    <span class="font-normal text-[10px] text-[##B2ACAC]">Dashboard</span>
+                </a>
+                <a href="index.html" class="flex flex-col items-center justify-between">
+                    <img src="src/svg/payment-info.svg" alt="" class="w-6">
+                    <span class="font-normal text-[10px] text-[#B2ACAC]">Dashboard</span>
+                </a>
             </div>
-        </div>
-        <div id="circle3" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
-            <div id="circle-3-child" class="p-3 w-11 bg-green-800 rounded-full absolute left-0" style="top: 100px;">
-                <img src="src/svg/all-parcel-side-active.svg" alt="">
+    
+            
+            <div onclick="bottomAnimation()" id="plus-icon" class="transition-all duration-200 absolute top-[-13px] left-1/2 transform -translate-x-1/2 p-4 bg-white rounded-full cursor-pointer" style="box-shadow: 0px 2px 8px #00000026; z-index: 5000;">
+                <img src="src/svg/plus-black.svg" alt="">
+            </div>
+            <div id="circle" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
+                <div id="circle-child" class="p-4 absolute left-0 flex items-center justify-center" style="top: 100px; background: url(src/svg/Ellipse.svg); background-size: contain; background-repeat: no-repeat; background-position: center;">
+                    <img src="src/svg/addWhite.svg" alt="" class="-rotate-45">
+                </div>
+            </div>
+            <div id="circle2" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
+                <div id="circle-2-child" class="p-4 absolute left-0 flex items-center justify-center rotate-[-17deg]" style="top: 100px; background: url(src/svg/Ellipse-red.svg); background-size: contain; background-repeat: no-repeat; background-position: center;">
+                    <img src="src/svg/allWhite.svg" alt="" class="rotate-[-88deg]">
+                </div>
+            </div>
+            <div id="circle3" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
+                <div id="circle-3-child" class="p-4 absolute left-0 flex items-center justify-center" style="top: 100px; background: url(src/svg/Ellipse-yellow.svg); background-size: contain; background-repeat: no-repeat; background-position: center;">
+                    <img src="src/svg/BulkWhite.svg" alt="" class="rotate-[-170deg]">
+                </div>
             </div>
         </div>
     </div>
@@ -781,74 +783,7 @@
         </div>
     </footer>
     <!-- body -->
-    <style>@keyframes circularRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.rotate-icons {
-    animation: circularRotate 3s linear infinite;
-}
-</style>
-     <script>
-        const plusIcon = document.getElementById("plus-icon").classList;
-        const circleBox = document.getElementById("circle");
-        const circleBox2= document.getElementById("circle2");    
-        const circleBox3= document.getElementById("circle3");  
-        const circleChild = document.getElementById("circle-child");  
-        const circle2Child = document.getElementById("circle-2-child");  
-        const circle3Child = document.getElementById("circle-3-child");  
-        function bottomAnimation (){
-            
-            if(plusIcon.contains("scale-50")){
-                plusIcon.remove("scale-50")
-                plusIcon.remove("top-[-49px]")
-                plusIcon.remove("-rotate-45")
-                circleBox.classList.remove("rotate-45")
-                circleBox2.classList.remove("rotate-[105deg]")
-                circleBox3.classList.remove("rotate-[170deg]")
-                circleBox.classList.add("opacity-0")
-                circleBox2.classList.add("opacity-0")
-                circleBox3.classList.add("opacity-0")
-                circleBox.classList.add("-rotate-45")
-                
-            }else {
-                plusIcon.add("scale-50")
-                plusIcon.add("top-[-49px]")
-                plusIcon.add("-rotate-45")
-                circleBox.classList.add("rotate-45")
-                circleBox2.classList.add("rotate-[105deg]")
-                circleBox3.classList.add("rotate-[170deg]")
-                circleBox.classList.remove("opacity-0")
-                circleBox2.classList.remove("opacity-0")
-                circleBox3.classList.remove("opacity-0")
-                circleBox.classList.remove("-rotate-45")
-
-            }
-        }
-        
-
-     </script>
-
     <style>
-        /* Add a rotation animation */
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.rotate {
-    animation: rotate 2s linear infinite;
-}
-
         .switch {
         position: relative;
         display: inline-block;
