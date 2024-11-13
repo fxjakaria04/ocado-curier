@@ -314,53 +314,85 @@
                 </div>
 
 
-                <div class="w-[98%] m-auto">
+                <div class="w-[98%] m-auto mb-6">
                     <h1 class="text-[24px] font-semibold text-[ #1A1A1A]">ALl Parcel List</h1>
                 </div>
             </div>
         </section>
         <!-- dashboard begening -->
-
+        <style>
+            .apexcharts-toolbar {
+                display: none;
+            }
+        </style>
 
         <section>
             <div class="w-[98%] m-auto">
-                <div class="bg-white border rounded-md px-2 flex items-center">
-                    <div>
-                        <div class="flex items-center gap-2 font-semibold text-xl">
+                <div class="md:hidden">
+                    <div class="bg-white px-6 flex items-center justify-between">
+                        <div class="flex items-center relative">
+                            <div id="chartRes1" class="w-24">
+                                <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">75%</p>
+                            </div>
+                           
+                            <div>
+                                <p class="font-medium text-sm text-[#1A1A1A]">Delivered</p>
+                                <p class="flex items-end gap-1">
+                                    <span class="font-bold text-base text-[#5DCC77]">120</span>
+                                    <sub class="font-semibold text-[9px] text-[#249782] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center relative">
+                            <div id="chartRes2" class="w-24"></div>
+                            <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">50%</p>
+                            <div>
+                                <p class="font-medium text-sm text-[#1A1A1A]">Returned</p>
+                                <p class="flex items-end gap-1">
+                                    <span class="font-bold text-base text-[#EE4343]">120</span>
+                                    <sub class="font-semibold text-[9px] text-[#E83330] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center bg-white">
+                        <div class="flex items-center relative">
+                            <div id="chartRes3" class="w-24"></div>
+                            <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">30%</p>
+                            <div>
+                                <p class="font-medium text-sm text-[#1A1A1A]">Under Processing</p>
+                                <p class="flex items-end gap-1">
+                                    <span class="font-bold text-base text-[#FF773B]">120</span>
+                                    <sub class="font-semibold text-[9px] text-[#FF773B] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white md:rounded-md px-2 flex items-center">
+                    <div class="py-[18px] px-4">
+                        <div class="flex items-center gap-2 md:font-semibold md:text-xl font-medium text-xs text-[#1A1A1A]">
                             <p class="border-r pr-2 pb-1">Delivery Parcel List </p>
                             <p>03 Parcels</p>
                         </div>
                         <div class="h-0.5 w-24 bg-[#E83330] rounded-lg"></div>
                     </div>
-                    <div class="flex relative">
-                        <div id="chart" class="w-20 absolute -top-4"></div>
-                        <div class="pl-20">
-                            <p>Delivered</p>
-                            <div class="flex gap-1">
-                                <p>120 &nbsp;<sub>28.4%</sub></p>
-                                <img class="mt-3 scale-150" src="src/svg/Arrow External Right.svg" alt="">
+                    <div class="md:flex relative hidden">
+                        <div class="flex items-center relative">
+                            <div id="chartRes4"></div>
+                            <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">30%</p>
+                            <div>
+                                <p class="font-medium text-sm text-[#1A1A1A]">Under Processing</p>
+                                <p class="flex items-end gap-1">
+                                    <span class="font-bold text-base text-[#FF773B]">120</span>
+                                    <sub class="font-semibold text-[9px] text-[#FF773B] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                </p>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
-                <div style="overflow: auto;" class="w-full py-2 px-4 mb-3 bg-white border rounded-md flex md:items-center justify-between xl:flex-row flex-col gap-2">   
-                <div id="app">
-                    <template>
-                        <div class="block">
-                        <el-date-picker
-                            v-model="value2"
-                            type="daterange"
-                            align="right"
-                            unlink-panels
-                            range-separator="To"
-                            start-placeholder="Start date"
-                            end-placeholder="End date"
-                            :picker-options="pickerOptions">
-                        </el-date-picker>
-                        </div>
-                    </template>
-                    </div>
+                <div style="overflow: auto;" class="w-full py-2 px-4 mb-3 bg-white rounded-md flex md:items-center justify-between xl:flex-row flex-col gap-2">   
+                
                     <div class="border p-2 rounded-md text-[#9A9A9A] text-sm flex items-center justify-start md:justify-between gap-1.5">
                         <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
                         <input class="border-none outline-none" placeholder="Parcel ID Name/Phone" type="text" name="" id="">
@@ -375,20 +407,35 @@
                             <option>Select your pick up location</option>
                         </select>
                     </div>
+                    <div id="app">
+                        <template>
+                            <div class="block">
+                            <el-date-picker
+                                v-model="value2"
+                                type="daterange"
+                                align="right"
+                                unlink-panels
+                                range-separator="To"
+                                start-placeholder="Start date"
+                                end-placeholder="End date"
+                                :picker-options="pickerOptions">
+                            </el-date-picker>
+                            </div>
+                        </template>
+                        </div>
                     <div class="p-2 rounded-md text-[#9A9A9A] text-sm flex gap-6">
                         <a class="text-[#E83330] hover:bg-[#cf2825] hover:text-white border border-[#E83330] font-medium py-1 px-3 rounded-md cursor-pointer">Filter</a>
                         <a class="text-[#E83330] hover:bg-[#cf2825] hover:text-white border border-[#E83330] font-medium py-1 px-3 rounded-md cursor-pointer">Clear</a>
                     </div>
-                    <div class="p-2 rounded-md text-[#9A9A9A] text-sm flex gap-6 w-[150px]">
+                    <div class="p-2 rounded-md text-[#9A9A9A] text-sm md:flex gap-6 w-[150px] hidden">
                         <a class="text-[#E83330] font-medium cursor-pointer">Export CSV</a>
-                        
                     </div>
                 </div>
                 
                 <div style="overflow: auto;">
-                    <div class="px-3 pt-3 pb-4 border flex flex-col items-center gap-1">
+                    <div class="md:hidden px-3 pt-3 pb-4 border flex flex-col items-center gap-1">
                         <a href="#" class="mb-2 text-[#E83330] font-semibold text-[11px] py-1.5 px-2 rounded-md bg-[#FFD8D8]">Return with Delivery Charge</a>
-                        <div class="w-full flex items-center justify-between">
+                        <div class="w-full flex items-center justify-between mb-2">
                             <div class="flex items-center gap-1">
                                 <p class="text-sm font-normal text-black">P.ID <span class="text-[#E83330]">54458724543</span></p>
                                 <img src="src/svg/file.svg" alt="" class="scale-75">
@@ -397,7 +444,7 @@
                                 <p class="font-medium text-sm text-[#399185] px-2.5 py-1 border border-[#399185] rounded-[4px] cursor-not-allowed">Unpaid</p>
                             </div>
                         </div>
-                        <div class="w-full flex items-center justify-between">
+                        <div class="w-full flex items-center justify-between mb-1">
                             <div class="flex items-center gap-1">
                                 <img src="src/svg/user.svg" alt="">
                                 <p class="text-sm font-normal text-black">Dr Farhana Wahid Tani</p>
@@ -407,7 +454,7 @@
                                 <p class="text-sm font-normal text-black">01636073552</p>
                             </div>
                         </div>
-                        <div class="w-full flex items-center justify-between">
+                        <div class="w-full flex items-center justify-between mb-1.5">
                             <div class="flex items-center gap-1">
                                 <img src="src/svg/location.svg" alt="">
                                 <p class="text-sm font-normal text-black">Gulshan 2</p>
@@ -427,7 +474,7 @@
                             </div>
                         </div>
                     </div>
-                    <table class="overflow-x-scroll w-full text-center text-sm rtl:text-right text-black dark:text-gray-400">
+                    <table class="overflow-x-scroll w-full text-center text-sm rtl:text-right text-black dark:text-gray-400 hidden md:table">
                         <thead class="text-xs text-black bg-[#FAFAFA] dark:text-gray-400 py-4 px-4">
                             <tr class="hover:bg-gray-100 text-black">
                                 <th scope="col" class="px-6 py-3 border-r">
@@ -669,8 +716,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="overflow-x-auto">
-                        <nav class="flex items-center flex-col flex-wrap md:flex-row gap-2 md:gap-0  justify-between pt-4" aria-label="Table navigation">
+                    <div class="overflow-x-auto mb-16">
+                        <nav class="flex items-center flex-col flex-wrap md:flex-row gap-2 md:gap-0  justify-between pt-8" aria-label="Table navigation">
                             <select class="bg-transparent text-sm">
                                 <option value="">Show 5 per page</option>
                                 <option value="10">Show 10 per page</option>
@@ -772,7 +819,8 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <!-- apexchart -->
+    <!-- All chart of All parcel Page -->
+    <script src="src/allParcelGraph.js"></script>
     <script>
         var options = {
             series: [80],
@@ -819,7 +867,7 @@
         
             setupToggle(div1, div2);
             setupToggle(div12, div22);
-        </script>
+        </scrip>
         <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
         <script src="https://unpkg.com/element-ui@2.15.14/lib/index.js"></script>
         <script src="https://unpkg.com/element-ui@2.15.14/lib/umd/locale/en.js"></script>
