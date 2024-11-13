@@ -3,125 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="shortcut icon" href="src/svg/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Icon Rotation Example</title>
     <link rel="stylesheet" href="public/tailwind.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotate {
+            animation: rotate 2s linear infinite;
+        }
+    </style>
 </head>
-<body>
-    <div class="w-24 absolute">
-        <div 
-            :class="isHover ? 'w-[10%]' : 'lg:w-[5%] w-[10%]'" 
-            @mouseenter="isHover = true" 
-            @mouseleave="isHover = false" 
-            class="border-r-2 transition-width duration-300 lg:p-3"
-        >
+<body class="flex items-center justify-center h-screen bg-gray-100">
 
-            <div class="w-full p-1">
-                <a href="#">
-                    <img class="" src="src/svg/logo.png" alt="">
-                </a>
-            </div>
+    <div class="relative flex items-center justify-center h-64">
+        <!-- Central Button -->
+        <button id="cronButton" class="absolute z-20 p-4 bg-white rounded-full shadow-lg">
+            <img src="src/svg/plus-black.svg" alt="Cron Icon">
+        </button>
 
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-border-all text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
+        <!-- Rotating Icons -->
+        <div id="iconContainer" class="absolute w-48 h-48">
+            <div class="absolute icon left-0 top-1/2 transform -translate-y-1/2 p-2 bg-green-500 rounded-full">
+                <img src="src/svg/delivered.svg" alt="Delivered">
             </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-cube text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
+            <div class="absolute icon top-0 left-1/2 transform -translate-x-1/2 p-2 bg-red-500 rounded-full">
+                <img src="src/svg/all.svg" alt="All">
             </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-heart text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
+            <div class="absolute icon right-0 top-1/2 transform -translate-y-1/2 p-2 bg-orange-500 rounded-full">
+                <img src="src/svg/return.svg" alt="Return">
             </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-layer-group text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-comment-dots text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-file-lines text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-calendar text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-clipboard text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-user-group text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-credit-card text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-chart-pie text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-user text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Option</p>
-                </a>
-            </div>
-            <div class="w-full flex items-center justify-center lg:justify-start my-[15px]">
-                <a class="flex items-center gap-3" href="#">
-                    <i class="fa-solid fa-power-off  text-xl"></i>
-                    <p :class="isHover ? 'lg:inline hidden' : 'hidden'" class="text-lg text-black font-medium">power</p>
-                </a>
-            </div>
-
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        const cronButton = document.getElementById('cronButton');
+        const iconContainer = document.getElementById('iconContainer');
+
+        cronButton.addEventListener('click', () => {
+            iconContainer.classList.toggle('rotate');
+        });
+    </script>
+
 </body>
 </html>

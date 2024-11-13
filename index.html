@@ -754,8 +754,25 @@
                 <span class="font-normal text-[10px] text-[#B2ACAC]">Dashboard</span>
             </a>
         </div>
-        <div onclick="bottomAnimation()" id="plus-icon" class="transition-all duration-200 absolute top-[-13px] left-1/2 transform -translate-x-1/2 p-4 bg-white rounded-full cursor-pointer" style="box-shadow: 0px 2px 8px #00000026;">
+
+        
+        <div onclick="bottomAnimation()" id="plus-icon" class="z-10 transition-all duration-200 absolute top-[-13px] left-1/2 transform -translate-x-1/2 p-4 bg-white rounded-full cursor-pointer" style="box-shadow: 0px 2px 8px #00000026;">
             <img src="src/svg/plus-black.svg" alt="">
+        </div>
+        <div id="circle" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
+            <div id="circle-child" class="p-3 w-11 bg-green-800 rounded-full absolute left-0" style="top: 100px;">
+                <img src="src/svg/all-parcel-side-active.svg" alt="">
+            </div>
+        </div>
+        <div id="circle2" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
+            <div id="circle-2-child" class="p-3 w-11 bg-green-800 rounded-full absolute left-0" style="top: 100px;">
+                <img src="src/svg/all-parcel-side-active.svg" alt="">
+            </div>
+        </div>
+        <div id="circle3" class="w-[200px] h-[200px] bg-transparent absolute left-1/2 transform -translate-x-1/2 rounded-full top-[-100px] transition-all duration-300">
+            <div id="circle-3-child" class="p-3 w-11 bg-green-800 rounded-full absolute left-0" style="top: 100px;">
+                <img src="src/svg/all-parcel-side-active.svg" alt="">
+            </div>
         </div>
     </div>
     <footer>
@@ -764,24 +781,74 @@
         </div>
     </footer>
     <!-- body -->
+    <style>@keyframes circularRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-icons {
+    animation: circularRotate 3s linear infinite;
+}
+</style>
      <script>
         const plusIcon = document.getElementById("plus-icon").classList;
+        const circleBox = document.getElementById("circle");
+        const circleBox2= document.getElementById("circle2");    
+        const circleBox3= document.getElementById("circle3");  
+        const circleChild = document.getElementById("circle-child");  
+        const circle2Child = document.getElementById("circle-2-child");  
+        const circle3Child = document.getElementById("circle-3-child");  
         function bottomAnimation (){
             
             if(plusIcon.contains("scale-50")){
                 plusIcon.remove("scale-50")
                 plusIcon.remove("top-[-49px]")
                 plusIcon.remove("-rotate-45")
+                circleBox.classList.remove("rotate-45")
+                circleBox2.classList.remove("rotate-[105deg]")
+                circleBox3.classList.remove("rotate-[170deg]")
+                circleBox.classList.add("opacity-0")
+                circleBox2.classList.add("opacity-0")
+                circleBox3.classList.add("opacity-0")
+                circleBox.classList.add("-rotate-45")
+                
             }else {
                 plusIcon.add("scale-50")
                 plusIcon.add("top-[-49px]")
                 plusIcon.add("-rotate-45")
+                circleBox.classList.add("rotate-45")
+                circleBox2.classList.add("rotate-[105deg]")
+                circleBox3.classList.add("rotate-[170deg]")
+                circleBox.classList.remove("opacity-0")
+                circleBox2.classList.remove("opacity-0")
+                circleBox3.classList.remove("opacity-0")
+                circleBox.classList.remove("-rotate-45")
 
             }
         }
+        
+
      </script>
 
     <style>
+        /* Add a rotation animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
         .switch {
         position: relative;
         display: inline-block;
