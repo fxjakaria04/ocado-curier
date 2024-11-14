@@ -31,11 +31,11 @@ const sliderText = document.getElementById('slider-text');
         if (checkbox.checked) {
             sliderText.innerText = "Total";
             sliderText.classList.remove("right-1.5");
-            sliderText.classList.add("left-1");
+            sliderText.classList.add("ml-2");
         } else {
             sliderText.innerText = "Today";
             sliderText.classList.add("right-1.5");
-            sliderText.classList.remove("left-1");
+            sliderText.classList.remove("right-3");
         }
     });
 

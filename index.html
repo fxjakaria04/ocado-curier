@@ -730,7 +730,7 @@
 
         </div>
     </div>
-    <div class="sticky bottom-0 md:hidden">
+    <div class="fixed bottom-0 md:hidden w-full">
         <div class="w-full  bg-white pt-3 pb-4 px-[22px] flex items-center justify-between relative">
             <div class="flex gap-8">
                 <a href="index.html" class="flex flex-col items-center gap-1.5
@@ -778,8 +778,8 @@
         </div>
     </div>
     <footer>
-        <div class="px-5 py-3 border-t-2 text-center w-full bg-gray-100">
-            <small class="text-[#979797]"> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
+        <div class="px-5 py-3 border-t-2 text-center w-full bg-gradient-to-b from-[#FFEDED80] to-white pb-[86px]">
+            <small class="text-[#828282] text-xs font-normal"> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
         </div>
     </footer>
     <!-- body -->
@@ -1091,6 +1091,40 @@
 
         var chart = new ApexCharts(document.querySelector("#last-chart"), options);
         chart.render();
+        </script>
+        <script>
+                const plusIcon = document.getElementById("plus-icon").classList;
+        const circleBox = document.getElementById("circle");
+        const circleBox2= document.getElementById("circle2");    
+        const circleBox3= document.getElementById("circle3");   
+        circleBox.classList.add("opacity-0")
+                circleBox2.classList.add("opacity-0")
+                circleBox3.classList.add("opacity-0") 
+        function bottomAnimation (){
+            
+            if(plusIcon.contains("scale-50")){
+                plusIcon.remove("scale-50")
+                plusIcon.remove("top-[-49px]")
+                plusIcon.remove("-rotate-45")
+                circleBox.classList.remove("rotate-45")
+                circleBox2.classList.remove("rotate-[105deg]")
+                circleBox3.classList.remove("rotate-[170deg]")
+                circleBox.classList.add("opacity-0")
+                circleBox2.classList.add("opacity-0")
+                circleBox3.classList.add("opacity-0")
+            }else {
+                plusIcon.add("scale-50")
+                plusIcon.add("top-[-49px]")
+                plusIcon.add("-rotate-45")
+                circleBox.classList.add("rotate-45")
+                circleBox2.classList.add("rotate-[105deg]")
+                circleBox3.classList.add("rotate-[170deg]")
+                circleBox.classList.remove("opacity-0")
+                circleBox2.classList.remove("opacity-0")
+                circleBox3.classList.remove("opacity-0")
+
+            }
+        }
         </script>
 </body>
 </html>
