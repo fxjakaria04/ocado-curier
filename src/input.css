@@ -75,7 +75,7 @@
     height: 21px;
     width: 21px;
     background-color: transparent;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 
@@ -87,8 +87,8 @@
     content: "";
     position: absolute;
     display: none;
-    left: 7px;
-    top: 2px;
+    left: 4px;
+    top: 0px;
     width: 6px;
     height: 12px;
     border: solid white;

@@ -18,7 +18,7 @@ var options1 = {
             },
             track: {
                 background: '#000',
-                strokeWidth: '67%',
+                strokeWidth: '100%',
                 margin: 0,
                 dropShadow: {
                     enabled: true,
@@ -66,7 +66,7 @@ var options2 = {
             },
             track: {
                 background: '#000',
-                strokeWidth: '67%',
+                strokeWidth: '100%',
                 margin: 0,
                 dropShadow: {
                     enabled: true,
@@ -114,7 +114,7 @@ var options3 = {
             },
             track: {
                 background: '#000',
-                strokeWidth: '67%',
+                strokeWidth: '100%',
                 margin: 0,
                 dropShadow: {
                     enabled: true,
@@ -162,7 +162,7 @@ var options4 = {
             },
             track: {
                 background: '#000',
-                strokeWidth: '67%',
+                strokeWidth: '100%',
                 margin: 0,
                 dropShadow: {
                     enabled: true,
@@ -210,7 +210,7 @@ var options5 = {
             },
             track: {
                 background: '#000',
-                strokeWidth: '67%',
+                strokeWidth: '100%',
                 margin: 0,
                 dropShadow: {
                     enabled: true,
@@ -258,7 +258,7 @@ var options6 = {
             },
             track: {
                 background: '#000',
-                strokeWidth: '67%',
+                strokeWidth: '100%',
                 margin: 0,
                 dropShadow: {
                     enabled: true,
@@ -285,3 +285,15 @@ var options6 = {
 };
 var chart6 = new ApexCharts(document.querySelector("#chartRes6"), options6);
 chart6.render();
+
+
+// JavaScript to handle checking/unchecking
+document.getElementById('checkbox-parent').addEventListener('change', function() {
+    // Get the checked status of the parent checkbox
+    const isChecked = this.checked;
+    
+    // Select all child checkboxes and set their checked status to match the parent
+    document.querySelectorAll('.checkbox-child').forEach(child => {
+        child.checked = isChecked;
+    });
+});
