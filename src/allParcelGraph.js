@@ -184,7 +184,7 @@ var options4 = {
             }
         }
     },
-    fill: { colors: ['#4B9CD3'] },
+    fill: { colors: ['#5DCC77'] },
     stroke: { lineCap: 'round' }
 };
 var chart4 = new ApexCharts(document.querySelector("#chartRes4"), options4);
@@ -232,7 +232,7 @@ var options5 = {
             }
         }
     },
-    fill: { colors: ['#8C52FF'] },
+    fill: { colors: ['#EE4343'] },
     stroke: { lineCap: 'round' }
 };
 var chart5 = new ApexCharts(document.querySelector("#chartRes5"), options5);
@@ -280,7 +280,7 @@ var options6 = {
             }
         }
     },
-    fill: { colors: ['#F15BB5'] },
+    fill: { colors: ['#FF773C'] },
     stroke: { lineCap: 'round' }
 };
 var chart6 = new ApexCharts(document.querySelector("#chartRes6"), options6);
