@@ -339,7 +339,7 @@
                 <div class="flex items-center justify-end gap-2 w-[98%] m-auto text-sm mb-3">
                     <p>See your total activity</p>
                     <label class="switch flex items-center relative">
-                        <input id="checkbox" type="checkbox" id="toggle">
+                        <input id="checkbox" type="checkbox" id="toggle" x-model="checked">
                         <span class="slider"></span>
                         <span id="slider-text" class="absolute -top-1 right-1.5 text-[8px] text-white font-medium">Today</span>
                     </label>
@@ -352,10 +352,10 @@
             <div class="w-[98%] m-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <div class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-1">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">
-                        <p class="text-2xl font-bold text-[#242020]">20</p>
+                        <p x-text="checked ? '20' : '40'" class="text-2xl font-bold text-[#242020]">20</p>
                         <p class="text-[#202224] font-semibold text-xs md:text-base">Pick Request</p>
                         <div class="pl-1.5 border-l-2 border-[#A60C0C]">
-                            <p class="text-[#A60C0C] font-bold text-[10px] md:text-sm">৳ 66,542 </p>
+                            <p class="text-[#A60C0C] font-bold text-[10px] md:text-sm"><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span x-text="checked ? '20,000' : '40,000'"></span> </p>
                         </div>
                     </div>
                     <div class="w-4/12 flex items-start justify-end">
