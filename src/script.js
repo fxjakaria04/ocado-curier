@@ -77,8 +77,10 @@ const sliderText = document.getElementById('slider-text');
             } else {
                 div.style.transform = "translate(225px)";
                 div.classList.add("added");
+                console.log(45);
                 divToToggle.classList.remove("invisible");
                 activityText.classList.add("hidden")
+                div.classList.add("opacity-0")
             }
         });
     }
