@@ -2,7 +2,7 @@
             var options = {
                 series: [seriesValue],
                 chart: {
-                    height: 96,
+                    height: 100,
                     type: 'radialBar',
                     toolbar: { show: true }
                 },

@@ -331,52 +331,64 @@
                 <div class="md:hidden">
                     <div class="bg-white px-6 flex items-center justify-evenly">
                         <div class="flex items-center relative flex-col">
-                            <div id="chartRes1" class="w-24">
-                                <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">75%</p>
+                            <div id="chartRes1" class="w-28">
+                                <div class="flex items-center flex-col gap-0.5 absolute top-[31px] left-[42px] z-10 text-[#1A1A1A] font-bold text-xs">
+                                    <img class="scale-75" src="src/svg/total-invoice.svg" alt="">
+                                    <p class=" ">5000</p>
+                                </div>
                             </div>
                            
                             <div class="flex items-center flex-col">
-                                <p class="font-medium text-sm text-[#1A1A1A]">Total Invoice</p>
+                                <p class="font-normal text-base text-[#000]">Total Invoice</p>
                                 <p class="flex items-center gap-1">
-                                    <span class="font-bold text-base text-[#5DCC77]">120</span>
-                                    <sub class="font-semibold text-[9px] text-[#249782] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                    <span class="font-semibold text-base text-[#16A7D3]"><i class="fa-solid fa-bangladeshi-taka-sign mr-1"></i>194192</span>
                                 </p>
                             </div>
                         </div>
                         <div class="flex items-center relative flex-col">
-                            <div id="chartRes2" class="w-24"></div>
-                            <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">50%</p>
+                            <div id="chartRes2" class="w-28">
+                                <div class="flex items-center flex-col gap-0.5 absolute top-[31px] left-[42px] z-10 text-[#1A1A1A] font-bold text-xs">
+                                    <img class="scale-75" src="src/svg/overdue.svg" alt="">
+                                    <p class=" ">5000</p>
+                                </div>
+                            </div>
+                           
                             <div class="flex items-center flex-col">
-                                <p class="font-medium text-sm text-[#1A1A1A]">Overdue</p>
+                                <p class="font-normal text-base text-[#000]">Overdue</p>
                                 <p class="flex items-center gap-1">
-                                    <span class="font-bold text-base text-[#EE4343]">120</span>
-                                    <sub class="font-semibold text-[9px] text-[#E83330] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                    <span class="font-semibold text-base text-[#FF7D00]"><i class="fa-solid fa-bangladeshi-taka-sign mr-1"></i>194192</span>
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white px-6 flex items-center justify-evenly mb-4">
+                    <div class="bg-white px-6 flex items-center justify-evenly pb-4">
                         <div class="flex items-center relative flex-col">
-                            <div id="chartRes3" class="w-24">
-                                <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">75%</p>
+                            <div id="chartRes3" class="w-28">
+                                <div class="flex items-center flex-col gap-0.5 absolute top-[31px] left-[42px] z-10 text-[#1A1A1A] font-bold text-xs">
+                                    <img class="scale-75" src="src/svg/paid.svg" alt="">
+                                    <p class=" ">5000</p>
+                                </div>
                             </div>
                            
                             <div class="flex items-center flex-col">
-                                <p class="font-medium text-sm text-[#1A1A1A]">Paid</p>
+                                <p class="font-normal text-base text-[#000]">Paid</p>
                                 <p class="flex items-center gap-1">
-                                    <span class="font-bold text-base text-[#5DCC77]">120</span>
-                                    <sub class="font-semibold text-[9px] text-[#249782] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                    <span class="font-semibold text-base text-[#57CC99]"><i class="fa-solid fa-bangladeshi-taka-sign mr-1"></i>194192</span>
                                 </p>
                             </div>
                         </div>
                         <div class="flex items-center relative flex-col">
-                            <div id="chartRes4" class="w-24"></div>
-                            <p class="absolute top-[39px] left-[36px] z-10 text-[#1A1A1A] font-bold text-xs">50%</p>
+                            <div id="chartRes4" class="w-28">
+                                <div class="flex items-center flex-col gap-0.5 absolute top-[31px] left-[48px] z-10 text-[#1A1A1A] font-bold text-xs">
+                                    <img class="scale-75" src="src/svg/upcommingInvoice.svg" alt="">
+                                    <p class=" ">5000</p>
+                                </div>
+                            </div>
+                           
                             <div class="flex items-center flex-col">
-                                <p class="font-medium text-sm text-[#1A1A1A]">Upcoming Invoice</p>
+                                <p class="font-normal text-base text-[#000]">Upcoming Invoice</p>
                                 <p class="flex items-center gap-1">
-                                    <span class="font-bold text-base text-[#EE4343]">120</span>
-                                    <sub class="font-semibold text-[9px] text-[#E83330] flex"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                    <span class="font-semibold text-base text-[#FFBB00]"><i class="fa-solid fa-bangladeshi-taka-sign mr-1"></i>194192</span>
                                 </p>
                             </div>
                         </div>
@@ -391,14 +403,18 @@
                         <div class="h-0.5 w-24 bg-[#E83330] rounded-lg"></div>
                     </div>
                     <div class="md:flex relative hidden items-center justify-evenly w-3/4">
-                        <div class="flex items-center relative">
-                            <div id="chartRes5" class="w-20"></div>
-                            <p class="absolute top-[32px] left-[29px] z-10 text-[#1A1A1A] font-bold text-xs">85%</p>
-                            <div>
-                                <p class="font-medium text-sm text-[#1A1A1A]">Delivered</p>
+                        <div class="flex items-center relative flex-col">
+                            <div id="chartRes5" class="w-28">
+                                <div class="flex items-center flex-col gap-0.5 absolute top-[31px] left-[42px] z-10 text-[#1A1A1A] font-bold text-xs">
+                                    <img class="scale-75" src="src/svg/paid.svg" alt="">
+                                    <p class=" ">5000</p>
+                                </div>
+                            </div>
+                           
+                            <div class="flex items-center flex-col">
+                                <p class="font-normal text-base text-[#000]">Paid</p>
                                 <p class="flex items-center gap-1">
-                                    <span class="font-bold text-base text-[#FF773B]">120</span>
-                                    <sub class="font-semibold text-[9px] text-[#FF773B] flex items-center gap-0.5"><span>45.6%</span> <img src="src/svg/green-up-right.svg" alt=""></sub>
+                                    <span class="font-semibold text-base text-[#57CC99]"><i class="fa-solid fa-bangladeshi-taka-sign mr-1"></i>194192</span>
                                 </p>
                             </div>
                         </div>
