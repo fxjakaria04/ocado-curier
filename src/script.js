@@ -72,7 +72,7 @@ const sliderText = document.getElementById('slider-text');
                 console.log(54);
                 div.classList.remove("added");
                 divToToggle.classList.add("invisible");
-                activityText.classList.remove("hidden")
+                activityText.classList.remove("hidden");
                 
             } else {
                 div.style.transform = "translate(225px)";
@@ -80,7 +80,7 @@ const sliderText = document.getElementById('slider-text');
                 console.log(45);
                 divToToggle.classList.remove("invisible");
                 activityText.classList.add("hidden")
-                div.classList.add("opacity-0")
+                div.classList.add("opacity-0");
             }
         });
     }
