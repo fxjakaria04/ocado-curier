@@ -315,7 +315,7 @@
 
 
                 <div class="w-[98%] m-auto">
-                    <h1 class="text-[24px] font-semibold text-[ #1A1A1A]">Parcel Request List</h1>
+                    <h1 class="text-[24px] font-bold text-[ #1A1A1A] mb-3.5">Parcel Request List</h1>
                 </div>
             </div>
         </section>
@@ -324,10 +324,21 @@
         <section>
             <div class="w-[98%] m-auto overflow-x-scroll">
                 <div class="w-full py-2 px-4 mb-3 bg-white border rounded-md flex items-start md:items-center justify-between flex-col md:flex-row gap-3 md:gap-0">
-                    <div class="border p-2 rounded-md">
-                        <input class="cursor-pointer" type="date" name="" id="">
-                        <input class="cursor-pointer" type="date" name="" id="">
-                    </div>
+                    <div id="app">
+                        <template>
+                          <div class="block">
+                            <el-date-picker
+                              v-model="value1"
+                              type="daterange"
+                              range-separator="To"
+                              start-placeholder="Start date"
+                              end-placeholder="End date">
+                            </el-date-picker>
+                          </div>
+                          <div class="block">
+                          </div>
+                        </template>
+                        </div>
                     <div class="border p-2 rounded-md text-[#9A9A9A] text-sm">
                         <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
                         <input class="border-none outline-none" placeholder="Parcel ID Name/Phone" type="text" name="" id="">
@@ -343,38 +354,38 @@
                     </div>
                 </div>
                 
-                <table class="w-full text-center text-sm rtl:text-right text-black dark:text-gray-400">
+                <table class="overflow-x-scroll w-full text-center text-sm rtl:text-right text-black dark:text-gray-400 hidden md:table">
                     <thead class="text-xs text-black bg-[#FAFAFA] dark:text-gray-400 py-4 px-4">
-                        <tr class="hover:bg-gray-100 text-black">
-                            <th scope="col" class="px-6 py-3 border-r">
-                                Creation Info
+                        <tr class="text-black">
+                            <th scope="col" class="px-6 py-3 pl-[16px] border-r">
+                                <span class="text-sm font-medium">Creation Info</span>
                             </th>
-                            <th scope="col" class="px-6 py-3 border-r">
+                            <th scope="col" class="px-6 py-3 border-r text-sm font-medium">
                                 Parcel ID
                             </th>
-                            <th scope="col" class="px-6 py-3 border-r">
+                            <th scope="col" class="px-6 py-3 border-r text-sm font-medium">
                                 Customer Details
                             </th>
-                            <th scope="col" class="px-6 py-3 border-r">
+                            <th scope="col" class="px-6 py-3 border-r text-sm font-medium">
                                 Parcel Status
                             </th>
-                            <th scope="col" class="px-6 py-3 border-r">
+                            <th scope="col" class="px-6 py-3 border-r text-sm font-medium">
                                 Delivery Note
                             </th>
-                            <th scope="col" class="px-6 py-3 border-r">
+                            <th scope="col" class="px-6 py-3 border-r text-sm font-medium">
                                 Amount
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 text-sm font-medium">
                                 Action
                             </th>
                         </tr>
                     </thead>
                     <tbody class="text-black">
-                        <tr class="bg-white border-b border-[#F0F0F0] hover:bg-gray-100">
-                            <th scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
+                        <tr x-data="{isChecked: false}" x-on:click="isChecked = !isChecked" class="bg-white border-b border-[#F0F0F0] hover:bg-[#F9EFEF]">
+                            <td scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
                                 <span>28/09/2024</span><br>
                                 <span>08:24 AM</span>
-                            </th>
+                            </td>
                             <td class="p-4">
                                 <span class="text-[#E83330]">54458724543</span><br>
                                 <span>Order ID: 644</span>
@@ -408,11 +419,12 @@
                                 </div>
                             </td>
                             <td class="md:px-6 px-0 py-4">
-                                <div class="w-[131px] inline-flex items-center justify-center">
-                                    <a href="#" class="flex items-center gap-2 bg-[#16E36826] hover:bg-[#3d504426] p-2 rounded-md text-[#14885F] font-semibold">
+                                <div class="w-[131px] inline-flex items-center gap-1 flex-col justify-center">
+                                    <a href="#" class="flex items-center gap-2 bg-[#16E36826] px-2 py-1.5 rounded-md text-[#14885F] font-semibold">
                                         <img src="src/svg/ParcelRequest.svg" alt="">
                                         <span>Parcel Request</span>
                                     </a>
+                                    <span class="whitespace-nowrap text-sm">Updated On 05/10/2024</span>
                                 </div>
                             </td>
                             <td class="p-4">
@@ -423,22 +435,22 @@
                             <td class="p-4">
                                 <div class="w-[190px]">
                                     <p>Collected : ৳ 45,219</p>
-                                    <p>Value : ৳ 50,000</p>
+                                    <p>Value : ৳ 60,000</p>
                                     <p>Charge : ৳ 582.19</p>
                                 </div>
                             </td>
                             <td class="px-4 py-7 custom-shadow-table">
                                 <div class="flex flex-col gap-5">
-                                    <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5 font-normal">View</a>
-                                    <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5 font-normal">Edit</a>
+                                    <a href="#" class="bg-[#E83330]  hover:bg-[#cf2825] text-white rounded-[4px] text-xs px-5 py-[5px] font-normal">View</a>
+                                    <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-[4px] text-xs px-5 py-[5px] font-normal">Edit</a>
                                 </div>
                             </td>
                         </tr>
-                        <tr class="bg-white border-b border-[#F0F0F0] hover:bg-gray-100">
-                            <th scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
+                        <tr x-data="{isChecked: false}" x-on:click="isChecked = !isChecked" class="bg-white border-b border-[#F0F0F0] hover:bg-[#F9EFEF]">
+                            <td scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
                                 <span>28/09/2024</span><br>
                                 <span>08:24 AM</span>
-                            </th>
+                            </td>
                             <td class="p-4">
                                 <span class="text-[#E83330]">54458724543</span><br>
                                 <span>Order ID: 644</span>
@@ -472,11 +484,13 @@
                                 </div>
                             </td>
                             <td class="md:px-6 px-0 py-4">
-                                <div class="w-[131px] inline-flex items-center justify-center">
-                                    <a href="#" class="flex items-center gap-2 bg-[#FFBEBE99] hover:bg-[#ffbebe54] p-2 rounded-md text-[#E83330] font-semibold">
+                                <div class="w-[131px] inline-flex items-center flex-col gap-1 justify-center">
+                                    <a href="#" class="flex items-center gap-2 bg-[#FFBEBE99] px-2 py-1.5 rounded-md text-[#E83330] font-semibold">
                                         <img src="src/svg/canceled.svg" alt="">
                                         <span>Canceled</span>
                                     </a>
+                                    <span class="text-sm whitespace-nowrap">Updated On 05/10/2024
+                                    </span>
                                 </div>
                             </td>
                             <td class="p-4">
@@ -493,8 +507,74 @@
                             </td>
                             <td class="px-4 py-7 custom-shadow-table">
                                 <div class="flex flex-col gap-5">
-                                    <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-md text-lg px-5 font-normal">View</a>
-                                    <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-md text-lg px-5 font-normal">Edit</a>
+                                    <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-[4px] text-xs px-5 py-[5px] font-normal">View</a>
+                                    <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-[4px] text-xs px-5 py-[5px] font-normal">Edit</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-data="{isChecked: false}" x-on:click="isChecked = !isChecked" class="bg-white border-b border-[#F0F0F0] hover:bg-[#F9EFEF]">
+                            <td scope="row" class="p-4 font-normal text-gray-900 whitespace-nowrap">
+                                <span>28/09/2024</span><br>
+                                <span>08:24 AM</span>
+                            </td>
+                            <td class="p-4">
+                                <span class="text-[#E83330]">54458724543</span><br>
+                                <span>Order ID: 644</span>
+                            </td>
+                            <td class="p-4 flex items-center justify-center">
+                                <div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>Abdul Golam</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>Mirpur DOHS Central Masjid Road No. 7, Avenue 8</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start gap-2">
+                                        <div>
+                                            <i class="fa-solid fa-phone"></i>
+                                        </div>
+                                        <div class="text-left w-52">
+                                            <p>01636073552</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="md:px-6 px-0 py-4">
+                                <div class="w-[152px] inline-flex items-center flex-col gap-1 justify-center">
+                                    <a href="#" class="flex items-center gap-2 bg-[#3B82DE26] px-2 py-1.5 rounded-md text-[#3B82DE] font-semibold">
+                                        <img src="src/svg/transist.svg" alt="">
+                                        <span>Transit Fulfillment</span>
+                                    </a>
+                                    <span class="text-sm whitespace-nowrap">Updated On 05/10/2024
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="p-4">
+                                <div class=" w-[190px] text-start">
+                                    <p>Note : kalkei delivery dite Hobe.. memo niya ante hobe</p>
+                                </div>
+                            </td>
+                            <td class="p-4">
+                                <div class="w-[190px]">
+                                    <p>Collected : ৳ 45,219</p>
+                                    <p>Value : ৳ 50,000</p>
+                                    <p>Charge : ৳ 582.19</p>
+                                </div>
+                            </td>
+                            <td class="px-4 py-7 custom-shadow-table">
+                                <div class="flex flex-col gap-5">
+                                    <a href="#" class="bg-[#E83330] hover:bg-[#cf2825] text-white rounded-[4px] text-xs px-5 py-[5px] font-normal">View</a>
+                                    <a href="#" class="bg-transparent border border-[#E83330] text-[#E83330] rounded-[4px] text-xs px-5 py-[5px] font-normal">Edit</a>
                                 </div>
                             </td>
                         </tr>
@@ -601,6 +681,10 @@
       </style>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="//unpkg.com/vue@2/dist/vue.js"></script>
+    <script src="//unpkg.com/element-ui@2.15.14/lib/index.js"></script>
+
         <script>
             // setup 
             let max;
@@ -667,6 +751,45 @@
             const chartVersion = document.getElementById('chartVersion');
             chartVersion.innerText = Chart.version;
         </script>   
+        <script>
+            var Main = {
+    data() {
+      return {
+        pickerOptions: {
+          shortcuts: [{
+            text: 'Last week',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: 'Last month',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: 'Last 3 months',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+              picker.$emit('pick', [start, end]);
+            }
+          }]
+        },
+        value1: '',
+        value2: ''
+      };
+    }
+  };
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
+        </script>
         <script>
             const ctx = document.getElementById('bottom-chart');
           
