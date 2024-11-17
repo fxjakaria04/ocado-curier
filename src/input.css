@@ -72,8 +72,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 21px;
-    width: 21px;
+    height: 15px;
+    width: 15px;
     background-color: transparent;
     border-radius: 4px;
 }
@@ -88,9 +88,9 @@
     position: absolute;
     display: none;
     left: 4px;
-    top: 0px;
-    width: 6px;
-    height: 12px;
+    top: 2px;
+    width: 5px;
+    height: 7px;
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
