@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Ocado Curier</title>
+    <link rel="shortcut icon" href="src/svg/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="public/tailwind.css">
+</head>
+<body>
+    <div class="absolute h-screen w-full flex flex-col items-center justify-center text-center">
+        <img src="src/svg/ParcelNotFound.svg" alt="">
+        <h1 class="text-[32px] font-bold text-[#4E4E4E]">Parcel Not Found</h1>
+        <p class="text-[#A2A2A2] text-[22px] w-[350px] sm:w-[500px] md:w-[700px]">Please add your parcel and enjoy our superfast delivery & payment service</p>
+    </div>
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false }"  class="flex bg-[#fff]">
+       
+        <!-- side navbar will occupy whole body-->
+        <div x-transition
+        
+        :class="isHover ? ' w-[250px] bg-[#FFF9F9] absolute md:static' : 'lg:w-[5%] w-[15%] hidden lg:flex'" 
+        
+        class="border-r-2 transition-width duration-300 pr-0 h-screen flex flex-col justify-between z-10 bg-gradient-to-b from-[#FFEDED80] to-[#ffffff] 
+         rounded-br-lg pb-4 gap-7">
+
+        <div class="flex items-start md:items-start justify-between gap-7 flex-col">
+            <div class="w-full justify-center flex gap-6 items-center mb-0">
+                <a class="flex items-center justify-center mx-2 mt-2" href="index.html">
+                    <img id="responsive-logo" :src="isHover ? 'src/svg/ocadologo 2.svg' : 'src/svg/logo.png'" alt="" class="pt-4]" :class="isHover ? 'w-[100%]' : 'w-[60px]'">
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="index.html">
+                    <img src="src/svg/dashboard-icon.svg" alt="" class="w-[22px]">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Dashboard</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="add-parcel.html">
+                    <img src="src/svg/add-parcel.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Add Parcel</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="ParcelRequestList.html">
+                    <img src="src/svg/parcel-request-list.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Parcel Request List</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="allParcel.html">
+                    <img src="src/svg/all-parcel-side.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Add Parcel</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="allParcel.html">
+                    <img src="src/svg/bulk-entry.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Bulk Entry</p>
+                </a>
+            </div>
+            <div x-data="{dpClicked: false}">
+                <div x-on:click="dpClicked = !dpClicked" class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                    <a class="flex items-center gap-3 px-4">
+                         <img src="src/svg/payment-info.svg" alt="">
+                         <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Payment Info</p>
+                         <img src="src/svg/next 1.svg" alt="" :class="isHover ? 'inline-block' : 'hidden'">
+                    </a>
+                </div>
+                <div x-show="dpClicked" x-transition x-on:mouseOver="dpClicked = true">
+                    <!-- options -->
+                    <div class="flex items-center justify-center lg:justify-start p-1  ml-3">
+                        <a class="flex items-center gap-3 px-4 h-7" href="#">
+                             <img src="src/svg/transection-history.svg" alt="">
+                             <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Transaction History</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="allParcel.html">
+                    <img src="src/svg/pricing.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Pricing</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="#">
+                    <img src="src/svg/contract-side.svg" alt="">
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Contact</p>
+                </a>
+            </div>
+        </div>
+        <div class="flex items-start md:items-start justify-between gap-7 flex-col w-full">
+            
+            <div class="flex items-center justify-center lg:justify-start border-l-4 border-[#E83330] w-[250px]" :class="isHover ? 'pl-3' : pl-0">
+                <a :class="isHover ? 'bg-[#E8333036] w-full mr-3' : 'bg-transparent'" class="flex items-center gap-3 px-4 active" href="profile.html">
+                    <i class="fa-solid fa-gear text-[#E83330] hover:text-[#FF4848] text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Settings</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent hover:text-red-600" :class="isHover ? 'pl-3' : pl-0">
+                <a class="flex items-center gap-3 px-4" href="ParcelRequestList.html">
+                    <i class="fa-solid fa-power-off  text-xl"></i>
+                    <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Log Out</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+        <!-- body and top navbar -->
+        <div 
+        class="w-full bg-gradient-to-b from-[#FFEDED80] to-[#FFE3E366] transition-width duration-100"
+        >
+        <!-- top navbar -->
+        <div x-data="{isclicked: false}" class="w-full bg-white px-10 py-5 md:p-0 flex items-center justify-between duration-300 transition-all h-fit shadow-sm relative z-20" x-transition style="padding: 8px 0px;">
+            <div x-transition class="w-full bg-white  flex items-center justify-between duration-300 transition-all h-fit relative z-20">
+                <div class="w-full flex items-center justify-between md:ml-6 cursor-pointer">
+                   <div class="flex items-center md:gap-6 gap-[18px]">
+                    <i id="bar" x-on:click="isHover = !isHover" class="fa-solid fa-bars pl-4"></i>
+                    <img src="src/svg/Dashboard Logo.svg" alt="">
+                   </div>
+                   <div x-data="{ isSearch: false, notification: false, profileActive: false }" class="flex items-center gap-3 px-4 md:hidden">
+                    <input x-show="isSearch" x-on:click.outside="isSearch = false" class="border outline-none hover:outline-none py-2 px-3 text-gray-500 rounded-3xl w-32 sm:w-64 md:w-autoF text-sm" type="text" name="" placeholder="Search your parcel">
+                    <i x-on:click="isSearch = !isSearch" x-show="!isSearch" class="fa-solid fa-magnifying-glass"></i>
+                    <i @click="notification = !notification" class="fa-regular fa-bell relative"></i>
+                    <div class="px-1 text-xs bg-red-600 text-white rounded-full absolute top-px right-[54px]">
+                        <span>0</span>
+                    </div>
+                    <img x-on:click="profileActive = !profileActive" class="w-8 rounded-full" src="https://jakariatalukdar.com/img/squre.jpeg" alt="">
+                
+                    <div x-show="notification" x-transition class="absolute rounded-[20px] bg-white p-4 w-[335px] shadow-2xl" style="top: 46px; right: 0px;">
+                        <div class="w-full flex items-center justify-between border-b pb-4">
+                            <p class="text-xl text-[#292929]">Notification</p>
+                            <a href="#" class="text-xs text-[#E83330]">View all</a>
+                        </div>
+                        <div class="flex items-start gap-1 mt-4">
+                            <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                            <div>
+                                <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                                <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                            </div>
+                        </div>
+                        <!-- Repeat for additional notifications -->
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            <div x-data="{notification: false}" :class="isclicked ? 'right-0 flex' : '-right-72 md:right-0 hidden md:flex'" class="flex flex-col lg:gap-4 xl:gap-6 md:bg-transparent gap-3 items-end justify-end md:justify-evenly  md:flex-row md:items-center md:static absolute top-0 p-3 md:p-1 z-10" style="background-color: white;">
+                <div class="w-full block md:hidden">
+                    <i x-on:click="isclicked = false" class="fa-solid fa-xmark text-xl"></i>
+                </div>
+                <div class="hidden border px-3 py-2.5
+                 rounded-3xl lg:flex items-center gap-[10px] mr-[30px]">
+                    <i class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
+                    <input class="bg-transparent outline-none text-[#202224] text-sm font-semibold py-0.5" type="text" name="" id="" placeholder="Search your parcel">
+                </div>
+
+                <div x-data="{ searchClicked: false }" @click.outside="searchClicked = false" class="lg:hidden">
+                    <i x-show="!searchClicked" @click="searchClicked = true" class="fa-solid fa-magnifying-glass text-[#918F8F]"></i>
+                    <input x-show="searchClicked" class="bg-transparent outline-none text-[#202224] text-sm font-semibold rounded-3xl border px-4 py-3" type="text" placeholder="Search your parcel">
+                </div>
+                
+
+                <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-3xl inline-flex bg-[#FFF9F9] pr-4 py-1.5">
+                    <div id="div1" class="absolute transition-all duration-500">
+                        
+                        <img class="h-full rounded-full border p-[9px] bg-white shadow-md" src="src/svg/click.svg" alt="">
+                    </div>
+                    <p id="activity" class="hidden">Check Your Active Balance</p>
+                    <div id="div2" class="flex flex-row gap-4 invisible  py-1 px-2">
+                        <div class="flex flex-row items-center">
+                            <div>
+                                <img src="src/svg/package-delivered 1.svg" alt="">
+                            </div>
+                            <div class="flex">
+                                <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row items-center gap-1">
+                            <p class="font-semibold whitespace-nowrap">10,56,987 Tk</p>
+                            <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div @click="notification = !notification" @click.outside="notification = false" class="border-2 inline-block px-3 py-2 rounded-xl border-[#E83330] relative cursor-pointer">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="bg-[#E83330] rounded-full text-white absolute text-xs px-1 top-[-7px]">1</span>
+                </div>
+                <div x-show="notification" x-transition class="absolute top-[76px] rounded-[20px] bg-white p-4 w-[335px] shadow-2xl">
+                    <div class="w-full flex items-center justify-between border-b pb-4">
+                        <p class="text-xl text-[#292929]">Notification</p>
+                        <a href="#" class="text-xs text-[#E83330]">View all</a>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-1 mt-4">
+                        <div class="h-1.5 w-1.5 bg-[#21947F] rounded-full mt-1"></div>
+                        <div>
+                            <p class="text-[10px]">01-11-24 <span>Today</span></p>
+                            <p class="font-medium text-[11px]">ওকাডো কুরিয়ার-এ সেইম ডে ডেলিভারি পুনরায় চালু হয়েছে।</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <p class="bg-[#E8333059] text-[#E83330] text-lg px-[16px] py-2 rounded-full">
+                        <span>0</span>
+                    </p>
+                </div>
+                <div class="flex items-center gap-5 mr-7" @click="profileActive = !profileActive" @click.outside="profileActive = false">
+                    <div class="flex items-start flex-col gap-1 cursor-pointer">
+                        <p class="text-[#404040] font-bold text-sm whitespace-nowrap">Shop Name</p>
+                        <small class="text-xs text-[#565656] font-semibold">Merchant</small>
+                    </div>
+                    <img src="src/svg/down-rounded.svg" alt="" class="w-[18px]">
+                </div>
+            </div>
+            <div x-show="profileActive"
+            x-transition:enter="transition transform ease-out duration-300"
+            x-transition:enter-start="-translate-y-full"
+            x-transition:enter-end="translate-y-0"
+            x-transition:leave="transition transform ease-in duration-300"
+            x-transition:leave-start="translate-y-0"
+            x-transition:leave-end="-translate-y-full"
+            class=" bg-white rounded-[20px] p-[10px] absolute w-[298px] -bottom-[187px] right-5 shadow-md">
+                <a href="profile.html" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md profile-active">
+                    <img src="src/svg/profile-icon.svg" alt="">
+                    <span class="font-normal text-sm">Profile</span>
+                </a>
+                <a href="#" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md">
+                    <img src="src/svg/settings.svg" alt="">
+                    <span class="font-normal text-sm">Setting</span>
+                </a>
+                <a href="#" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md">
+                    <img src="src/svg/language.svg" alt="">
+                    <span class="font-normal text-sm">English</span>
+                </a>
+                <a href="#" class="flex gap-3 hover:bg-gray-50 py-2.5 border-b px-2 rounded-md">
+                    <img src="src/svg/logout.svg" alt="">
+                    <span class="font-normal text-sm">Log Out</span>
+                </a>
+            </div>
+        </div>
+        <!-- top navbar end -->
+
+        <!-- rest components start -->
+   
+
+
+
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="px-5 py-3 border-t-2 text-center">
+            <small> Copyright © 2024 by <a href="#">Ocado Courier</a> | <a href="#">Terms & Conditions</a>.</small>
+        </div>
+    </footer>
+    <!-- body -->
+
+    <style>
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 12px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #F4B555;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 10px;
+        width: 10px;
+        left: 4px;
+        bottom:1px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: rgb(0, 156, 0);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(23px);
+    }
+      </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+        // setup 
+        let max;
+        const data = {
+        //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+            label: 'A',
+            data: [15],
+            backgroundColor: [
+                '#249782'
+            ],
+            circumference: (ctx) => {
+                return ctx.dataset.data / max * 270;
+            }
+            },
+            {
+            label: 'B',
+            data: [11],
+            backgroundColor: [
+                '#F28D61'
+            ],
+            circumference: (ctx) => {
+                const datapoints = ctx.chart.data.datasets.map((
+                    dataset, index) => {
+                        return dataset.data[0];
+                    }
+                )
+                max = Math.max(...datapoints);
+                return ctx.dataset.data / max * 270;
+            },
+            },
+            {
+            label: 'C',
+            data: [5],
+            backgroundColor: [
+                '#E03939',
+            ],
+            borderColor: [
+                'rgba(255, 26, 104, 1)'
+            ],
+            
+            circumference: (ctx) => {
+                return ctx.dataset.data / max * 270;
+            },
+            }]
+        };
+    
+        // config 
+        const config = {
+            type: 'doughnut',
+            data,
+            options: {
+            borderWidth: 1
+            }
+        };
+    
+        // render init block
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    
+        // Instantly assign Chart.js version
+        const chartVersion = document.getElementById('chartVersion');
+        chartVersion.innerText = Chart.version;
+    </script>   
+    <script>
+        const ctx = document.getElementById('bottom-chart');
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+            label: 'Disable',
+            data: [65, 60, 40, 35, 43, 55, 30],
+            fill: {
+                target: 'origin',
+                above: 'rgba(238, 67, 67, 0.16)'
+            },
+            borderColor: 'rgba(238, 67, 67, 1)',
+            tension: 0.1
+        }]
+            },
+            options: {
+            scales: {
+                y: {
+                beginAtZero: false,
+                ticks: {
+                stepSize: 1, // Adjust this to control the gap size
+                min: 0,       // Set a minimum value
+                max: 100      // Set a maximum value
+                }
+                }
+            }
+            }
+        });
+    </script>
+    <script>
+        const auth = {username: "admin@gmail.com", password: "12345678"};
+        const firstAuth = document.getElementById("auth");
+        const dashboard = document.getElementById("dashboard");
+        const loginButton = document.getElementById("loginBTN");
+        const username = document.getElementById("user");
+        const password = document.getElementById("pass");
+        const wrong = document.getElementById("wrong");
+
+        wrong.style.display = 'none';
+        dashboard.style.display = "none";
+        document.querySelector('footer').style.display = "none";
+        loginButton.addEventListener("click", function(){
+            if(username.value === auth.username && password.value === auth.password){
+                dashboard.style.display = 'flex';
+                firstAuth.style.display = 'none';
+            }else{
+                wrong.style.display = 'inline';
+            }
+        })
+
+    </script>
+    <script>
+            function setupToggle(div, divToToggle) {
+                div.addEventListener("click", function() {
+                    if (div.classList.contains("added")) {
+                        div.style.transform = "translate(-5px)";
+                        console.log(54);
+                        div.classList.remove("added");
+                        divToToggle.classList.add("invisible");
+                    } else {
+                        div.style.transform = "translate(225px)";
+                        div.classList.add("added");
+                        divToToggle.classList.remove("invisible");
+                    }
+                });
+            }
+        
+            const div1 = document.getElementById("div1");
+            const div2 = document.getElementById("div2");
+            const div12 = document.getElementById("div12");
+            const div22 = document.getElementById("div22");
+        
+            setupToggle(div1, div2);
+            setupToggle(div12, div22);
+    </script>
+</body>
+</html>
