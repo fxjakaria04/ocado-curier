@@ -8,25 +8,42 @@
     <link rel="stylesheet" href="public/tailwind.css">
 </head>
 <body>
-    <div id="parent" class="border-2 border-[#E83330] flex-row items-center gap-4 rounded-2xl inline-flex mt-24">
-        <div id="div1" class="absolute transition-all duration-500">
-            <img class="h-full rounded-full border p-1 bg-white shadow-md" src="src/svg/click.svg" alt="">
-        </div>
-        <p id="activity" class="hidden">Check Your Active Balance</p>
-        <div id="div2" class="flex flex-row gap-4 invisible  py-1 px-2">
-            <div class="flex flex-row items-center">
-                <div>
-                    <img src="src/svg/package-delivered 1.svg" alt="">
+    <div class="h-screen w-screen flex items-center justify-center flex-col gap-8 relative overflow-hidden">
+        <img src="src/svg/watermark.svg" alt="Ocado Curier Watermark" class="absolute left-0 -top-20">
+        <img src="src/svg/deleveryBoy.png" alt="Ocado Curier Watermark" class="absolute left-4 bottom-4 scale-75 hidden md:inline-block">
+        <img src="src/svg/Delivery_Boxes-transformed.png" alt="Ocado Curier Watermark" class="absolute right-4 bottom-4 scale-75 hidden md:inline-block">
+        <img src="src/svg/Drone_Delivery-transformed.png" alt="Ocado Curier Watermark" class="absolute left-20 top-4 scale-50 hidden md:inline-block">
+        <img src="src/svg/Drone_Delivery-transformed.png" alt="Ocado Curier Watermark" class="absolute left-64 top-32 hidden md:inline-block">
+        <img src="src/svg/Drone_Delivery-transformed.png" alt="Ocado Curier Watermark" class="absolute right-32 top-32 hidden md:inline-block">
+        <img src="src/svg/Drone_Delivery-transformed.png" alt="Ocado Curier Watermark" class="absolute right-2/4 top-6 scale-50 hidden md:inline-block">
+        <img src="src/svg/ocadologo 2.svg" alt="Ocado Curier Logo">
+        <form action="" class="z-10 border border-[#D4D8DB] bg-white rounded-[10px] px-4 md:px-10 pt-5 pb-7 flex items-center flex-col ">
+            <h1 class="font-medium text-2xl">Merchant Login</h1>
+            <p class="font-normal text-sm text-[#AAA3A0] mt-2">Enter your email & password to login</p>
+            <div class="w-full flex flex-col gap-[17px] mt-[27px]">
+                <div class="w-full flex flex-col gap-2">
+                    <label for="email" class="text-[#717579] text-sm font-normal">Email Address</label>
+                    <div class="border-[#E83330] border rounded-md w-full flex items-center justify-between pl-2.5 pr-5 py-3 text-[#AAA3A0]">
+                        <input type="email" name="" id="email" placeholder="Enter your email here" class="md:w-72 w-64 outline-none text-sm font-normal">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
                 </div>
-                <div class="flex">
-                    <p><span class="font-semibold">50</span><span class="text-xs">parcel</span></p>
+                <div x-data="{isPass: true}" class="w-full flex flex-col gap-2">
+                    <label for="password" class="text-[#717579] text-sm font-normal">Password</label>
+                    <div class="border-[#E83330] border rounded-md w-full flex items-center justify-between pl-2.5 pr-5 py-3 text-[#AAA3A0]">
+                        <input :type="isPass ? 'password' : 'text' " name="" id="password" placeholder="*********" class="md:w-72 w-64 outline-none text-sm font-normal">
+                        <i @click="isPass = !isPass" :class="isPass ? 'fa-solid fa-lock' : 'fa-solid fa-unlock' "></i>
+                    </div>
                 </div>
+                <div class="flex items-center gap-2 text-[#717579]">
+                    <input type="checkbox" name="" id="rememberPassword">
+                    <label for="rememberPassword" class="font-normal text-sm">Remember password</label>
+                </div>
+                <a href="#" class="text-sm text-[#E83330] font-normal">Forgot password?</a>
+                <button type="submit" class="font-medium text-sm text-white w-full bg-[#E83330] hover:bg-[#c53330] py-2 rounded-md transition-all duration-150">Sign in</button>
+                <span class="text-[#AAA3A0] font-normal text-sm text-center">Don't have account? <a href="#"><span class="text-[#E83330]">Register</span> Here</a></span>
             </div>
-            <div class="flex flex-row items-center gap-1">
-                <p class="font-semibold">10,56,987 Tk</p>
-                <a class="bg-[#E83330] hover:bg-[#cf2825] text-white px-2 rounded-xl" href="#">Details</a>
-            </div>
-        </div>
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
