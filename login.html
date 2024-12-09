@@ -29,25 +29,5 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <script>
-        const div1 = document.getElementById("div1");
-        const div2 = document.getElementById("div2");
-        const parent = document.getElementById("parent");
-        const activity = document.getElementById("activity");
-        div1.addEventListener("click", function(){
-           
-            if(div1.classList.contains("added")){
-                div1.style.transform ="translate(-5px)"
-                console.log(54)
-                div1.classList.remove("added")
-                div2.classList.add("invisible")
-            }else{
-                div1.style.transform ="translate(225px)";
-                div1.classList.add("added")
-                div2.classList.remove("invisible");
-            }
-        })
-    </script>
 </body>
 </html>

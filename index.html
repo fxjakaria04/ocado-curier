@@ -15,7 +15,7 @@
             display: none;
         }
     </style>
-    <div id="dashboard" x-data="{ isHover: false, profileActive: false, checked: false}"  class="flex bg-[#fff]">
+    <div id="dashboard" x-data="{ isHover: false, profileActive: false}"  class="flex bg-[#fff]">
        
         <!-- side navbar will occupy whole body-->
         <div x-transition
@@ -33,31 +33,31 @@
             </div>
 
             <div class="flex items-center justify-center lg:justify-start border-l-4 border-[#E83330] w-[250px]" :class="isHover ? 'pl-3' : pl-0">
-                <a :class="isHover ? 'bg-[#E8333036] w-full mr-3' : 'bg-transparent'" class="flex items-center gap-3 px-4 active" href="index.html">
+                <a href="index.html" :class="isHover ? 'bg-[#E8333036] w-full mr-3' : 'bg-transparent'" class="flex items-center gap-3 px-4 active">
                     <img src="src/svg/dashboard-active.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Dashboard</p>
                 </a>
             </div>
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="add-parcel.html">
+                <a href="add-parcel.html" class="flex items-center gap-3 px-4">
                     <img src="src/svg/add-parcel.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Add Parcel</p>
                 </a>
             </div>
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="ParcelRequestList.html">
+                <a href="ParcelRequestList.html" class="flex items-center gap-3 px-4">
                     <img src="src/svg/parcel-request-list.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Parcel Request List</p>
                 </a>
             </div>
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="allParcel.html">
+                <a href="allParcel.html" class="flex items-center gap-3 px-4">
                     <img src="src/svg/all-parcel-side.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">All Parcel</p>
                 </a>
             </div>
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="allParcel.html">
+                <a href="#" class="flex items-center gap-3 px-4">
                     <img src="src/svg/bulk-entry.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Bulk Entry</p>
                 </a>
@@ -81,13 +81,13 @@
                 </div>
             </div>
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="allParcel.html">
+                <a class="flex items-center gap-3 px-4">
                     <img src="src/svg/pricing.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Pricing</p>
                 </a>
             </div>
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="#">
+                <a class="flex items-center gap-3 px-4">
                     <img src="src/svg/contract-side.svg" alt="">
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Contact</p>
                 </a>
@@ -95,13 +95,13 @@
         </div>
         <div class="flex items-start md:items-start justify-between gap-7 flex-col w-full mb-[90px]">
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="ParcelRequestList.html">
+                <a href="profile.html" class="flex items-center gap-3 px-4">
                     <i class="fa-solid fa-gear text-[#B2B2B2] hover:text-[#FF4848] text-xl"></i>
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Settings</p>
                 </a>
             </div>
             <div class="flex items-center justify-center lg:justify-start   border-l-4 border-transparent hover:text-red-600" :class="isHover ? 'pl-3' : pl-0">
-                <a class="flex items-center gap-3 px-4" href="ParcelRequestList.html">
+                <a class="flex items-center gap-3 px-4">
                     <i class="fa-solid fa-power-off  text-xl"></i>
                     <p :class="isHover ? 'md:text-lg text-sm' : 'hidden'" class="text-sm  text-[#202224] font-semibold">Log Out</p>
                 </a>
@@ -336,19 +336,20 @@
                 </div>
                 
                 <!-- activity button -->
-                <div class="flex items-center justify-end gap-2 w-[98%] m-auto text-sm mb-3">
-                    <p>See your total activity</p>
-                    <label class="switch flex items-center relative">
-                        <input id="checkbox" type="checkbox" id="toggle" x-model="checked">
-                        <span class="slider"></span>
-                        <span id="slider-text" class="absolute -top-1 right-1.5 text-[8px] text-white font-medium">Today</span>
-                    </label>
-                </div>
+                
                 <!-- Card Area -->
             </div>
         </section>
         <!-- box section -->
-        <section>
+        <section x-data="{checked: false}">
+            <div class="flex items-center justify-end gap-2 w-[98%] m-auto text-sm mb-3">
+                <p>See your total activity</p>
+                <label class="switch flex items-center relative">
+                    <input id="checkbox" type="checkbox" id="toggle" x-model="checked">
+                    <span class="slider"></span>
+                    <span id="slider-text" class="absolute -top-1 right-1.5 text-[8px] text-white font-medium">Today</span>
+                </label>
+            </div>
             <div class="w-[98%] m-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <a href="" class="col-span-1 flex p-[18px] bg-white rounded-lg custom-shadow-1">
                     <div class="w-8/12 flex flex-col md:gap-3 gap-1">

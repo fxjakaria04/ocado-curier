@@ -49,7 +49,7 @@ function createChart(containerId, seriesValue, color) {
 
 // Colors for the charts
 var colors = ['#5DCC77', '#EE4343', '#FF773C', '#5DCC77', '#EE4343', '#FF773C'];
-var seriesValues = [85, 60, 45, 75, 50, 30];
+var seriesValues = [5, 6, 45, 75, 50, 30];
 
 // Create 8 charts dynamically
 for (let i = 1; i <= 6; i++) {
