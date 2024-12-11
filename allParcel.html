@@ -868,8 +868,8 @@
     input:checked + .slider:before {
         transform: translateX(23px);
     }
-      </style>
-      <script src="src/script.js"></script>
+    </style>
+    <script src="src/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
@@ -898,76 +898,76 @@
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
     </script>
-          <script>
-            function setupToggle(div, divToToggle) {
-                div.addEventListener("click", function() {
-                    if (div.classList.contains("added")) {
-                        div.style.transform = "translate(-5px)";
-                        console.log(54);
-                        div.classList.remove("added");
-                        divToToggle.classList.add("invisible");
-                    } else {
-                        div.style.transform = "translate(225px)";
-                        div.classList.add("added");
-                        divToToggle.classList.remove("invisible");
-                    }
-                });
-            }
-        
-            const div1 = document.getElementById("div1");
-            const div2 = document.getElementById("div2");
-            const div12 = document.getElementById("div12");
-            const div22 = document.getElementById("div22");
-        
-            setupToggle(div1, div2);
-            setupToggle(div12, div22);
-        </scrip>
-        <script src="src/script.js"></script>
+    <script>
+        function setupToggle(div, divToToggle) {
+            div.addEventListener("click", function() {
+                if (div.classList.contains("added")) {
+                    div.style.transform = "translate(-5px)";
+                    console.log(54);
+                    div.classList.remove("added");
+                    divToToggle.classList.add("invisible");
+                } else {
+                    div.style.transform = "translate(225px)";
+                    div.classList.add("added");
+                    divToToggle.classList.remove("invisible");
+                }
+            });
+        }
+    
+        const div1 = document.getElementById("div1");
+        const div2 = document.getElementById("div2");
+        const div12 = document.getElementById("div12");
+        const div22 = document.getElementById("div22");
+    
+        setupToggle(div1, div2);
+        setupToggle(div12, div22);
+    </script>
+    <script src="src/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/element-ui@2.15.14/lib/index.js"></script>
-        <script>
-            var Main = {
-                    data() {
-                    return {
-                        pickerOptions: {
-                        shortcuts: [{
-                            text: 'Last week',
-                            onClick(picker) {
-                            const end = new Date();
-                            const start = new Date();
-                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-                            picker.$emit('pick', [start, end]);
-                            }
-                        }, {
-                            text: 'Last month',
-                            onClick(picker) {
-                            const end = new Date();
-                            const start = new Date();
-                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-                            picker.$emit('pick', [start, end]);
-                            }
-                        }, {
-                            text: 'Last 3 months',
-                            onClick(picker) {
-                            const end = new Date();
-                            const start = new Date();
-                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-                            picker.$emit('pick', [start, end]);
-                            }
-                        }]
-                        },
-                        value1: '',
-                        value2: ''
-                    };
-                    }
+    <script>
+        var Main = {
+                data() {
+                return {
+                    pickerOptions: {
+                    shortcuts: [{
+                        text: 'Last week',
+                        onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                        picker.$emit('pick', [start, end]);
+                        }
+                    }, {
+                        text: 'Last month',
+                        onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                        picker.$emit('pick', [start, end]);
+                        }
+                    }, {
+                        text: 'Last 3 months',
+                        onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                        picker.$emit('pick', [start, end]);
+                        }
+                    }]
+                    },
+                    value1: '',
+                    value2: ''
                 };
-                var Ctor = Vue.extend(Main)
-                new Ctor().$mount('#app')
-                ELEMENT.locale(ELEMENT.lang.en);
-          </script>
+                }
+            };
+            var Ctor = Vue.extend(Main)
+            new Ctor().$mount('#app')
+            ELEMENT.locale(ELEMENT.lang.en);
+    </script>
 </body>
 </html>

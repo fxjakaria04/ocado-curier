@@ -49,7 +49,7 @@
 
         // Colors for the charts
         var colors = ['#16A7D3', '#FF7D00', '#57CC99', '#FFBB00','#16A7D3', '#FF7D00', '#57CC99', '#FFBB00'];
-        var seriesValues = [70, 55, 80, 90, 40, 65, 75, 50];
+        var seriesValues = [70, 55, 80, 90, 40, 65, 75, 10];
 
         // Create 8 charts dynamically
         for (let i = 1; i <= 8; i++) {
