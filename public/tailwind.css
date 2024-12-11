@@ -774,10 +774,6 @@ video {
   grid-column: span 5 / span 5;
 }
 
-.col-span-7 {
-  grid-column: span 7 / span 7;
-}
-
 .m-auto {
   margin: auto;
 }
@@ -1228,12 +1224,28 @@ video {
   width: 335px;
 }
 
+.w-\[350px\] {
+  width: 350px;
+}
+
+.w-\[4\%\] {
+  width: 4%;
+}
+
 .w-\[60px\] {
   width: 60px;
 }
 
+.w-\[90\%\] {
+  width: 90%;
+}
+
 .w-\[90px\] {
   width: 90px;
+}
+
+.w-\[95\%\] {
+  width: 95%;
 }
 
 .w-\[98\%\] {
@@ -1246,58 +1258,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[350px\] {
-  width: 350px;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[1\] {
-  width: 1;
-}
-
-.w-\[12\.5\%\] {
-  width: 12.5%;
-}
-
-.w-\[87\.5\] {
-  width: 87.5;
-}
-
-.w-\[87\.5\%\] {
-  width: 87.5%;
-}
-
-.w-\[12\.5\] {
-  width: 12.5;
-}
-
-.w-\[10\%\] {
-  width: 10%;
-}
-
-.w-\[90\%\] {
-  width: 90%;
-}
-
-.w-\[96\%\] {
-  width: 96%;
-}
-
-.w-\[4\%\] {
-  width: 4%;
-}
-
-.w-\[92\%\] {
-  width: 92%;
-}
-
-.w-\[95\%\] {
-  width: 95%;
 }
 
 .-translate-x-1\/2 {
@@ -1409,10 +1369,6 @@ video {
 
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-cols-8 {
-  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -1531,6 +1487,10 @@ video {
   gap: 18px;
 }
 
+.gap-\[23px\] {
+  gap: 23px;
+}
+
 .gap-\[5px\] {
   gap: 5px;
 }
@@ -1541,14 +1501,6 @@ video {
 
 .gap-\[9px\] {
   gap: 9px;
-}
-
-.gap-\[23\] {
-  gap: 23;
-}
-
-.gap-\[23px\] {
-  gap: 23px;
 }
 
 .-space-x-px > :not([hidden]) ~ :not([hidden]) {
@@ -2442,16 +2394,6 @@ video {
   line-height: 1rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -3136,14 +3078,6 @@ video {
   .sm\:flex-row {
     flex-direction: row;
   }
-
-  .sm\:text-\[500px\] {
-    font-size: 500px;
-  }
-
-  .sm\:text-\[500\] {
-    color: 500;
-  }
 }
 
 @media (min-width: 768px) {
@@ -3380,6 +3314,10 @@ video {
     padding-right: 0.5rem;
   }
 
+  .md\:text-\[22px\] {
+    font-size: 22px;
+  }
+
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -3400,32 +3338,8 @@ video {
     line-height: 1.75rem;
   }
 
-  .md\:text-\[700px\] {
-    font-size: 700px;
-  }
-
-  .md\:text-\[22px\] {
-    font-size: 22px;
-  }
-
-  .md\:text-\[32px\] {
-    font-size: 32px;
-  }
-
   .md\:font-semibold {
     font-weight: 600;
-  }
-
-  .md\:text-\[\] {
-    color: ;
-  }
-
-  .md\:text-\[800\] {
-    color: 800;
-  }
-
-  .md\:text-\[700\] {
-    color: 700;
   }
 }
 

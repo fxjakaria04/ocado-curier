@@ -723,7 +723,7 @@
             <div class="w-[98%] bg-white m-auto rounded-md p-3 mt-[40px] mb-[70px]">
                 <div>
                     <p class="text-xl font-semibold text-[#202224]">30 Days Delivered Parcel</p>
-                    <div     id="last-chart"></div>
+                    <div id="last-chart"></div>
                 </div>  
             </div>
          </section>
@@ -943,33 +943,12 @@
           </script>
         <script>
             var options = {
-                series: [75, 50, 25], // Multiple layers, each with its own value
+                series: [75, 50, 25], // Set your value here
                 chart: {
                     height: 258,
                     type: 'radialBar',
                     toolbar: {
                         show: true
-                    },
-                    events: {
-                        dataPointMouseEnter: function(event, chartContext, config) {
-                            // Update center text on hover
-                            var layerInfo = [
-                                { title: 'Layer 1', value: '75%', description: 'First Layer Info' },
-                                { title: 'Layer 2', value: '50%', description: 'Second Layer Info' },
-                                { title: 'Layer 3', value: '25%', description: 'Third Layer Info' }
-                            ];
-                            
-                            var info = layerInfo[config.seriesIndex];
-                            document.getElementById("line1").innerText = info.title;
-                            document.getElementById("line2").innerText = info.value;
-                            document.getElementById("line3").innerText = info.description;
-                        },
-                        dataPointMouseLeave: function(event, chartContext, config) {
-                            // Reset to default center text when not hovering
-                            document.getElementById("line1").innerText = 'Layer 1';
-                            document.getElementById("line2").innerText = '75%';
-                            document.getElementById("line3").innerText = 'Description';
-                        }
                     }
                 },
                 plotOptions: {
@@ -1016,8 +995,7 @@
                 },
                 stroke: {
                     lineCap: 'round'
-                },
-                labels: ['Layer 1', 'Layer 2', 'Layer 3'] // Label each layer
+                }
             };
         
             var chart = new ApexCharts(document.querySelector("#chart"), options);
